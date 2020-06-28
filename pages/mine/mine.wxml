@@ -1,1 +1,12 @@
+<view class="container">
 
+  <view class="mine p-r">
+    <image src="../../img/mine.png" class="wh"></image>
+    <view class="p-a flex fl-align">
+      <image src="" class="head b_rh"></image>
+      <text class="f46 c-ff">小小</text>
+    </view>
+  </view>
+
+
+</view>
