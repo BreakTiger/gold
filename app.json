@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/recyc/recyc",
+    "pages/infos/infos",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#E2C290",
+    "navigationBarTitleText": "黄金回收",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#343434",
+    "selectedColor": "#C2945A",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "tab/icon-2.png",
+        "selectedIconPath": "tab/icon-1.png"
+      },
+      {
+        "pagePath": "pages/recyc/recyc",
+        "text": "回收",
+        "iconPath": "tab/icon-4.png",
+        "selectedIconPath": "tab/icon-3.png"
+      },
+      {
+        "pagePath": "pages/infos/infos",
+        "text": "知识",
+        "iconPath": "tab/icon-6.png",
+        "selectedIconPath": "tab/icon-5.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "tab/icon-8.png",
+        "selectedIconPath": "tab/icon-7.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
