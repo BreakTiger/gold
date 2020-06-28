@@ -56,6 +56,10 @@ page {
   font-size: 26rpx;
 }
 
+.f28 {
+  font-size: 28rpx;
+}
+
 .f30 {
   font-size: 30rpx;
 }

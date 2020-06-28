@@ -1,2 +1,57 @@
-<!--pages/recyc/recyc.wxml-->
-<text>pages/recyc/recyc.wxml</text>
+<view class="container">
+
+  <view class="w100 b-ff flex col fl-align" style="margin-bottom:20rpx;">
+
+    <image src="../../img/top.png" class="top-img"></image>
+
+    <view class="market b-ff flex col fl-align fl-jse b_r10">
+      <text class="f30 c-66">实时金价(元/克)</text>
+      <text class="f62 c-90">384.39</text>
+    </view>
+
+    <view class="w710 flex col f30 c-34">
+      <view>1.请选择您的黄金类型</view>
+      <view class="flex fl-w">
+        <view class="type p-r" wx:for="[1]" wx:key="index">
+          <image src="../../img/lun.png" class="wh"></image>
+          <view class="img-cover p-a f30 c-ff t-c">金条</view>
+          <image src="../../icon/choice.png" class="choice p-a"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="w710 flex col f30 c-34">
+      <view>2.请输入您的黄金克重</view>
+      <view class="flex fl-align">
+        <input placeholder="请输入您的黄金克重" class="puts"></input>
+        <text>克</text>
+      </view>
+    </view>
+
+    <view class="w710 flex col f30 c-34">
+      <view>3.预估金额</view>
+      <view class="flex fl-align">
+        <input placeholder="请设置金额" class="puts"></input>
+        <text>元</text>
+      </view>
+    </view>
+
+    <view class="w710 flex col f30 c-34">
+      <view>4.请输入您的手机号码</view>
+      <input placeholder="请输入手机号码" class="puts"></input>
+    </view>
+
+    <view class="w710 flex col f30 c-34">
+      <view>5.选择类型</view>
+      <view class="flex fl-w f28" style="margin:20rpx 0 0 25rpx">
+      <view class="btn b-90 c-ff">上门回收</view>
+       <view class="btn b-E5 c-90">到店回收</view>
+      </view>
+    </view>
+
+    <view class="recyc b-90 c-ff f30 f-wb t-c">立即回收</view>
+
+
+  </view>
+
+</view>

@@ -63,9 +63,8 @@
       </view>
     </view>
 
-    <!-- <block></block> -->
-
-    <view class="w710 info-item flex fl-align fl-jsb">
+    <block wx:for="[1]" wx:key="index">
+     <view class="w710 info-item flex fl-align fl-jsb">
 
       <view class="flex col fl-jse" style="width: 60%;height: 180rpx;">
 
@@ -82,6 +81,9 @@
       <image src="../../img/lun.png" class="info-img"></image>
 
     </view>
+    </block>
+
+   
 
   </view>
 

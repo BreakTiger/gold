@@ -9,6 +9,7 @@ page {
 .top-img {
   width: 750rpx;
   height: 258rpx;
+  margin-top: -2rpx;
 }
 
 .lunbo {
