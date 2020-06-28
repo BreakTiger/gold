@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+   "information":"/components/information"
+  },
   "navigationBarTitleText": "黄金知识"
 }
