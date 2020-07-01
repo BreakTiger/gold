@@ -1,8 +1,8 @@
-page{
+page {
   background: #F6F6F6;
 }
 
-.f46{
+.f46 {
   font-size: 46rpx;
 }
 
@@ -12,12 +12,31 @@ page{
   margin-top: -2rpx;
 }
 
-.mine>view{
+.mine>view {
   top: 28rpx;
 }
 
-.head{
+.head {
   width: 140rpx;
   height: 140rpx;
   margin: 0 20rpx;
+}
+
+.go {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.icon {
+  width: 47rpx;
+  height: 47rpx;
+  margin-bottom: 28rpx;
+}
+
+.wc5{
+  width: calc(100% /5);
+}
+
+.wc3{
+  width: calc(100% / 3);
 }

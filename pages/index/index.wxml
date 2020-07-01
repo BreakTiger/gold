@@ -64,23 +64,8 @@
     </view>
 
     <block wx:for="[1]" wx:key="index">
-     <view class="w710 info-item flex fl-align fl-jsb">
-
-      <view class="flex col fl-jse" style="width: 60%;height: 180rpx;">
-
-        <view class="f32 c-33 f-wb climp2">18k金和24k金有什么样的区别？</view>
-
-        <view class="f24 flex fl-align fl-jsb">
-          <text class="c-42">黄金保养</text>
-          <text class="c-66">2020/06/08</text>
-          <image src="../../icon/share.png" class="share"></image>
-        </view>
-
-      </view>
-
-      <image src="../../img/lun.png" class="info-img"></image>
-
-    </view>
+    <information></information>
+    
     </block>
 
    

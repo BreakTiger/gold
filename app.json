@@ -5,6 +5,12 @@
     "pages/infos/infos",
     "pages/mine/mine"
   ],
+  "subPackages": [
+    {
+      "root": "pages_home",
+      "pages": []
+    }
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#E2C290",
@@ -14,7 +20,8 @@
   "tabBar": {
     "color": "#343434",
     "selectedColor": "#C2945A",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "tab/icon-2.png",

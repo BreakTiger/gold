@@ -5,6 +5,65 @@ Page({
    * 页面的初始数据
    */
   data: {
+    nav_one: [
+      {
+        icon: '../../icon/m-1.png',
+        text: '全部',
+        type: ''
+      },
+      {
+        icon: '../../icon/m-2.png',
+        text: '派单中',
+        type: ''
+      },
+      {
+        icon: '../../icon/m-3.png',
+        text: '进行中',
+        type: ''
+      },
+      {
+        icon: '../../icon/m-4.png',
+        text: '待评价',
+        type: ''
+      },
+      {
+        icon: '../../icon/m-5.png',
+        text: '已取消',
+        type: ''
+      }
+    ],
+
+    nav_two: [
+      {
+        icon: '../../icon/m-1.png',
+        text: '全部',
+        type: ''
+      },
+      {
+        icon: '../../icon/m-2.png',
+        text: '预约中',
+        type: ''
+      },
+      {
+        icon: '../../icon/m-4.png',
+        text: '待评价',
+        type: ''
+      }
+    ],
+
+    nav_three: [
+      {
+        icon: '../../icon/m-6.png',
+        text: '店铺入驻',
+        path: ''
+      },
+      {
+        icon: '../../icon/m-7.png',
+        text: '个人入驻',
+        path: ''
+      }
+    ]
+
 
   },
 

@@ -1,1 +1,10 @@
+<view class="container">
 
+  <block wx:for="[1]" wx:key="index">
+    <view class="w710 b-ff" style="margin:20rpx auto;">
+      <information></information>
+    </view>
+  </block>
+
+
+</view>
