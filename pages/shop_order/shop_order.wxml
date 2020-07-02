@@ -1,1 +1,7 @@
-<view class="container"></view>
+<view class="container">
+
+  <view class="w710 b-ff flex col fl-align" style="margin: 25rpx auto;">
+    <view class="f34 c-33 f-wb">门店预约</view>
+  </view>
+
+</view>

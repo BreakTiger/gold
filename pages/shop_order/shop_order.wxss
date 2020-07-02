@@ -1,0 +1,9 @@
+page {
+  background: #F6F6F6;
+}
+
+
+.w710>view {
+  width: 640rpx;
+  padding: 20rpx 0;
+}
