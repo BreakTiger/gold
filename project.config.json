@@ -22,7 +22,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -61,8 +61,8 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/mine/mine",
-					"pathName": "pages/mine/mine",
+					"name": "pages_one/assess_success/assess_success",
+					"pathName": "pages_one/assess_success/assess_success",
 					"query": "",
 					"scene": null
 				}

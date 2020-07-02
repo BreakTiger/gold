@@ -3,12 +3,15 @@
     "pages/index/index",
     "pages/recyc/recyc",
     "pages/infos/infos",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/assess/assess"
   ],
   "subPackages": [
     {
-      "root": "pages_home",
-      "pages": []
+      "root": "pages_one",
+      "pages": [
+        "assess_success/assess_success"
+      ]
     }
   ],
   "window": {

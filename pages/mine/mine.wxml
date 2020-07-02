@@ -8,17 +8,18 @@
     </view>
   </view>
 
-  <view class="w710 b-ff b_r30 flex col fl-align" style="height:280rpx;">
+  <view class="w710 b-ff b_r30 flex col fl-align"
+    style="height:280rpx;margin-bottom: 25rpx;margin-top: -60rpx;z-index: 50;">
 
     <view class="w100 flex fl-align fl-jsb">
-      <text class="f36 c-33 f-wb">上门回收</text>
-      <view class="flex fl-align">
+      <text class="f36 c-33 f-wb" style="margin-left: 30rpx;">上门回收</text>
+      <view class="flex fl-align" style="margin-right: 30rpx;">
         <text class="f26 c-99">全部订单</text>
         <image src="../../icon/to.png" class="go"></image>
       </view>
     </view>
 
-    <view class="w100 flex fl-align fl-jsb">
+    <view class="w100 flex fl-align fl-jsb" style="height: 158rpx;">
 
       <view class="wc5 flex col fl-align" wx:for="{{nav_one}}" wx:key="index">
         <image src="{{item.icon}}" class="icon"></image>
@@ -28,5 +29,42 @@
     </view>
 
   </view>
+
+  <view class="w710 b-ff b_r30 flex col fl-align" style="height: 280rpx;margin-bottom: 25rpx;">
+
+    <view class="w100 flex fl-align fl-jsb">
+      <text class="f36 c-33 f-wb" style="margin-left: 30rpx;">门店预约</text>
+      <view class="flex fl-align" style="margin-right: 30rpx;">
+        <text class="f26 c-99">全部订单</text>
+        <image src="../../icon/to.png" class="go"></image>
+      </view>
+    </view>
+
+    <view class="w100 flex fl-align fl-jsb" style="height: 158rpx;">
+
+      <view class="wc3 flex col fl-align" wx:for="{{nav_two}}" wx:key="index">
+        <image src="{{item.icon}}" class="icon"></image>
+        <text>{{item.text}}</text>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class="w710 b-ff b_r30 flex col fl-align" style="height: 280rpx;margin-bottom: 25rpx;">
+
+    <view class="w100">
+      <text class="f36 c-33 f-wb" style="margin-left: 30rpx;">其他工具</text>
+    </view>
+
+    <view class="w100 flex fl-align" style="height: 158rpx;">
+      <view class="wc3 flex col fl-align" wx:for="{{nav_three}}" wx:key="index">
+        <image src="{{item.icon}}" class="icon"></image>
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+
+  </view>
+
 
 </view>

@@ -33,10 +33,15 @@ page {
   margin-bottom: 28rpx;
 }
 
-.wc5{
+.wc5 {
   width: calc(100% /5);
 }
 
-.wc3{
+.wc3 {
   width: calc(100% / 3);
+}
+
+.w710>view:first-child {
+  padding: 35rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
 }

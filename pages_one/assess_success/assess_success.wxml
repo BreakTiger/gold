@@ -1,0 +1,14 @@
+<view class="container">
+  <view>
+    <text>实时金价（元/克）：</text>
+    <text>390.49</text>
+  </view>
+  <view>
+    <image src="../../img/type.png" class="type"></image>
+    <text></text>
+    <view>
+      <text></text>
+      <text></text>
+    </view>
+  </view>
+</view>
