@@ -1,0 +1,11 @@
+<view class="container">
+  <!-- 轮播 -->
+  <swiper class="lunbo" indicator-dots="true" indicator-color="rgba(255,255,255)">
+    <swiper-item>
+      <image src="../../img/lun.png" class="wh"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../img/lun.png" class="wh"></image>
+    </swiper-item>
+  </swiper>
+</view>

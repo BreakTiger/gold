@@ -4,13 +4,15 @@
     "pages/recyc/recyc",
     "pages/infos/infos",
     "pages/mine/mine",
-    "pages/assess/assess"
+    "pages/assess/assess",
+    "pages/nearby/nearby"
   ],
   "subPackages": [
     {
       "root": "pages_one",
       "pages": [
-        "assess_success/assess_success"
+        "assess_success/assess_success",
+        "shop_detail/shop_detail"
       ]
     }
   ],

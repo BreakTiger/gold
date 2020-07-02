@@ -1,0 +1,32 @@
+page {
+  background: #F6F6F6;
+}
+
+.container>view {
+  height: 240rpx;
+  margin: 25rpx auto;
+}
+
+.shop-img {
+  width: 220rpx;
+  height: 152rpx;
+  border-radius: 30rpx;
+  margin-left: 20rpx;
+}
+
+.shop-info {
+  width: 60%;
+  height: 152rpx;
+  margin-right: 20rpx;
+}
+
+.leve{
+  width: 26rpx;
+  height: 20rpx;
+  margin: 0 5rpx;
+}
+
+.order{
+  border-radius: 17rpx;
+  padding: 5rpx 15rpx;
+}

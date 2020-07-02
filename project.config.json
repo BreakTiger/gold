@@ -61,8 +61,15 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages_one/assess_success/assess_success",
-					"pathName": "pages_one/assess_success/assess_success",
+					"name": "pages/nearby/nearby",
+					"pathName": "pages/nearby/nearby",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages_one/shop_detail/shop_detail",
+					"pathName": "pages_one/shop_detail/shop_detail",
 					"query": "",
 					"scene": null
 				}

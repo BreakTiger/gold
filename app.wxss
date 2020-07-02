@@ -105,6 +105,14 @@ page {
   color: #9A9A9A;
 }
 
+.c-8F {
+  color: #E2C28F;
+}
+
+.c-99 {
+  color: #999999;
+}
+
 /* 文字粗细 */
 .f-wb {
   font-weight: bold;
@@ -125,6 +133,10 @@ page {
 
 .b-B2 {
   background: #B2B2B2;
+}
+
+.b-8F {
+  background: #E2C28F;
 }
 
 /* 超出省略 */
@@ -160,6 +172,10 @@ page {
 
 .b_r30 {
   border-radius: 30rpx;
+}
+
+.b_r40 {
+  border-radius: 40rpx;
 }
 
 /* 容器 */

@@ -1,4 +1,13 @@
-.type{
+.type {
   width: 437rpx;
   height: 341rpx;
+  margin-top: 80rpx;
+}
+
+.btn {
+  width: 520rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 25rpx 0;
 }
