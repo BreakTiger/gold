@@ -5,7 +5,8 @@
     "pages/infos/infos",
     "pages/mine/mine",
     "pages/assess/assess",
-    "pages/nearby/nearby"
+    "pages/nearby/nearby",
+    "pages/shop_order/shop_order"
   ],
   "subPackages": [
     {
@@ -14,6 +15,10 @@
         "assess_success/assess_success",
         "shop_detail/shop_detail"
       ]
+    },
+    {
+      "root": "pages_two",
+      "pages": []
     }
   ],
   "window": {
