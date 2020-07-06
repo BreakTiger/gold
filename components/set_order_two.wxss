@@ -1,7 +1,6 @@
-.c-43 {
-  color: #F2B643;
+.img{
+  width: 210rpx;
+  height: 222rpx;
 }
 
-.w100>view {
-  width: 600rpx;
-}
+

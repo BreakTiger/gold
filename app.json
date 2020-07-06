@@ -6,7 +6,8 @@
     "pages/mine/mine",
     "pages/assess/assess",
     "pages/nearby/nearby",
-    "pages/shop_order/shop_order"
+    "pages/shop_order/shop_order",
+    "pages/infos_detail/infos_detail"
   ],
   "subPackages": [
     {

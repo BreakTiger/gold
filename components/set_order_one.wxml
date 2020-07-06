@@ -48,7 +48,8 @@
 
 		<view class="flex fl-align fl-jsb">
 			<image src="../icon/name.png" class="icon"></image>
-			<input style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" type="text" placeholder="请输入您的姓名"></input>
+			<input style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" type="text"
+				placeholder="请输入您的姓名"></input>
 		</view>
 
 		<view class="flex fl-align fl-jsb">
@@ -59,7 +60,7 @@
 			</view>
 		</view>
 
-    <view class="flex fl-align fl-jsb">
+		<view class="flex fl-align fl-jsb">
 			<image src="../icon/city.png" class="icon"></image>
 			<view class="flex fl-align fl-jsb" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;">
 				<input placeholder="请输入您的回收地址"></input>
@@ -67,13 +68,14 @@
 			</view>
 		</view>
 
-    	<view class="flex fl-align fl-jsb">
+		<view class="flex fl-align fl-jsb">
 			<image src="../icon/address.png" class="icon"></image>
-			<input style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" type="text" placeholder="请填写您的详情地址"></input>
+			<input style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" type="text"
+				placeholder="请填写您的详情地址"></input>
 		</view>
 
 	</view>
 
-  <view class="send b-8F c-ff b_r40 t-c f30 f-wb">确认提交</view>
+	<view class="send b-8F c-ff b_r40 t-c f30 f-wb">确认提交</view>
 
 </view>
