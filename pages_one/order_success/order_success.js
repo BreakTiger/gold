@@ -1,11 +1,11 @@
-// pages/shop_order/shop_order.js
+// pages_one/order_success/order_success.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    time: '预约回收时间'
+
   },
 
   /**

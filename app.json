@@ -13,7 +13,8 @@
       "root": "pages_one",
       "pages": [
         "assess_success/assess_success",
-        "shop_detail/shop_detail"
+        "shop_detail/shop_detail",
+        "order_success/order_success"
       ]
     },
     {

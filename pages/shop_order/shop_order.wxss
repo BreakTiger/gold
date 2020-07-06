@@ -7,3 +7,19 @@ page {
   width: 640rpx;
   padding: 20rpx 0;
 }
+
+.c-F0 {
+  color: #0FB2F0;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.send {
+  width: 520rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 120rpx auto;
+}
