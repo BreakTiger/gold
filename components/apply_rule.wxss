@@ -1,1 +1,24 @@
-/* components/apply_rule.wxss */
+.rule {
+  width: 565rpx;
+  height: 402rpx;
+  margin-top: 15rpx;
+}
+
+.btn-line {
+  width: 690rpx;
+}
+
+
+.btn-line>view {
+  width: 290rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 40rpx;
+}
+
+
+.b-f3{
+  background: #f3f3f3;
+}
+

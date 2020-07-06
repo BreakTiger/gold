@@ -1,0 +1,13 @@
+<view class="w710 flex col fl-align" style="margin:0 auto;">
+
+	<view class="w100 flex col">
+		<text>店铺名称<text>*</text></text>
+		<input placeholder="请填写店铺名称"></input>
+	</view>
+
+	<view class="w100 flex col fl-align">
+		<view><text>上传营业执照<text>*</text></text></view>
+		<image src="../img/papers.png" class="papers"></image>
+	</view>
+
+</view>

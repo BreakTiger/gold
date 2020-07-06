@@ -1,0 +1,4 @@
+.papers {
+  width: 595rpx;
+  height: 368rpx;
+}

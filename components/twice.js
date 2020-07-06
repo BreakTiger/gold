@@ -1,11 +1,8 @@
-// components/apply_rule.js
+// components/twice.js
 Component({
   /**
    * 组件的属性列表
    */
-  options: {
-    addGlobalClass: true
-  },
   properties: {
 
   },

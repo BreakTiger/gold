@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Rule": "/components/apply_rule",
+    "applyOne": "/components/once",
+    "applyTwo":"/components/twice"
+  },
+  "navigationBarTitleText": "店铺入驻"
 }

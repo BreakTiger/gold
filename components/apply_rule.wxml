@@ -1,2 +1,14 @@
-<!--components/apply_rule.wxml-->
-<text>components/apply_rule.wxml</text>
+<view class="content flex col fl-align">
+
+	<image src="../img/rule.png" class="rule"></image>
+
+	<!-- 富文本 -->
+	<text>111111</text>
+
+	<!-- 按钮栏 -->
+	<view class="btn-line flex fl-align fl-jsb f24" style="margin:25rpx 0;">
+		<view class="b-f3">不同意</view>
+		<view class="b-8F c-ff">同意并继续</view>
+	</view>
+
+</view>

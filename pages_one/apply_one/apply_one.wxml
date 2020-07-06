@@ -1,2 +1,12 @@
-<!--pages_one/apply_one/apply_one.wxml-->
-<text>pages_one/apply_one/apply_one.wxml</text>
+<view class="container">
+
+	<!-- 规则 -->
+	<!-- <Rule></Rule> -->
+
+	<!-- 信息填写 -->
+	<applyOne></applyOne>
+
+	<!-- 审核结果 -->
+	<!-- <applyTwo></applyTwo> -->
+
+</view>

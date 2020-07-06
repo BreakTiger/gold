@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Rule":"/components/apply_rule"
+  },
+  "navigationBarTitleText": "店铺入驻"
 }
