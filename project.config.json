@@ -63,7 +63,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages_two/order-list/order-list",
+					"pathName": "pages_two/order-list/order-list",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

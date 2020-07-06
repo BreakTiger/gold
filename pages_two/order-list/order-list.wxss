@@ -1,0 +1,48 @@
+page {
+  background: #f6f6f6;
+}
+
+.c-F0 {
+  color: #FF0000;
+}
+
+.container>view {
+  width: 710rpx;
+  background: #ffffff;
+}
+
+.nav-line {
+  height: 120rpx;
+  margin: 20rpx auto;
+}
+
+.nav-line>view {
+  width: calc(100% / 5);
+  height: 100%;
+  line-height: 120rpx;
+}
+
+.list-item {
+  margin-bottom: 20rpx;
+}
+
+.list-item>view {
+  width: 630rpx;
+  padding: 20rpx 0;
+}
+
+.point {
+  width: 8rpx;
+  height: 8rpx;
+  margin-right: 20rpx;
+  background: rgba(226, 194, 143, 1);
+  border-radius: 50%;
+}
+
+.btn {
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border: 1px solid rgba(196, 196, 196, 1);
+  margin-right: 15rpx;
+}
