@@ -1,2 +1,11 @@
-<!--components/set_order_two.wxml-->
-<text>components/set_order_two.wxml</text>
+<view class="w710 flex col fl-align" style="margin:28rpx auto;">
+
+  <view class="w100 flex fl-align">
+
+    <text class="f26">实时金价:<text class="f32 c-43">386.20</text>元/克</text>
+
+    <text class="f26">预估金额：<text class="f32 c-43">189238.00</text>元</text>
+
+  </view>
+
+</view>

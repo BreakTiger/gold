@@ -1,9 +1,7 @@
 <view class="container">
 
-	<!-- 填写一 -->
-	<orderOne></orderOne>
+	<!-- <orderOne></orderOne> -->
 
-	<!-- 填写二 -->
-  <!-- <orderTwo></orderTwo? -->
+	<orderTwo></orderTwo>
 
 </view>

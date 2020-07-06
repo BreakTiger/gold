@@ -24,8 +24,6 @@
   height: 30rpx;
 }
 
-
-
 .get {
   width: 150rpx !important;
   height: 50rpx !important;

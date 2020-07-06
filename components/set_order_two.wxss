@@ -1,1 +1,7 @@
-/* components/set_order_two.wxss */
+.c-43 {
+  color: #F2B643;
+}
+
+.w100>view {
+  width: 600rpx;
+}
