@@ -22,7 +22,8 @@
     {
       "root": "pages_two",
       "pages": [
-        "order-list/order-list"
+        "order-list/order-list",
+        "order-detail/order-detail"
       ]
     }
   ],
