@@ -1,0 +1,45 @@
+.c-43 {
+  color: #F2B643;
+}
+
+.w100>view {
+  width: 600rpx;
+}
+
+.photo {
+  width: 600rpx;
+  height: 270rpx;
+  background: #DBDBDB;
+}
+
+.photo>image {
+  width: 90rpx;
+  height: 90rpx;
+  left: calc((100% - 90rpx) / 2);
+  top: calc((100% - 90rpx) / 2);
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+
+
+.get {
+  width: 150rpx !important;
+  height: 50rpx !important;
+  line-height: 50rpx;
+  background: #E2C28F;
+  font-size: 24rpx !important;
+  color: #ffffff;
+  padding: 0rpx;
+  margin: 0rpx;
+}
+
+.send {
+  width: 520rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 120rpx auto;
+}

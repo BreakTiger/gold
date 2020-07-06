@@ -66,15 +66,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/shop_order/shop_order",
-					"pathName": "pages/shop_order/shop_order",
+					"name": "pages_one/set_order/set_order",
+					"pathName": "pages_one/set_order/set_order",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages_one/order_success/order_success",
-					"pathName": "pages_one/order_success/order_success",
 					"scene": null
 				}
 			]

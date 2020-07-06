@@ -1,1 +1,28 @@
-/* pages_one/order_success/order_success.wxss */
+page {
+  background: #f6f6f6;
+}
+
+.order {
+  width: 413rpx;
+  height: 342rpx;
+}
+
+.f42 {
+  font-size: 42rpx;
+}
+
+.w710>view {
+  width: 640rpx;
+  margin-top: 25rpx;
+}
+
+.w710>view>view {
+  margin: 15rpx 0;
+}
+
+.finsh {
+  width: 506rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 120rpx auto;
+}
