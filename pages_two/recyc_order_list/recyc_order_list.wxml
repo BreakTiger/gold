@@ -1,14 +1,14 @@
 <view class="container flex col fl-align">
 
 	<view class="nav-line b_r10 flex fl-align fl-jsb">
-		<view class="t-c f28" wx:for="{{nav}}" wx:key="index">{{item.text}}</view>
+		<view class="t-c f28 c-33" wx:for="{{nav}}" wx:key="index">{{item.text}}</view>
 	</view>
 
-	<view class="list-item flex col fl-align">
+  	<view class="list-item flex col fl-align">
 
 		<view class="flex fl-align fl-jsb">
 			<text class="f26">订单号：546376768767853</text>
-			<text class="f30 c-8F">派单中</text>
+			<text class="f30 c-8F">预约中</text>
 		</view>
 
 		<view class="flex col" style="border-bottom:1rpx solid #f5f5f5;">

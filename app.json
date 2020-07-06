@@ -23,7 +23,9 @@
       "root": "pages_two",
       "pages": [
         "order-list/order-list",
-        "order-detail/order-detail"
+        "order-detail/order-detail",
+        "recyc_order_list/recyc_order_list",
+        "recyc_order_detail/recyc_order_detail"
       ]
     }
   ],

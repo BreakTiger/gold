@@ -66,8 +66,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages_two/order-detail/order-detail",
-					"pathName": "pages_two/order-detail/order-detail",
+					"name": "pages_two/recyc_order_list/recyc_order_list",
+					"pathName": "pages_two/recyc_order_list/recyc_order_list",
 					"query": "",
 					"scene": null
 				}
