@@ -117,6 +117,10 @@ page {
   color: #0FB2F0;
 }
 
+.c-FF0{
+  color: #FF0000;
+}
+
 /* 文字粗细 */
 .f-wb {
   font-weight: bold;

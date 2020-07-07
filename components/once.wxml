@@ -1,13 +1,77 @@
 <view class="w710 flex col fl-align" style="margin:0 auto;">
 
 	<view class="w100 flex col">
-		<text>店铺名称<text>*</text></text>
+		<view><text class="f30 c-00">店铺名称<text class="c-FF0">*</text></text></view>
 		<input placeholder="请填写店铺名称"></input>
 	</view>
 
 	<view class="w100 flex col fl-align">
-		<view><text>上传营业执照<text>*</text></text></view>
+		<view class="w100"><text class="f30 c-00">上传营业执照<text class="c-FF0">*</text></text></view>
 		<image src="../img/papers.png" class="papers"></image>
 	</view>
+
+	<view class="w100 flex col">
+		<view><text class="f30 c-00">店铺图片<text class="c-FF0">*</text><text class="f24 c-66">（可上传1-5张）</text></text></view>
+		<view class="w100 flex fl-w">
+			<image src="../img/photo.png" class="photo"></image>
+		</view>
+	</view>
+
+	<view class="w100 flex col">
+		<view><text class="f30 c-00">所在城市<text class="c-FF0">*</text></text></view>
+		<view class="flex fl-align fl-jsb">
+			<picker mode="region">
+				<view class="f24 c-99">请选择店铺所在的城市</view>
+			</picker>
+			<image src="../icon/to.png" class="go"></image>
+		</view>
+	</view>
+
+	<view class="w100 flex col">
+		<view><text class="f30 c-00">详细地址<text class="c-FF0">*</text></text></view>
+		<input placeholder="请输入店铺的详细地址" class="f24 c-99"></input>
+	</view>
+
+	<view class="w100 flex col">
+		<view><text class="f30 c-00">手机号码<text class="c-FF0">*</text></text></view>
+		<view class="flex fl-align fl-jsb">
+			<input placeholder="请输入手机号码"></input>
+			<button class="get">一键获取</button>
+		</view>
+	</view>
+
+	<view class="w100 flex col">
+		<view><text class="f30 c-00">经营类目</text></view>
+		<view class="w100 flex fl-w f24">
+			<view class="laber b_r10 b-8F c-ff">上门回收</view>
+			<view class="laber b_r10" style=" border: 1rpx solid #666666;">饰品修复</view>
+		</view>
+	</view>
+
+	<view class="w100 flex col">
+		<view><text class="f30 c-00">上门回收城市<text class="c-FF0">*</text></text></view>
+		<view class="flex fl-align fl-jsb">
+			<picker mode="region">
+				<view class="f24 c-99">请选择全市上门回收</view>
+			</picker>
+			<image src="../icon/to.png" class="go"></image>
+		</view>
+	</view>
+
+	<view class="w100 flex col">
+		<view><text class="f30 c-00">回收区域</text></view>
+		<view class="w100 flex fl-w f24">
+			<view class="laber b_r10 b-8F c-ff">越秀区</view>
+			<view class="laber b_r10" style=" border: 1rpx solid #666666;">海珠区</view>
+		</view>
+	</view>
+
+	<text class="f26 c-66" style="margin:60rpx 0;">申请代表你已同意<text class="c-8F">《回收协议》</text></text>
+
+	<view class="botton-line flex fl-align fl-jsb f30">
+		<view class="b-f3">取消</view>
+		<view class="b-8F c-ff">立即提交</view>
+	</view>
+
 
 </view>

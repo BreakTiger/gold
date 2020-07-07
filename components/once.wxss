@@ -1,4 +1,59 @@
+.w710>view {
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.w710>view>view:first-child {
+  margin-bottom: 25rpx;
+}
+
 .papers {
   width: 595rpx;
   height: 368rpx;
+}
+
+.photo {
+  width: 219rpx;
+  height: 219rpx;
+}
+
+.go {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.get {
+  width: 150rpx !important;
+  height: 50rpx !important;
+  line-height: 50rpx;
+  background: #E2C28F;
+  font-size: 24rpx !important;
+  color: #ffffff;
+  padding: 0rpx;
+  margin: 0rpx !important;
+}
+
+.laber {
+  width: 159rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  margin-right: 15rpx;
+}
+
+.botton-line {
+  width: 650rpx;
+  margin-bottom: 60rpx;
+}
+
+.botton-line>view {
+  width: 290rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+}
+
+.b-f3 {
+  background: #f3f3f3;
 }

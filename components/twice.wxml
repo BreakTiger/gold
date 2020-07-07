@@ -1,2 +1,13 @@
-<!--components/twice.wxml-->
-<text>components/twice.wxml</text>
+<view class="content flex col fl-align">
+
+	<image src="../img/order.png" class="type"></image>
+
+  <text class="f36 c-33">审核中！</text>
+
+  <text class="f24 c-99">提交成功，请等待审核~</text>
+
+  <view class="btn t-c f30">回首页</view>
+
+
+
+</view>
