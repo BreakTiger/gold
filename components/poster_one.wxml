@@ -1,0 +1,14 @@
+<view class="content p-r">
+
+	<image src="../img/poster.png" class="wh"></image>
+
+	<image src="../img/head.png" class="header b_rh p-a"></image>
+
+	<view class="w100 flex col fl-align p-a" style="top:90rpx">
+		<text class="c-8F">小小<text class="f30 c-33">邀您进入店铺</text></text>
+		<text class="f24 c-66">联系方式：17666520123</text>
+	</view>
+
+  <image src="../img/lun.png" class="shop_img p-a"></image>
+
+</view>

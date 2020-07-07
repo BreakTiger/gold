@@ -1,0 +1,18 @@
+.content {
+  width: 750rpx;
+  height: 1153rpx;
+  margin-top: 60rpx;
+}
+
+.header {
+  width: 120rpx;
+  height: 120rpx;
+  left: 316rpx;
+  top: -50rpx;
+}
+
+.shop_img {
+  width: 592rpx;
+  height: 304rpx;
+  /* top: 200rpx; */
+}

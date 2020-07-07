@@ -1,2 +1,7 @@
-<!--pages_one/poster/poster.wxml-->
-<text>pages_one/poster/poster.wxml</text>
+<view class="container">
+
+	<postOne style="margin-top:64rpx;"></postOne>
+
+	<!-- <postTwo></postTwo> -->
+
+</view>

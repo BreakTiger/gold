@@ -1,1 +1,3 @@
-/* pages_one/poster/poster.wxss */
+page{
+  background: #E2C290;
+}
