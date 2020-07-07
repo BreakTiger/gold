@@ -18,7 +18,9 @@
         "order_success/order_success",
         "set_order/set_order",
         "apply_one/apply_one",
-        "apply_two/apply_two"
+        "apply_two/apply_two",
+        "poster/poster",
+        "gift/gift"
       ]
     },
     {

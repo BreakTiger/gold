@@ -73,15 +73,15 @@
 				},
 				{
 					"id": -1,
-					"name": "pages_two/workspace_one/workspace_one",
-					"pathName": "pages_two/workspace_one/workspace_one",
+					"name": "pages_two/workspace_two/workspace_two",
+					"pathName": "pages_two/workspace_two/workspace_two",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages_two/workspace_two/workspace_two",
-					"pathName": "pages_two/workspace_two/workspace_two",
+					"name": "pages_one/poster/poster",
+					"pathName": "pages_one/poster/poster",
 					"query": "",
 					"scene": null
 				}
