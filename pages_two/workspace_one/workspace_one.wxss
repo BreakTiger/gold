@@ -1,1 +1,56 @@
-/* pages_two/workspace_one/workspace_one.wxss */
+page {
+  background: #f6f6f6;
+}
+
+.top {
+  width: 100%;
+  height: 210rpx;
+}
+
+.top-info {
+  top: 40rpx;
+  left: 20rpx;
+  z-index: 10;
+}
+
+.head {
+  width: 102rpx;
+  height: 102rpx;
+  margin-right: 20rpx;
+}
+
+.f22 {
+  font-size: 22rpx;
+}
+
+.laber {
+  margin-right: 10rpx;
+  padding: 5rpx 10rpx;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.icons {
+  width: 82rpx;
+  height: 82rpx;
+  margin: 26rpx 0;
+}
+
+.wc4 {
+  width: calc(100% / 4);
+  height: 100%;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.wc3 {
+  width: calc(100% / 3);
+}
+
+.enter {
+  width: 47rpx;
+  height: 47rpx;
+  margin: 28rpx 0;
+}

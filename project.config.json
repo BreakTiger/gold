@@ -70,6 +70,20 @@
 					"pathName": "pages_one/apply_two/apply_two",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages_two/workspace_one/workspace_one",
+					"pathName": "pages_two/workspace_one/workspace_one",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages_two/workspace_two/workspace_two",
+					"pathName": "pages_two/workspace_two/workspace_two",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

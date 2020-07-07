@@ -5,7 +5,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    nav: [
+      {
+        icon: '../../icon/hai.png',
+        text: '海报分享'
+      },
+      {
+        icon: '../../icon/gift.png',
+        text: '我的奖励'
+      },
+      {
+        icon: '../../icon/pin.png',
+        text: '我的评价'
+      },
+      {
+        icon: '../../icon/set.png',
+        text: '设置'
+      }
+    ],
+    enter: [
+      {
+        icon: '../../icon/m-1.png',
+        text: '全部',
+        type: 1
+      },
+      {
+        icon: '../../icon/m-2.png',
+        text: '已预约',
+        type: 2
+      },
+      {
+        icon: '../../icon/m-4.png',
+        text: '已完成',
+        type: 3
+      }
+    ]
   },
 
   /**
