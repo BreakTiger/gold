@@ -29,7 +29,9 @@
         "recyc_order_list/recyc_order_list",
         "recyc_order_detail/recyc_order_detail",
         "workspace_one/workspace_one",
-        "workspace_two/workspace_two"
+        "workspace_two/workspace_two",
+        "shop_set/shop_set",
+        "comment/comment"
       ]
     }
   ],
