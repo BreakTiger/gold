@@ -1,6 +1,6 @@
 <view class="container">
 
-	<postOne style="margin-top:64rpx;"></postOne>
+	<postOne></postOne>
 
 	<!-- <postTwo></postTwo> -->
 
