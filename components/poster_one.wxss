@@ -14,5 +14,6 @@
 .shop_img {
   width: 592rpx;
   height: 304rpx;
-  /* top: 200rpx; */
+  left: calc((100% - 592rpx) / 2);
+  top: 200rpx;
 }

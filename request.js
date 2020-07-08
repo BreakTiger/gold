@@ -35,7 +35,35 @@ function wxRequest(url, method, data) {
 
 }
 
+// 七牛云
+const qiniuUploader = require("./components/qiniuUploader.js");
+function uploadFile(filePath, utoken) {
+  var promise = new Promise(function (resolve, reject) {
+    wx.showLoading({
+      title: '加载中',
+    })
+    console.log('文件：', filePath)
+    qiniuUploader.upload(filePath,
+      (res) => {
+        uni.hideLoading();
+        resolve(res)
+      },
+      (error) => {
+        uni.hideLoading();
+        reject(error)
+      }, {
+      region: 'SCN',
+      uploadURL: 'https://up-z2.qiniup.com',
+      domain: 'http://qakghu7iq.bkt.clouddn.com',
+      uptoken: utoken
+    }
+    )
+  })
+
+  return promise;
+}
+
 module.exports = {
-  wxRequest: wxRequest
-  // uploadFile: uploadFile
+  wxRequest: wxRequest,
+  uploadFile: uploadFile
 }

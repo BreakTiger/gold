@@ -9,6 +9,7 @@
 		<text class="f24 c-66">联系方式：17666520123</text>
 	</view>
 
-  <image src="../img/lun.png" class="shop_img p-a"></image>
+	<image src="../img/lun.png" class="shop_img p-a"></image>
+
 
 </view>
