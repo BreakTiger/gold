@@ -4,11 +4,16 @@
   margin-top: 60rpx;
 }
 
+.shop-title {
+  width: 592rpx;
+  left: calc((100% - 592rpx) / 2);
+  top: 55rpx
+}
+
 .header {
   width: 120rpx;
   height: 120rpx;
-  left: 316rpx;
-  top: -50rpx;
+  margin-right: 20rpx;
 }
 
 .shop_img {
@@ -16,4 +21,27 @@
   height: 304rpx;
   left: calc((100% - 592rpx) / 2);
   top: 200rpx;
+}
+
+.shop-info {
+  width: 592rpx;
+  left: calc((100% - 592rpx) / 2);
+  top: 555rpx;
+}
+
+.laber {
+  background: #B1B1B1;
+  padding: 5rpx 10rpx;
+  margin: 10rpx 10rpx 0 0;
+}
+
+.code {
+  width: 592rpx;
+  left: calc((100% - 592rpx) / 2);
+  bottom: 90rpx;
+}
+
+.code>image {
+  width: 210rpx;
+  height: 210rpx;
 }

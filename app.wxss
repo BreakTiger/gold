@@ -48,6 +48,10 @@ page {
 }
 
 /* 文字大小 */
+.f22 {
+  font-size: 22rpx;
+}
+
 .f24 {
   font-size: 24rpx;
 }
@@ -117,7 +121,7 @@ page {
   color: #0FB2F0;
 }
 
-.c-FF0{
+.c-FF0 {
   color: #FF0000;
 }
 

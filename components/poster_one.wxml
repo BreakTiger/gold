@@ -2,14 +2,36 @@
 
 	<image src="../img/poster.png" class="wh"></image>
 
-	<image src="../img/head.png" class="header b_rh p-a"></image>
 
-	<view class="w100 flex col fl-align p-a" style="top:90rpx">
-		<text class="c-8F">小小<text class="f30 c-33">邀您进入店铺</text></text>
-		<text class="f24 c-66">联系方式：17666520123</text>
+
+	<view class="shop-title flex fl-align p-a">
+		<image src="../img/head.png" class="header b_rh"></image>
+		<view class="flex col">
+			<text class="c-8F">小小<text class="f30 c-33">邀您进入店铺</text></text>
+			<text class="f24 c-66">联系方式：17666520123</text>
+		</view>
 	</view>
 
 	<image src="../img/lun.png" class="shop_img p-a"></image>
+
+	<view class="shop-info flex col p-a">
+		<text class="f32 c-33 f-wb">广州天河新天地</text>
+		<text class="f26 c-66" style="margin:10rpx 0;">电话：020-7856-256</text>
+		<text class="f26 c-66">地址：广州市天河区天源路天河新天地B栋</text>
+		<view class="flex fl-w f22" style="">
+			<view class="laber b_r10 c-ff">以旧换新</view>
+			<view class="laber b_r10 c-ff">以旧换新</view>
+			<view class="laber b_r10 c-ff">以旧换新</view>
+			<view class="laber b_r10 c-ff">以旧换新</view>
+		</view>
+	</view>
+
+	<view class="code flex fl-align fl-jsb p-a">
+		<text class="f24 c-66">长按小程序识别</text>
+		<image src="../img/code.png"></image>
+	</view>
+
+
 
 
 </view>
