@@ -1,76 +1,76 @@
 <view class="container">
 
-  <view class="flex col fl-align b-ff">
+	<view class="flex col fl-align b-ff">
 
-    <image src="../../img/top.png" class="top-img"></image>
+		<image src="../../img/top.png" class="top-img"></image>
 
-    <view class="w710" style="margin-top:-195rpx;">
+		<view class="w710" style="margin-top:-195rpx;">
 
-      <!-- 轮播 -->
-      <swiper class="lunbo" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#C6C6C6">
-        <swiper-item wx:for="[2]" wx:key="index">
-          <image src="../../img/lun.png" class="wh"></image>
-        </swiper-item>
-      </swiper>
+			<!-- 轮播 -->
+			<swiper class="lunbo" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#C6C6C6">
+				<swiper-item wx:for="{{lunbo}}" wx:key="index">
+					<image src="{{item.images}}" class="wh"></image>
+				</swiper-item>
+			</swiper>
 
-      <!-- 导航 -->
-      <view class="nav flex fl-align fl-jsb" style="margin-bottom:20rpx">
+			<!-- 导航 -->
+			<view class="nav flex fl-align fl-jsb" style="margin-bottom:20rpx">
 
-        <view class="nav-item flex col fl-align" wx:for="{{nav_list}}" wx:key="index">
-          <image src="{{item.icon}}"></image>
-          <text class="f26">{{item.text}}</text>
-        </view>
+				<view class="nav-item flex col fl-align" wx:for="{{nav_list}}" wx:key="index">
+					<image src="{{item.icon}}"></image>
+					<text class="f26">{{item.text}}</text>
+				</view>
 
-      </view>
+			</view>
 
-      <view class="assess f30 c-ff b-90 t-c">免费估价</view>
+			<view class="assess f30 c-ff b-90 t-c">免费估价</view>
 
-    </view>
+		</view>
 
-  </view>
+	</view>
 
-  <!-- 附近门店 -->
-  <view class="shop flex col fl-align b-ff">
+	<!-- 附近门店 -->
+	<view class="shop flex col fl-align b-ff">
 
-    <view class="w710 flex fl-align fl-jsb" style="margin:25rpx 0">
-      <text class="f36 f-wb">附近门店</text>
-      <image src="../../icon/go.png" class="go"></image>
-    </view>
+		<view class="w710 flex fl-align fl-jsb" style="margin:25rpx 0">
+			<text class="f36 f-wb">附近门店</text>
+			<image src="../../icon/go.png" class="go"></image>
+		</view>
 
-    <scroll-view scroll-x="true" style="white-space: nowrap;" class="w710">
-      <view class="shop-item p-r">
-        <image src="../../img/lun.png" class="wh"></image>
-        <view class="shop-cover p-a flex fl-align fl-jsb f24 c-ff">
-          <view class="climp1" style="width:50%;margin-left:20rpx;">广州天河新天地</view>
-          <view class="flex fl-align" style="margin-right: 20rpx;">
-            <image src="../../icon/level.png" class="level"></image>
-            <text>5.0</text>
-          </view>
-        </view>
-      </view>
-    </scroll-view>
+		<scroll-view scroll-x="true" style="white-space: nowrap;" class="w710">
+			<view class="shop-item p-r" wx:for="{{shop}}" wx:key="index">
+				<image src="../../img/lun.png" class="wh"></image>
+				<view class="shop-cover p-a flex fl-align fl-jsb f24 c-ff">
+					<view class="climp1" style="width:50%;margin-left:20rpx;">广州天河新天地</view>
+					<view class="flex fl-align" style="margin-right: 20rpx;">
+						<image src="../../icon/level.png" class="level"></image>
+						<text>5.0</text>
+					</view>
+				</view>
+			</view>
+		</scroll-view>
 
-  </view>
+	</view>
 
-  <!-- 推荐 -->
-  <view class="flex col fl-align b-ff">
+	<!-- 推荐 -->
+	<view class="flex col fl-align b-ff">
 
-    <view class="w710 flex fl-align fl-jsb" style="margin:25rpx 0">
-      <text class="f36 f-wb">知识推荐</text>
-      <view class="flex fl-align">
-        <text class="f24 c-66" style="margin-right: 15rpx;">更多</text>
-        <image src="../../icon/go.png" class="go"></image>
-      </view>
-    </view>
+		<view class="w710 flex fl-align fl-jsb" style="margin:25rpx 0">
+			<text class="f36 f-wb">知识推荐</text>
+			<view class="flex fl-align">
+				<text class="f24 c-66" style="margin-right: 15rpx;">更多</text>
+				<image src="../../icon/go.png" class="go"></image>
+			</view>
+		</view>
 
-    <block wx:for="[1]" wx:key="index">
-    <information></information>
-    
-    </block>
+		<block wx:for="[1]" wx:key="index">
+			<information></information>
 
-   
+		</block>
 
-  </view>
+
+
+	</view>
 
 
 </view>

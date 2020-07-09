@@ -1,2 +1,51 @@
-<!--pages_two/shop_set/shop_set.wxml-->
-<text>pages_two/shop_set/shop_set.wxml</text>
+<view class="container">
+
+	<view class="w710 flex col f30">
+		<view><text>店铺名称<text class="c-FF0">*</text></text></view>
+		<input placeholder="请输入店铺名称" value="黄金回收门店"></input>
+	</view>
+
+	<view class="w710 flex col">
+		<view><text class="f30">店铺图片<text class="c-FF0">*</text><text class="f24 c-66">（可上传1-5张）</text></text></view>
+		<view class="flex fl-w" style="margin-top:25rpx;">
+			<image src="../../img/photo.png" class="img"></image>
+		</view>
+	</view>
+
+	<view class="w710 flex col f30">
+		<view><text>店铺介绍<text class="c-FF0">*</text></text></view>
+		<textarea class="w100" placeholder="请输入店铺介绍"></textarea>
+	</view>
+
+	<view class="w710 flex col f30">
+		<text>所在城市</text>
+		<picker mode="region">
+			<view class="flex fl-jsb">
+				<text class="f24 c-99">请选择城市</text>
+				<image src="../../icon/to.png" class="icon"></image>
+			</view>
+		</picker>
+	</view>
+
+	<view class="w710 flex col f30">
+		<view><text>详细地址<text class="c-FF0">*</text></text></view>
+		<input placeholder="请输入详细地址" value="天源路天河新天地"></input>
+	</view>
+
+	<view class="w710 flex col f30">
+		<text>营业时间</text>
+		<view class="flex fl-jsb">
+			<text class="selected-date">9：00 - 18：00</text>
+			<image src="../../icon/to.png" class="icon"></image>
+		</view>
+	</view>
+
+	<view class="w710 flex col f30">
+    <view>手机号码</view>
+    <view class="flex fl-jsb">
+    </view>
+	</view>
+
+
+
+</view>

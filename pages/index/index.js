@@ -1,10 +1,12 @@
-// pages/index.js
+const app = getApp()
+const http = require('../../request.js')
+import modal from '../../modals.js'
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
+    lunbo: [],
+    shop: [],
     nav_list: [
       {
         icon: '../../icon/home-1.png',
@@ -29,58 +31,74 @@ Page({
     ]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    this.getLun()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  //轮播图
+  getLun: function () {
+    let that = this
+    let data = {
+      page: 1,
+      pagesize: 5,
+      openid: wx.getStorageSync('openid')
+    }
+    console.log('参数：', data)
+    http.sendRequest('huishou.luobo', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.error == 0) {
+        that.setData({
+          lunbo: res.list
+        })
+        that.getShop()
+      } else {
+        that.modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  //门店
+  getShop: function () {
+    let that = this
+    let data = {
+      page: 1,
+      pagesize: 10,
+      openid: wx.getStorageSync('openid')
+    }
+    console.log('参数：', data)
+    http.sendRequest('huishou.shoplist', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.error == 0) {
+        that.setData({
+          shop: res.list
+        })
+      } else {
+        that.modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+
   onReady: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
+
   onShow: function () {
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh: function () {
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+
   onReachBottom: function () {
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
+
   onShareAppMessage: function () {
 
   }

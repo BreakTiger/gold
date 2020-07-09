@@ -1,9 +1,9 @@
 // 请求封装
 // 网络请求 - 封装文件
-const api = "" //域名头部
+const api = "https://umisky.pensee168.com/app/yun_shopv2_api.php?i=7&comefrom=wxapp&r=" //域名头部
 
 //请求分装 -  不带有登录判断
-function wxRequest(url, method, data) {
+function sendRequest(url, method, data) {
 
   var promise = new Promise(function (resolve, reject) {
     wx.showLoading({
@@ -64,6 +64,6 @@ function uploadFile(filePath, utoken) {
 }
 
 module.exports = {
-  wxRequest: wxRequest,
+  sendRequest: sendRequest,
   uploadFile: uploadFile
 }

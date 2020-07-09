@@ -33,7 +33,8 @@
         "workspace_one/workspace_one",
         "workspace_two/workspace_two",
         "shop_set/shop_set",
-        "comment/comment"
+        "comment/comment",
+        "set/set"
       ]
     }
   ],

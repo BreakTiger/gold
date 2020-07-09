@@ -1,1 +1,13 @@
-/* pages_two/shop_set/shop_set.wxss */
+.img {
+  width: 219rpx;
+  height: 219rpx;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.container>view{
+  margin: 25rpx auto;
+}
