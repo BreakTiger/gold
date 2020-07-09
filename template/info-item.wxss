@@ -1,0 +1,23 @@
+.info-item {
+  margin: 20rpx 0;
+}
+
+.share {
+  width: 29rpx;
+  height: 28rpx;
+}
+
+.share>button{
+  width: 29rpx !important;
+  height: 28rpx !important;
+  margin: 0rpx !important;
+  padding: 0rpx !important;
+  border: none !important;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.info-img {
+  width: 260rpx;
+  height: 180rpx;
+}

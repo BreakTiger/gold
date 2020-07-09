@@ -1,15 +1,17 @@
+<import src="../../template/info-item.wxml" />
+
 <view class="container">
 
 	<view class="flex col fl-align b-ff">
 
 		<image src="../../img/top.png" class="top-img"></image>
 
-		<view class="w710" style="margin-top:-195rpx;">
+		<view class="w710" style="margin-top:-220rpx;">
 
 			<!-- 轮播 -->
 			<swiper class="lunbo" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#C6C6C6">
 				<swiper-item wx:for="{{lunbo}}" wx:key="index">
-					<image src="{{item.images}}" class="wh"></image>
+					<image src="{{item.images}}" class="wh b_r10"></image>
 				</swiper-item>
 			</swiper>
 
@@ -64,7 +66,7 @@
 		</view>
 
 		<block wx:for="{{info}}" wx:key="index">
-			<information item="{{item}}"></information>
+			<template is="information" data="{{...item}}"></template>
 		</block>
 
 	</view>

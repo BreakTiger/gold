@@ -54,7 +54,7 @@ Page({
         })
         that.getShop()
       } else {
-        that.modal.showToast(res.message, 'none')
+        // that.modal.showToast(res.message, 'none')
       }
     })
   },
@@ -76,7 +76,7 @@ Page({
         })
         that.getInfo()
       } else {
-        that.modal.showToast(res.message, 'none')
+        // that.modal.showToast(res.message, 'none')
       }
     })
   },
@@ -97,7 +97,7 @@ Page({
           info: res.list
         })
       } else {
-        that.modal.showToast(res.message, 'none')
+        // that.modal.showToast(res.message, 'none')
       }
     })
   },

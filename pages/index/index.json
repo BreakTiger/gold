@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "information":"/components/information"
-  },
+  "usingComponents": {},
   "enablePullDownRefresh": true
 }
