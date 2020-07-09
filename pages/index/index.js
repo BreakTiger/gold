@@ -7,6 +7,8 @@ Page({
   data: {
     lunbo: [],
     shop: [],
+    info: [],
+
     nav_list: [
       {
         icon: '../../icon/home-1.png',
@@ -43,9 +45,9 @@ Page({
       pagesize: 5,
       openid: wx.getStorageSync('openid')
     }
-    console.log('参数：', data)
+    // console.log('参数：', data)
     http.sendRequest('huishou.luobo', 'post', data).then(function (res) {
-      console.log(res)
+      // console.log(res)
       if (res.error == 0) {
         that.setData({
           lunbo: res.list
@@ -65,12 +67,34 @@ Page({
       pagesize: 10,
       openid: wx.getStorageSync('openid')
     }
-    console.log('参数：', data)
+    // console.log('参数：', data)
     http.sendRequest('huishou.shoplist', 'post', data).then(function (res) {
-      console.log(res)
+      // console.log(res.list)
       if (res.error == 0) {
         that.setData({
           shop: res.list
+        })
+        that.getInfo()
+      } else {
+        that.modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  //知识推荐
+  getInfo: function () {
+    let that = this
+    let data = {
+      page: 1,
+      pagesize: 10,
+      openid: wx.getStorageSync('openid')
+    }
+    // console.log('参数；', data)
+    http.sendRequest('huishou.knowledge', 'post', data).then(function (res) {
+      console.log(res.list)
+      if (res.error == 0) {
+        that.setData({
+          info: res.list
         })
       } else {
         that.modal.showToast(res.message, 'none')

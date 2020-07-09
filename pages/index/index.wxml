@@ -39,12 +39,12 @@
 
 		<scroll-view scroll-x="true" style="white-space: nowrap;" class="w710">
 			<view class="shop-item p-r" wx:for="{{shop}}" wx:key="index">
-				<image src="../../img/lun.png" class="wh"></image>
+				<image src="{{item.logo}}" class="wh"></image>
 				<view class="shop-cover p-a flex fl-align fl-jsb f24 c-ff">
-					<view class="climp1" style="width:50%;margin-left:20rpx;">广州天河新天地</view>
+					<view class="climp1" style="width:50%;margin-left:20rpx;">{{item.shopname}}</view>
 					<view class="flex fl-align" style="margin-right: 20rpx;">
 						<image src="../../icon/level.png" class="level"></image>
-						<text>5.0</text>
+						<text>{{item.level}}</text>
 					</view>
 				</view>
 			</view>
@@ -63,12 +63,9 @@
 			</view>
 		</view>
 
-		<block wx:for="[1]" wx:key="index">
-			<information></information>
-
+		<block wx:for="{{info}}" wx:key="index">
+			<information item="{{item}}"></information>
 		</block>
-
-
 
 	</view>
 
