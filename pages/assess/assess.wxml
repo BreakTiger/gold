@@ -1,42 +1,43 @@
 <view class="container">
 
-  <view class="w100 b-ff flex col fl-align">
+	<view class="w100 b-ff flex col fl-align">
 
-    <view class="flex col fl-align">
-      <image src="../../img/top.png" class="top-img"></image>
-      <view class="market b-ff flex col fl-align fl-jse b_r10">
-        <text class="f30 c-66">实时金价(元/克)</text>
-        <text class="f62 c-90">384.39</text>
-      </view>
-    </view>
+		<view class="flex col fl-align">
+			<image src="../../img/top.png" class="top-img"></image>
+			<view class="market b-ff flex col fl-align fl-jse b_r10">
+				<text class="f30 c-66">实时金价(元/克)</text>
+				<text class="f62 c-90">{{price}}</text>
+			</view>
+		</view>
 
-    <view class="w710 flex col f30 c-34">
-      <view>1.请选择您的黄金类型</view>
-      <view class="flex fl-w">
-        <view class="type p-r" wx:for="[1]" wx:key="index">
-          <image src="../../img/lun.png" class="wh"></image>
-          <view class="img-cover p-a f30 c-ff t-c">金条</view>
-          <image src="../../icon/choice.png" class="choice p-a"></image>
-        </view>
-      </view>
-    </view>
+		<view class="w710 flex col f30 c-34">
+			<view>1.请选择您的黄金类型</view>
+			<view class="flex fl-w">
+				<view class="type p-r" wx:for="{{type_list}}" wx:key="index">
+					<image src="{{item.images}}" class="wh"></image>
+					<view class="img-cover p-a f30 c-ff t-c">{{item.name}}</view>
+					<image src="../../icon/choice.png" class="choice p-a" wx:if="{{item.choice==0}}"></image>
+          <image src="../../icon/choiced.png" class="choice p-a" wx:if="{{item.choice==1}}"></image>
+				</view>
+			</view>
+		</view>
 
-    <view class="w710 flex col f30 c-34">
-      <view>2.请输入您的黄金克重</view>
-      <view class="flex fl-align">
-        <input placeholder="请输入您的黄金克重" class="puts"></input>
-        <text>克</text>
-      </view>
-    </view>
+		<view class="w710 flex col f30 c-34">
+			<view>2.请输入您的黄金克重</view>
+			<view class="flex fl-align">
+				<input placeholder="请输入您的黄金克重" class="puts" bindinput="getGram"></input>
+				<text>克</text>
+			</view>
+		</view>
 
-    <view class="w710 flex col f30 c-34">
-      <view>4.请输入您的手机号码</view>
-      <input placeholder="请输入手机号码" class="puts"></input>
-    </view>
+		<view class="w710 flex col f30 c-34">
+			<view>4.请输入您的手机号码</view>
+			<input placeholder="请输入手机号码" class="puts" bindinput="getPhone"></input>
+		</view>
 
-    <view class="recyc b-90 c-ff f30 f-wb t-c">立即回收</view>
+		<view class="recyc b-90 c-ff f30 f-wb t-c" bindtap="toRecyc">立即回收</view>
 
-  </view>
+	</view>
 
 
 

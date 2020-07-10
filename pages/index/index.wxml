@@ -25,7 +25,7 @@
 
 			</view>
 
-			<view class="assess f30 c-ff b-90 t-c">免费估价</view>
+			<view class="assess f30 c-ff b-90 t-c" bindtap="toAssess">免费估价</view>
 
 		</view>
 

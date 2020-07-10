@@ -102,6 +102,11 @@ Page({
   },
 
 
+  toAssess:function(){
+    modal.navigate('/pages/assess/assess')
+  },
+
+
   onReady: function () {
 
   },

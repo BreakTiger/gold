@@ -70,6 +70,12 @@
 					"pathName": "pages/nearby/nearby",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/assess/assess",
+					"pathName": "pages/assess/assess",
+					"scene": null
 				}
 			]
 		}
