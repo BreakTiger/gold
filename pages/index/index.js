@@ -8,27 +8,22 @@ Page({
     lunbo: [],
     shop: [],
     info: [],
-
     nav_list: [
       {
         icon: '../../icon/home-1.png',
-        text: '上门回收',
-        path: ''
+        text: '上门回收'
       },
       {
         icon: '../../icon/home-2.png',
-        text: '门店回收',
-        path: ''
+        text: '门店回收'
       },
       {
         icon: '../../icon/home-3.png',
-        text: '以旧换新',
-        path: ''
+        text: '以旧换新'
       },
       {
         icon: '../../icon/home-4.png',
-        text: '饰品修复',
-        path: ''
+        text: '饰品修复'
       }
     ]
   },
@@ -54,7 +49,7 @@ Page({
         })
         that.getShop()
       } else {
-        // that.modal.showToast(res.message, 'none')
+        modal.showToast(res.message, 'none')
       }
     })
   },
@@ -76,7 +71,7 @@ Page({
         })
         that.getInfo()
       } else {
-        // that.modal.showToast(res.message, 'none')
+        modal.showToast(res.message, 'none')
       }
     })
   },
@@ -97,9 +92,13 @@ Page({
           info: res.list
         })
       } else {
-        // that.modal.showToast(res.message, 'none')
+        modal.showToast(res.message, 'none')
       }
     })
+  },
+
+  toShop:function(){
+    modal.navigate('/pages/nearby/nearby')
   },
 
 

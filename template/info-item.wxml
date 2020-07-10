@@ -1,6 +1,6 @@
 <template name="information">
 	<view class="info-item w710 flex fl-align fl-jsb">
-		<view class="flex col fl-jse" style="width:60%;height:180rpx;">
+		<view class="flex col fl-jse" style="width:55%;height:180rpx;margin-left:20rpx">
 			<view class="f32 c-33 f-wb climp2">{{name}}</view>
 			<view class="f24 flex fl-align fl-jsb">
 				<text class="c-42">{{typename}}</text>

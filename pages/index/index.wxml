@@ -18,7 +18,7 @@
 			<!-- 导航 -->
 			<view class="nav flex fl-align fl-jsb" style="margin-bottom:20rpx">
 
-				<view class="nav-item flex col fl-align" wx:for="{{nav_list}}" wx:key="index">
+				<view class="nav-item flex col fl-align" wx:for="{{nav_list}}" wx:key="index" bindtap="toShop">
 					<image src="{{item.icon}}"></image>
 					<text class="f26">{{item.text}}</text>
 				</view>

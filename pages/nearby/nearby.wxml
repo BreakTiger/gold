@@ -1,22 +1,22 @@
 <view class="container">
 
-  <view class="w710 b-ff flex fl-align fl-jsb b_r10" wx:for="[1]" wx:key="index">
+  <view class="w710 b-ff flex fl-align fl-jsb b_r10" wx:for="{{list}}" wx:key="index">
 
-    <image src="../../img/lun.png" class="shop-img"></image>
+    <image src="{{item.logo}}" class="shop-img"></image>
 
     <view class="shop-info flex col fl-jse">
-      <view class="f30 c-33 f-wb climp2">广州天河新天地</view>
+      <view class="f30 c-33 f-wb climp2">{{item.shopname}}</view>
 
       <view class="flex fl-align fl-jsb">
         <view class="flex fl-align">
-          <image src="../../icon/level.png" class="leve"></image>
-          <text class="f24 c-66">3.0</text>
+          <image src="../../icon/level.png" wx:for="{{item.level}}" wx:key="index" class="leve"></image>
+          <text class="f24 c-66">{{item.level}}</text>
         </view>
-        <text class="f26 c-99">500m</text>
+        <text class="f26 c-99">{{item.distance}}m</text>
       </view>
 
       <view class="flex fl-align fl-jsb">
-        <text class="f24 c-66">营业时间：9:30-18:30</text>
+        <text class="f24 c-66">营业时间：{{item.yingyetime}}</text>
         <view class="order c-ff f24 b-8F">预约</view>
       </view>
 

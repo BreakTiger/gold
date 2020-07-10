@@ -66,22 +66,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages_one/apply_two/apply_two",
-					"pathName": "pages_one/apply_two/apply_two",
+					"name": "pages/nearby/nearby",
+					"pathName": "pages/nearby/nearby",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages_one/poster/poster",
-					"pathName": "pages_one/poster/poster",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages_two/shop_set/shop_set",
-					"pathName": "pages_two/shop_set/shop_set",
 					"scene": null
 				}
 			]
