@@ -28,7 +28,7 @@ Page({
       console.log(res)
       if (res.error == 0) {
         that.setData({
-          list:res.list
+          list: res.list
         })
       } else {
 
@@ -36,25 +36,9 @@ Page({
     })
   },
 
-
-  onReady: function () {
-
-  },
-
-  onShow: function () {
-
-  },
-
-
-  onPullDownRefresh: function () {
-
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-
+  //知识详情
+  toInfoDetail: function (e) {
+    let id = e.currentTarget.dataset.id
+    modal.navigate('/pages/infos_detail/infos_detail?id=', id)
   }
 })

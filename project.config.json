@@ -63,21 +63,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/nearby/nearby",
-					"pathName": "pages/nearby/nearby",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/assess/assess",
-					"pathName": "pages/assess/assess",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

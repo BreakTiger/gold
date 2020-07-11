@@ -1,14 +1,14 @@
 <view class="container">
   <view class="w710" style="margin: 20rpx auto;">
     <text>实时金价（元/克）：</text>
-    <text class="f36 c-8F">390.49</text>
+    <text class="f36 c-8F">{{price}}</text>
   </view>
   <view class="flex col fl-align">
     <image src="../../img/type.png" class="type"></image>
     <text>恭喜哦~~</text>
     <view class="flex fl-align" style="margin-top: 20rpx;">
       <text class="f30 c-33">您的黄金预估金额为:</text>
-      <text class="f36 c-8F">189368.25元</text>
+      <text class="f36 c-8F">{{count_price}}元</text>
     </view>
     <view class="btn b_r40 c-ff f30 b-8F">上门回收</view>
     <view class="btn b_r40 c-ff f30 b-8F">到店回收</view>

@@ -97,37 +97,31 @@ Page({
     })
   },
 
-  toShop:function(){
+  toShop: function () {
     modal.navigate('/pages/nearby/nearby')
   },
 
 
-  toAssess:function(){
+  toAssess: function () {
     modal.navigate('/pages/assess/assess')
   },
 
-
-  onReady: function () {
-
+  toInfo: function () {
+    wx.switchTab({
+      url: '/pages/infos/infos',
+    })
   },
 
-
-  onShow: function () {
-
+  //门店详情
+  toDetail: function (e) {
+    modal.navigate('/pages_one/shop_detail/shop_detail?id=', e.currentTarget.dataset.id)
   },
 
-
-  onPullDownRefresh: function () {
-
-  },
-
-
-  onReachBottom: function () {
-
-  },
-
-
-  onShareAppMessage: function () {
-
+  //知识详情
+  toInfoDetail: function (e) {
+    let id = e.currentTarget.dataset.id
+    modal.navigate('/pages/infos_detail/infos_detail?id=', id)
   }
+
+
 })

@@ -40,24 +40,12 @@ Page({
 
   },
 
-  onReady: function () {
-
-  },
-
-  onShow: function () {
-
+  //门店详情
+  toDetail: function (e) {
+    modal.navigate('/pages_one/shop_detail/shop_detail?id=', e.currentTarget.dataset.id)
   },
 
 
-  onPullDownRefresh: function () {
 
-  },
-
-  onReachBottom: function () {
-
-  },
-
-  onShareAppMessage: function () {
-
-  }
+  
 })

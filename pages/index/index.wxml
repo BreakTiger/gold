@@ -34,14 +34,14 @@
 	<!-- 附近门店 -->
 	<view class="shop flex col fl-align b-ff">
 
-		<view class="w710 flex fl-align fl-jsb" style="margin:25rpx 0">
+		<view class="w710 flex fl-align fl-jsb" style="margin:25rpx 0" bindtap="toShop">
 			<text class="f36 f-wb">附近门店</text>
 			<image src="../../icon/go.png" class="go"></image>
 		</view>
 
 		<scroll-view scroll-x="true" style="white-space: nowrap;" class="w710">
-			<view class="shop-item p-r" wx:for="{{shop}}" wx:key="index">
-				<image src="{{item.logo}}" class="wh"></image>
+			<view class="shop-item p-r" wx:for="{{shop}}" wx:key="index" bindtap="toDetail" data-id="{{item.id}}">
+				<image src="{{item.logo}}" class="wh b_r30"></image>
 				<view class="shop-cover p-a flex fl-align fl-jsb f24 c-ff">
 					<view class="climp1" style="width:50%;margin-left:20rpx;">{{item.shopname}}</view>
 					<view class="flex fl-align" style="margin-right: 20rpx;">
@@ -59,7 +59,7 @@
 
 		<view class="w710 flex fl-align fl-jsb" style="margin:25rpx 0">
 			<text class="f36 f-wb">知识推荐</text>
-			<view class="flex fl-align">
+			<view class="flex fl-align" bindtap="toInfo">
 				<text class="f24 c-66" style="margin-right: 15rpx;">更多</text>
 				<image src="../../icon/go.png" class="go"></image>
 			</view>

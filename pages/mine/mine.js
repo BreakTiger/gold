@@ -1,10 +1,11 @@
-// pages/mine/mine.js
+const app = getApp()
+const http = require('../../request.js')
+import modal from '../../modals.js'
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
+    user: {},
     nav_one: [
       {
         icon: '../../icon/m-1.png',
@@ -71,7 +72,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getUser()
+  },
 
+  getUser: function () {
+    let that = this
+    let data = {
+      openid: wx.getStorageSync('openid')
+    }
+    console.log('参数', data)
+    http.sendRequest('huishou.getusermember', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.error == 0) {
+        that.setData({
+          user: res.list
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   /**
