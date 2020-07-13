@@ -1,3 +1,5 @@
+@import '../../wxParse/wxParse.wxss'
+
 page {
   background: #f6f6f6;
 }
@@ -10,4 +12,14 @@ page {
 .icon {
   width: 30rpx;
   height: 30rpx;
+}
+
+.share {
+  width: 100rpx !important;
+  height: 32rpx !important;
+  margin: 0rpx !important;
+  padding: 0rpx !important;
+  border: none !important;
+  left: 0rpx;
+  top: 0rpx;
 }

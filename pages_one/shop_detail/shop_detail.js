@@ -7,11 +7,7 @@ Page({
   data: {
     id: '',
     detail: {},
-    markers: [
-      {
 
-      }
-    ]
   },
 
 
@@ -43,12 +39,22 @@ Page({
 
   //导航
   toLocation: function () {
-    console.log('导航')
-    
+    let detail = this.data.detail
+    wx.getLocation({
+      type: 'gcj02',
+      success: function (res) {
+        wx.openLocation({
+          latitude: Number(detail.lat),
+          longitude: Number(detail.lng),
+          scale: 28,
+          name: detail.province + detail.city + detail.area + detail.address
+        })
+      }
+    })
   },
 
   // 现在预约
-  toOrder:function(){
+  toOrder: function () {
 
   }
 

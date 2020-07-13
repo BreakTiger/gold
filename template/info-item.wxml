@@ -1,14 +1,14 @@
 <template name="information">
 	<view class="info-item w710 flex fl-align fl-jsb" bindtap="toInfoDetail" data-id="{{id}}">
-		<view class="flex col fl-jse" style="width:50%;height:180rpx;margin-left:20rpx">
+		<view class="flex col fl-jse" style="width:54%;height:180rpx;margin-left:20rpx">
 			<view class="f32 c-33 f-wb climp2">{{name}}</view>
 			<view class="f24 flex fl-align fl-jsb">
 				<text class="c-42">{{typename}}</text>
 				<text class="c-66">{{createtime}}</text>
-				<!-- <view class="share p-r">
+				<view class="share">
 					<image src="../../icon/share.png" class="wh"></image>
-					<button open-type="share" class="p-a" plain="true"></button>
-				</view> -->
+					<!-- <button open-type="share" class="p-a" plain="true"></button> -->
+				</view>
 			</view>
 		</view>
 		<image src="{{images}}" class="info-img"></image>

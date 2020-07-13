@@ -65,7 +65,7 @@
 					</view>
 				</view>
 			</view>
-			<view class="f24 c-66" style="margin-top: 20rpx;">{{item.content}}</view>
+			<view class="w100 f24 c-66" style="margin-top: 20rpx;">{{item.content}}</view>
 		</view>
 	</view>
 	<!-- 门店地址 -->
