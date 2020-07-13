@@ -1,0 +1,13 @@
+page {
+  background: #f6f6f6;
+}
+
+.w100>view {
+  width: 650rpx;
+  padding: 25rpx 0;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}

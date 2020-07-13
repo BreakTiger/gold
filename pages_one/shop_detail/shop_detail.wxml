@@ -29,9 +29,10 @@
 			<view class="flex fl-align">
 				<view class="f24 c-66 b-f0 laber" wx:for="{{managementid}}" wx:key="index">{{item}}</view>
 			</view>
-			<view class="flex fl-align">
+			<view class="flex fl-align p-r">
 				<image src="../../icon/share.png" class="icon"></image>
 				<text class="f26">分享</text>
+				<button class="share p-a" plain="true" open-type="share"></button>
 			</view>
 		</view>
 	</view>
@@ -78,7 +79,7 @@
 				<text class="f26 c-8F">导航</text>
 			</view>
 		</view>
-    <map id="map" longitude="{{detail.lng}}" latitude=" {{detail.lat}}" markers="{{markers}}"></map>
+		<map id="map" longitude="{{detail.lng}}" latitude=" {{detail.lat}}" markers="{{markers}}"></map>
 	</view>
 
 	<view style="width: 100%;height: 180rpx;"></view>

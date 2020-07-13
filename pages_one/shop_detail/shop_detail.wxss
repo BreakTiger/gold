@@ -81,3 +81,13 @@ page {
   height: 80rpx;
   line-height: 80rpx;
 }
+
+.share {
+  margin: 0rpx !important;
+  padding: 0rpx !important;
+  width: 100rpx !important;
+  height: 45rpx !important;
+  border: none !important;
+  left: 0rpx;
+  top: 0rpx;
+}

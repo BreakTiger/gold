@@ -12,7 +12,8 @@
         "nearby/nearby",
         "assess/assess",
         "assess_success/assess_success",
-        "shop_detail/shop_detail"
+        "shop_detail/shop_detail",
+        "infos_detail/infos_detail"
       ]
     },
     {

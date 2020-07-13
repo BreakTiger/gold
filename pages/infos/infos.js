@@ -39,6 +39,6 @@ Page({
   //知识详情
   toInfoDetail: function (e) {
     let id = e.currentTarget.dataset.id
-    modal.navigate('/pages/infos_detail/infos_detail?id=', id)
+    modal.navigate('/pages_one/infos_detail/infos_detail?id=', id)
   }
 })
