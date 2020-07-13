@@ -7,12 +7,14 @@ Page({
   data: {
     price: '',
     type_list: [],
+    type_choice: '',
+
     types_list: [],
-    type_choice: '', 
+    types_chopice: '',
+
     gram: '',//克重
     phone: '' //电话
   },
-
 
   onLoad: function (options) {
     this.getPrice()
@@ -60,7 +62,7 @@ Page({
     list.forEach(function (item, index) {
       if (indexs == index) {
         item.choice = 1
-        console.log(item)
+        // console.log(item)
         that.setData({
           type_choice: item.id
         })
@@ -80,9 +82,9 @@ Page({
     let data = {
       type_id: that.data.type_choice
     }
-    console.log('参数：', data)
+    // console.log('参数：', data)
     http.sendRequest('huishou.jintype', 'post', data).then(function (res) {
-      console.log(res.list)
+      // console.log(res.list)
       if (res.error == 0) {
         let list = res.list
         list.forEach(function (item) {
@@ -95,7 +97,28 @@ Page({
         modal.showToast(res.message, 'none')
       }
     })
+  },
 
+  //选择类型属性
+  choice_Nature: function (e) {
+    let that = this
+    let list = that.data.types_list
+    let indexs = e.currentTarget.dataset.index
+    console.log(list)
+    list.forEach(function (item, index) {
+      if (index == indexs) {
+        console.log(item)
+        item.choice = 1
+        that.setData({
+          types_chopice: item.id
+        })
+      } else {
+        item.choice = 0
+      }
+    })
+    that.setData({
+      types_list: list
+    })
   },
 
   // 克重
@@ -115,24 +138,42 @@ Page({
   //立即回收
   toRecyc: function () {
     let that = this
+    let list = that.data.types_list
     let gram = that.data.gram
     let phone = that.data.phone
-    if (!gram) {
-      modal.showToast('请输入黄金克重')
+    if (!that.data.type_choice || !that.data.types_chopice) {
+      modal.showToast('请选择你的黄金类型，及属性', 'none')
+    } else if (!gram) {
+      modal.showToast('请输入黄金克重', 'none')
     } else if (!phone) {
-      modal.showToast('请输入手机号码')
+      modal.showToast('请输入手机号码', 'none')
     } else if (!(/^1[3456789]\d{9}$/.test(phone))) {
-      modal.showToast('请输入如合法的手机号码')
+      modal.showToast('请输入如合法的手机号码', 'none')
     } else {
-      let data = {
-        type: that.data.type_choice,
-        gram: gram,
-        mobile: phone,
-        openid: wx.getStorageSync('openid')
+      let data = {}
+      if (list.length != 0) {
+        console.log('存在类型')
+        if (that.data.types_chopice) {
+          data = {
+            type: that.data.types_chopice,
+            gram: gram,
+            mobile: phone,
+            openid: wx.getStorageSync('openid')
+          }
+        } else {
+          modal.showToast('请选择黄金类型的属性')
+        }
+      } else {
+        data = {
+          type: that.data.type_choice,
+          gram: gram,
+          mobile: phone,
+          openid: wx.getStorageSync('openid')
+        }
       }
       console.log('参数：', data)
       http.sendRequest('huishou.sbpinggu', 'post', data).then(function (res) {
-        console.log(res)
+        // console.log(res)
         if (res.error == 0) {
           let data = {
             count_price: res.list.countprice,

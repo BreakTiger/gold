@@ -3,39 +3,19 @@
     "pages/index/index",
     "pages/recyc/recyc",
     "pages/infos/infos",
-    "pages/mine/mine",
-    "pages/assess/assess",
-    "pages/nearby/nearby",
-    "pages/shop_order/shop_order",
-    "pages/infos_detail/infos_detail"
+    "pages/mine/mine"
   ],
   "subPackages": [
     {
       "root": "pages_one",
       "pages": [
-        "assess_success/assess_success",
-        "shop_detail/shop_detail",
-        "order_success/order_success",
-        "set_order/set_order",
-        "apply_one/apply_one",
-        "apply_two/apply_two",
-        "poster/poster",
-        "gift/gift"
+        "nearby/nearby",
+        "assess/assess"
       ]
     },
     {
       "root": "pages_two",
-      "pages": [
-        "order-list/order-list",
-        "order-detail/order-detail",
-        "recyc_order_list/recyc_order_list",
-        "recyc_order_detail/recyc_order_detail",
-        "workspace_one/workspace_one",
-        "workspace_two/workspace_two",
-        "shop_set/shop_set",
-        "comment/comment",
-        "set/set"
-      ]
+      "pages": []
     }
   ],
   "window": {

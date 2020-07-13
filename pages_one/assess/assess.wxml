@@ -21,7 +21,7 @@
 				</view>
 			</view>
 			<view class="flex fl-w types">
-				<view class="f28 t-c {{item.choice==1?'choices c-ff':'choicesd c-90'}}" wx:for="{{types_list}}" wx:key="index" data-index="{{index}}">{{item.name}}</view>
+				<view class="f28 t-c {{item.choice==1?'choices c-ff':'choicesd c-90'}}" wx:for="{{types_list}}" wx:key="index" data-index="{{index}}" bindtap="choice_Nature">{{item.name}}</view>
 			</view>
 		</view>
 

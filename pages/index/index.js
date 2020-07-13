@@ -40,9 +40,7 @@ Page({
       pagesize: 5,
       openid: wx.getStorageSync('openid')
     }
-    // console.log('参数：', data)
     http.sendRequest('huishou.luobo', 'post', data).then(function (res) {
-      // console.log(res)
       if (res.error == 0) {
         that.setData({
           lunbo: res.list
@@ -62,9 +60,7 @@ Page({
       pagesize: 10,
       openid: wx.getStorageSync('openid')
     }
-    // console.log('参数：', data)
     http.sendRequest('huishou.shoplist', 'post', data).then(function (res) {
-      // console.log(res.list)
       if (res.error == 0) {
         that.setData({
           shop: res.list
@@ -84,9 +80,7 @@ Page({
       pagesize: 10,
       openid: wx.getStorageSync('openid')
     }
-    // console.log('参数；', data)
     http.sendRequest('huishou.knowledge', 'post', data).then(function (res) {
-      console.log(res.list)
       if (res.error == 0) {
         that.setData({
           info: res.list
@@ -97,15 +91,17 @@ Page({
     })
   },
 
+  // 附近门店
   toShop: function () {
-    modal.navigate('/pages/nearby/nearby')
+    modal.navigate('/pages_one/nearby/nearby')
   },
 
-
+  // 免费估价
   toAssess: function () {
-    modal.navigate('/pages/assess/assess')
+    modal.navigate('/pages_one/assess/assess')
   },
 
+  // 知识推荐 - 更多
   toInfo: function () {
     wx.switchTab({
       url: '/pages/infos/infos',
@@ -122,6 +118,5 @@ Page({
     let id = e.currentTarget.dataset.id
     modal.navigate('/pages/infos_detail/infos_detail?id=', id)
   }
-
 
 })

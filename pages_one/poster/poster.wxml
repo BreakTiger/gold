@@ -1,9 +1,0 @@
-<view class="container">
-
-	<postOne></postOne>
-
-	<!-- <postTwo></postTwo> -->
-
-	<view class="send c-ff t-c f30 b_r40 b-8F">保存图片</view>
-
-</view>
