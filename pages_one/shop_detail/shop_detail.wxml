@@ -1,0 +1,88 @@
+<view class="container flex col fl-align">
+	<!-- 轮播 -->
+	<view class="lunbo p-r">
+		<swiper class="wh" wx:for="{{detail.image}}" wx:key="index">
+			<swiper-item>
+				<image src="{{item}}" class="wh"></image>
+			</swiper-item>
+		</swiper>
+		<!-- 指示点 -->
+
+	</view>
+	<!-- 店铺信息 -->
+	<view class="content contents w710 b-ff flex col fl-align">
+		<view class="f32 f-wb c-33 climp2">{{detail.shopname}}</view>
+		<view class="flex fl-align">
+			<image src="../../icon/level.png" class="icon" wx:for="{{detail.fenshu}}" wx:key="index"></image>
+			<image src="../../icon/levels.png" class="icon" wx:for="{{5-detail.fenshu}}" wx:key="index"></image>
+			<text class="f26 c-66">{{detail.fenshu}}</text>
+		</view>
+		<view class="flex fl-align">
+			<image src="../../icon/phone.png" class="icon"></image>
+			<text class="f26 c-66">联系电话：{{detail.is_mobile}}</text>
+		</view>
+		<view class="flex fl-align">
+			<image src="../../icon/time.png" class="icon"></image>
+			<text class="f26 c-66">营业时间：{{detail.yingyetime}}</text>
+		</view>
+		<view class="flex fl-align fl-jsb">
+			<view class="flex fl-align">
+				<view class="f24 c-66 b-f0 laber" wx:for="{{managementid}}" wx:key="index">{{item}}</view>
+			</view>
+			<view class="flex fl-align">
+				<image src="../../icon/share.png" class="icon"></image>
+				<text class="f26">分享</text>
+			</view>
+		</view>
+	</view>
+	<!-- 介绍 -->
+	<view class="content w710 b-ff flex col fl-align">
+		<view class="f32 f-wb c-33">介绍</view>
+		<view class="f26 c-33 climp2" style="height: 70rpx;">{{detail.remark}}</view>
+		<view class="t-c f26 c-8F">查看更多</view>
+	</view>
+	<!-- 评价 -->
+	<view class="content w710 b-ff flex col fl-align">
+		<view class="flex fl-align fl-jsb">
+			<text class="f30 c-33 f-wb">评价（{{detail.pingjialist.length}}）</text>
+			<text class="f26 c-8F">查看更多</text>
+		</view>
+		<view class="flex col fl-align" style="border-bottom: 1rpx solid #f5f5f5;" wx:for="{{detail.pingjialist}}" wx:key="index">
+			<view class="w100 flex fl-align fl-jsb">
+				<image src="{{item.avatar}}" class="head b_rh"></image>
+				<view class="flex col" style="width:88%;">
+					<view class="flex fl-align fl-jsb">
+						<text class="f26 c-33">{{item.nickname}}</text>
+						<text class="f24 c-66">{{item.level}}</text>
+					</view>
+					<view class="flex fl-align fl-jsb">
+						<text class="f24 c-66">{{item.createtime}}</text>
+						<view class="flex fl-align">
+							<image src="../../icon/level.png" class="level" wx:for="{{item.level-0}}" wx:key="index"></image>
+							<image src="../../icon/levels.png" class="levels" wx:for="{{5-item.level}}" wx:key="index"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="f24 c-66" style="margin-top: 20rpx;">{{item.content}}</view>
+		</view>
+	</view>
+	<!-- 门店地址 -->
+	<view class="content w710 b-ff flex col fl-align">
+		<view class="f32 f-wb c-33">门店地址</view>
+		<view class="flex fl-align fl-jsb">
+			<image src="../../icon/location.png" class="location"></image>
+			<view class="f26 c-66" style="width: 82%;">{{detail.province}}{{detail.city}}{{detail.area}}{{detail.address}}</view>
+			<view class="flex col fl-align" bindtap="toLocation">
+				<image src="../../icon/nav.png" class="nav"></image>
+				<text class="f26 c-8F">导航</text>
+			</view>
+		</view>
+    <map id="map" longitude="{{detail.lng}}" latitude=" {{detail.lat}}" markers="{{markers}}"></map>
+	</view>
+
+	<view style="width: 100%;height: 180rpx;"></view>
+	<view class="bottom-line flex fl-align fl-jc p-f b-ff">
+		<view class="order t-c b-8F c-ff b_r40 f32" bindtap="toOrder">在线预约</view>
+	</view>
+</view>

@@ -10,7 +10,9 @@
       "root": "pages_one",
       "pages": [
         "nearby/nearby",
-        "assess/assess"
+        "assess/assess",
+        "assess_success/assess_success",
+        "shop_detail/shop_detail"
       ]
     },
     {

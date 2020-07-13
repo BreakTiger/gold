@@ -1,0 +1,83 @@
+page {
+  background: #f6f6f6;
+}
+
+.lunbo {
+  width: 100%;
+  height: 440rpx;
+}
+
+.content {
+  margin-bottom: 20rpx;
+}
+
+.contents {
+  border-radius: 30rpx 30rpx 0 0;
+  z-index: 20;
+  margin-top: -80rpx;
+}
+
+.content>view {
+  width: 650rpx;
+  padding: 20rpx 0;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+.b-f0 {
+  background: #f0f0f0;
+}
+
+.laber {
+  width: 120rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+}
+
+.head {
+  width: 71rpx;
+  height: 71rpx;
+  margin-right: 20rpx;
+}
+
+.level {
+  width: 26rpx;
+  height: 20rpx;
+  margin-right: 10rpx;
+}
+
+.location {
+  width: 32rpx;
+  height: 40rpx;
+}
+
+.nav {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+#map {
+  width: 673rpx;
+  height: 298rpx;
+  padding: 0rpx !important;
+  margin: 20rpx 0;
+}
+
+.bottom-line {
+  width: 100%;
+  height: 120rpx;
+  bottom: 0rpx;
+}
+
+.order {
+  width: 506rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}

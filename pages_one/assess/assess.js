@@ -62,9 +62,9 @@ Page({
     list.forEach(function (item, index) {
       if (indexs == index) {
         item.choice = 1
-        // console.log(item)
         that.setData({
-          type_choice: item.id
+          type_choice: item.id,
+          types_chopice: ''
         })
         that.getNature()
       } else {
@@ -82,9 +82,7 @@ Page({
     let data = {
       type_id: that.data.type_choice
     }
-    // console.log('参数：', data)
     http.sendRequest('huishou.jintype', 'post', data).then(function (res) {
-      // console.log(res.list)
       if (res.error == 0) {
         let list = res.list
         list.forEach(function (item) {
@@ -104,10 +102,8 @@ Page({
     let that = this
     let list = that.data.types_list
     let indexs = e.currentTarget.dataset.index
-    console.log(list)
     list.forEach(function (item, index) {
       if (index == indexs) {
-        console.log(item)
         item.choice = 1
         that.setData({
           types_chopice: item.id
@@ -141,8 +137,10 @@ Page({
     let list = that.data.types_list
     let gram = that.data.gram
     let phone = that.data.phone
-    if (!that.data.type_choice || !that.data.types_chopice) {
-      modal.showToast('请选择你的黄金类型，及属性', 'none')
+    if (!that.data.type_choice && list.length == 0) {
+      modal.showToast('请选择黄金类型', 'none')
+    } else if (!that.data.types_chopice && list.length != 0) {
+      modal.showToast('请选择所选黄金类型的种类', 'none')
     } else if (!gram) {
       modal.showToast('请输入黄金克重', 'none')
     } else if (!phone) {
@@ -152,7 +150,6 @@ Page({
     } else {
       let data = {}
       if (list.length != 0) {
-        console.log('存在类型')
         if (that.data.types_chopice) {
           data = {
             type: that.data.types_chopice,
@@ -173,7 +170,6 @@ Page({
       }
       console.log('参数：', data)
       http.sendRequest('huishou.sbpinggu', 'post', data).then(function (res) {
-        // console.log(res)
         if (res.error == 0) {
           let data = {
             count_price: res.list.countprice,
@@ -186,4 +182,6 @@ Page({
       })
     }
   }
+
+  
 })
