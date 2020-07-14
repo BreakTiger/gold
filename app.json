@@ -20,7 +20,12 @@
     },
     {
       "root": "pages_two",
-      "pages": []
+      "pages": [
+        "apply_one/apply_one",
+        "apply_two/apply_two",
+        "workspace_one/workspace_one",
+        "workspace_two/workspace_two"
+      ]
     }
   ],
   "permission": {

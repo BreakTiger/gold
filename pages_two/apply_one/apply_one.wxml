@@ -1,0 +1,12 @@
+<view class="container">
+
+	<!-- 规则 -->
+	<!-- <Rule></Rule> -->
+
+	<!-- 信息填写 -->
+	<!-- <applyOne></applyOne> -->
+
+	<!-- 审核结果 -->
+	<applyTwo></applyTwo>
+
+</view>
