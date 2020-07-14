@@ -7,6 +7,7 @@ Page({
 
   data: {
     price: '',
+    gram:'',
     count_price: ''
   },
 
@@ -14,9 +15,11 @@ Page({
     let datas = JSON.parse(options.data)
     this.setData({
       price: datas.price,
+      gram:datas.gram,
       count_price: datas.count_price
     })
   },
+
 
 
 })

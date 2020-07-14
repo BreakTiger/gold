@@ -236,7 +236,8 @@ Page({
       } else {
         let data = {
           count_price: that.data.money,
-          price: that.data.price
+          price: that.data.price,
+          gram: that.data.gram
         }
         modal.navigate('/pages_one/set_order/set_order?data=', JSON.stringify(data))
       }
