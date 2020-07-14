@@ -1,7 +1,84 @@
 <view class="container">
 
-	<orderOne></orderOne>
+	<view class="w710 flex col fl-align" style="margin:28rpx auto;">
 
-	<!-- <orderTwo></orderTwo> -->
+		<view class="w100 flex fl-align">
+
+			<text class="f26">实时金价:<text class="f32 c-43">{{price}}</text>元/克</text>
+
+			<text class="f26" style="margin-left:20rpx;">预估金额:<text class="f32 c-43">{{count_price}}</text>元</text>
+
+		</view>
+
+		<view class="w100 b-ff flex col fl-align b_r10 f30" style="padding:25rpx 0;margin-top:20rpx;">
+
+			<view class="flex col" style="margin-bottom:20rpx;">
+				<text class="c-33">1.请输入您的黄金克重</text>
+
+				<view class="flex fl-align c-66">
+
+					<view class="flex fl-align" style="padding:20rpx 0;border-bottom:1rpx solid #f5f5f5;">
+						<text>首饰克重（千足金）</text>
+						<input type="digit" style="width:48%;text-align:right;" placeholder="请输入克重"></input>
+					</view>
+
+					<text>克</text>
+				</view>
+			</view>
+
+			<view class="flex col">
+				<text class="c-33">2.请上传实物或发票图片<text class="f24 c-99">（可选填）</text></text>
+				<view class="photo p-r b_r10" style="margin-top:20rpx;">
+					<image src="../../icon/photo.png" class="p-a"></image>
+				</view>
+				<!-- <image src="" class="photo b_r10" style="margin-top:20rpx;"></image> -->
+			</view>
+
+		</view>
+
+		<view class="w100 b-ff flex col fl-align b_r10" style="margin-top:20rpx;">
+
+			<view class="f34 c-33 f-wb" style="margin:20rpx 0;">回收上门</view>
+
+			<view class="flex fl-align fl-jsb">
+				<image src="../../icon/time.png" class="icon"></image>
+				<view class="flex fl-align fl-jsb" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;">
+					<text class="f30 c-F0">预约回收时间</text>
+					<image src="../../icon/to.png" class="icon"></image>
+				</view>
+			</view>
+
+			<view class="flex fl-align fl-jsb">
+				<image src="../../icon/name.png" class="icon"></image>
+				<input style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" type="text" placeholder="请输入您的姓名"></input>
+			</view>
+
+			<view class="flex fl-align fl-jsb">
+				<image src="../../icon/mobile.png" class="icon"></image>
+				<view class="flex fl-align fl-jsb" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;">
+					<input placeholder="请输入您的手机号码" type="number"></input>
+					<button class="get">一键获取</button>
+				</view>
+			</view>
+
+			<view class="flex fl-align fl-jsb">
+				<image src="../../icon/city.png" class="icon"></image>
+				<view class="flex fl-align fl-jsb" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;">
+					<input placeholder="请输入您的回收地址"></input>
+					<image src="../../icon/to.png" class="icon"></image>
+				</view>
+			</view>
+
+			<view class="flex fl-align fl-jsb">
+				<image src="../../icon/address.png" class="icon"></image>
+				<input style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" type="text" placeholder="请填写您的详情地址"></input>
+			</view>
+
+		</view>
+
+		<view class="send b-8F c-ff b_r40 t-c f30 f-wb">确认提交</view>
+
+	</view>
+
 
 </view>

@@ -6,14 +6,22 @@ Page({
 
 
   data: {
+    // 回收门店
     shop_list: [], //预约门店
+    shop: '请选择预约门店',
 
+    //回收时间
     time_one: '预约回收日期',
-
     time_two: '预约回收时间',
 
+    // 业务
     business_list: [],//预约业务
 
+    // 姓名
+    name: '',
+
+    // 电话
+    phone: '',
 
   },
 
@@ -69,11 +77,17 @@ Page({
   //姓名
   getName: function (e) {
     console.log(e.detail.value)
+    this.setData({
+      name: e.detail.value
+    })
   },
 
   //电话
   getPhone: function (e) {
     console.log(e.detail.value)
+    this.setData({
+      phone: e.detail.value
+    })
   },
 
 

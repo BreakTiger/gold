@@ -21,3 +21,27 @@ page {
   width: 30rpx;
   height: 30rpx;
 }
+
+.photo {
+  width: 600rpx;
+  height: 270rpx;
+  background: #DBDBDB;
+}
+
+.photo>image {
+  width: 90rpx;
+  height: 90rpx;
+  left: calc((100% - 90rpx) / 2);
+  top: calc((100% - 90rpx) / 2);
+}
+
+.get {
+  width: 150rpx !important;
+  height: 50rpx !important;
+  line-height: 50rpx;
+  background: #E2C28F;
+  font-size: 24rpx !important;
+  color: #ffffff;
+  padding: 0rpx;
+  margin: 0rpx !important;
+}

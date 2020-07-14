@@ -136,8 +136,24 @@ Page({
 
   //黄金克重
   getGram: function (e) {
-    this.setData({
-      gram: e.detail.value
+    let that = this
+    let price = that.data.price
+    let gram = e.detail.value
+    let data = {
+      huishou_gram: gram,
+      price: price
+    }
+    console.log('参数：', data)
+    http.sendRequest('huishou.getprice', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.error == 0) {
+        that.setData({
+          gram: e.detail.value,
+          money: res.countprice,
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
     })
   },
 
@@ -218,7 +234,11 @@ Page({
       if (way == 1) {
         modal.navigate('/pages_one/shop_order/shop_order')
       } else {
-        modal.navigate('/pages_one/set_order/set_order')
+        let data = {
+          count_price: that.data.money,
+          price: that.data.price
+        }
+        modal.navigate('/pages_one/set_order/set_order?data=', JSON.stringify(data))
       }
     } else {
       modal.showToast('请先阅读，并同意《黄金回收服务协议》', 'none')

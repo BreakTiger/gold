@@ -77,6 +77,20 @@
 					"pathName": "pages_one/set_order/set_order",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/recyc/recyc",
+					"pathName": "pages/recyc/recyc",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages_one/set_order/set_order",
+					"pathName": "pages_one/set_order/set_order",
+					"query": "data={\"count_price\":\"438.35\",\"price\":\"399.50\"}",
+					"scene": null
 				}
 			]
 		}

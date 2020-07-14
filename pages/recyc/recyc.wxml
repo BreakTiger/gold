@@ -37,7 +37,7 @@
 		<view class="w710 flex col f30 c-34">
 			<view>3.预估金额</view>
 			<view class="flex fl-align">
-				<input placeholder="请设置金额" class="puts" bindblur="getMoney"></input>
+				<input placeholder="请设置金额" class="puts" bindblur="getMoney" value="{{money}}"></input>
 				<text>元</text>
 			</view>
 		</view>

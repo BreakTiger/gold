@@ -8,7 +8,7 @@
 			<image src="../../icon/shop.png" class="icon"></image>
 			<picker style="width:92%;padding:20rpx 0;border-bottom:1rpx solid #f5f5f5;" mode="selector" range="{{shop_list}}" range-key="shopname">
 				<view class="wh flex fl-align fl-jsb">
-					<text class="c-99 F30">请选择预约门店</text>
+					<text class="c-99 F30">{{shop}}</text>
 					<image src="../../icon/to.png" class="icon"></image>
 				</view>
 			</picker>
@@ -40,7 +40,6 @@
 					<image src="../../icon/to.png" class="icon"></image>
 				</view>
 			</picker>
-
 		</view>
 
 		<view class="flex fl-align fl-jsb">

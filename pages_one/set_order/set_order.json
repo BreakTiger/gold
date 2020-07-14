@@ -1,7 +1,4 @@
 {
-  "usingComponents": {
-    "orderOne":"/components/set_order_one",
-    "orderTwo":"/components/set_order_two"
-  },
+  "usingComponents": {},
   "navigationBarTitleText": "填写订单"
 }
