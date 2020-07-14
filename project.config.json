@@ -63,7 +63,22 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages_one/shop_order/shop_order",
+					"pathName": "pages_one/shop_order/shop_order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages_one/set_order/set_order",
+					"pathName": "pages_one/set_order/set_order",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }
