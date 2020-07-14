@@ -1,3 +1,5 @@
+@import '../../wxParse/wxParse.wxss'
+
 page {
   background: #f6f6f6;
 }
@@ -72,4 +74,19 @@ page {
   border-radius: 3rpx;
   text-align: center;
   margin-right: 20rpx;
+}
+
+.rule {
+  width: 710rpx;
+  height: 1010rpx;
+}
+
+.rule-line {
+  width: 650rpx;
+}
+
+.agree {
+  width: 520rpx;
+  height: 80rpx;
+  line-height: 80rpx;
 }

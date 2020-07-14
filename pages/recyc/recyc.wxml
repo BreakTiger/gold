@@ -1,3 +1,5 @@
+<import src="../../wxParse/wxParse.wxml" />
+
 <view class="container">
 
 	<view class="w100 b-ff flex col fl-align" style="margin-bottom:20rpx;">
@@ -27,7 +29,7 @@
 		<view class="w710 flex col f30 c-34">
 			<view>2.请输入您的黄金克重</view>
 			<view class="flex fl-align">
-				<input placeholder="请输入您的黄金克重" class="puts" bindblur=""></input>
+				<input placeholder="请输入您的黄金克重" class="puts" bindblur="getGram"></input>
 				<text>克</text>
 			</view>
 		</view>
@@ -35,25 +37,42 @@
 		<view class="w710 flex col f30 c-34">
 			<view>3.预估金额</view>
 			<view class="flex fl-align">
-				<input placeholder="请设置金额" class="puts" bindblur=""></input>
+				<input placeholder="请设置金额" class="puts" bindblur="getMoney"></input>
 				<text>元</text>
 			</view>
 		</view>
 
 		<view class="w710 flex col f30 c-34">
 			<view>4.请输入您的手机号码</view>
-			<input placeholder="请输入手机号码" class="puts" bindblur=""></input>
+			<input placeholder="请输入手机号码" class="puts" bindblur="getPhone"></input>
 		</view>
 
 		<view class="w710 flex col f30 c-34">
 			<view>5.选择类型</view>
 			<view class="flex fl-w f28" style="margin:20rpx 0 0 25rpx">
-				<view class="btn {{choice==index?'b-90 c-ff':'b-E5 c-90'}}" wx:for="{{kind}}" wx:key="index" data-index="{{index}}">{{item.name}}</view>
+				<view class="btn {{choice==item.type?'b-90 c-ff':'b-E5 c-90'}}" wx:for="{{kind}}" wx:key="index" data-type="{{item.type}}" bindtap="getTypes">{{item.name}}</view>
 			</view>
 		</view>
 
-		<view class="recyc b-90 c-ff f30 f-wb t-c" bindtap="">立即回收</view>
+		<view class="recyc b-90 c-ff f30 f-wb t-c" bindtap="getRule">立即回收</view>
 
+
+	</view>
+
+	<view class="cover flex col fl-align fl-jse" wx:if="{{shadows}}">
+
+		<view class="rule b-ff flex col fl-align fl-jse b_r30">
+			<view class="rule-line f36 f-wb c-33 t-c">黄金回收服务协议</view>
+			<scroll-view scroll-y="true" class="rule-line" style="height:720rpx;">
+				<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+			</scroll-view>
+			<view class="rule-line flex fl-align">
+				<icon type="circle" size="25" style="margin-right:20rpx;" wx:if="{{agree==0}}" bindtap="agrees"></icon>
+				<icon type="success" size="25" color="#E2C28F" style="margin-right:20rpx;" wx:if="{{agree==1}}" bindtap="agrees"></icon>
+				<text class="f24 c-33">我已阅读并同意《黄金回收服务协议》</text>
+			</view>
+			<view class="agree t-c b_r40 b-8F c-ff f30 f-wb" bindtap="toAgrees">同意</view>
+		</view>
 
 	</view>
 

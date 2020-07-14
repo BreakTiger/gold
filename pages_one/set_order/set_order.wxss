@@ -1,0 +1,23 @@
+page {
+  background: #f6f6f6;
+}
+
+.c-43 {
+  color: #F2B643;
+}
+
+.w100>view {
+  width: 600rpx;
+}
+
+.send {
+  width: 520rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 120rpx auto;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}

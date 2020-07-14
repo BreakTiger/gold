@@ -13,7 +13,9 @@
         "assess/assess",
         "assess_success/assess_success",
         "shop_detail/shop_detail",
-        "infos_detail/infos_detail"
+        "infos_detail/infos_detail",
+        "set_order/set_order",
+        "shop_order/shop_order"
       ]
     },
     {
