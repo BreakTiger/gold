@@ -84,7 +84,6 @@ Page({
     modal.navigate('/pages_one/recyc_order_list/recyc_order_list')
   },
 
-
   // 店铺入驻
   toApplyOne: function () {
     modal.navigate('/pages_two/apply_one/apply_one')
@@ -93,6 +92,16 @@ Page({
   // 个人入驻
   toApplyTwo: function () {
     modal.navigate('/pages_two/apply_two/apply_two')
+  },
+
+  //店铺工作台
+  space_one: function () {
+    modal.navigate('/pages_two/workspace_one/workspace_one')
+  },
+
+  //个人工作台
+  space_two: function () {
+    modal.navigate('/pages_two/workspace_two/workspace_two')
   },
 
 

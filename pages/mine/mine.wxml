@@ -10,9 +10,9 @@
 
 	<view class="w710 b-ff b_r30 flex col fl-align" style="height:280rpx;margin-bottom: 25rpx;margin-top: -60rpx;z-index: 50;">
 
-		<view class="w100 flex fl-align fl-jsb">
+		<view class="w100 flex fl-align fl-jsb" bindtap="enter_one">
 			<text class="f36 c-33 f-wb" style="margin-left: 30rpx;">上门回收</text>
-			<view class="flex fl-align" style="margin-right: 30rpx;" bindtap="enter_one">
+			<view class="flex fl-align" style="margin-right: 30rpx;" >
 				<text class="f26 c-99">全部订单</text>
 				<image src="../../icon/to.png" class="go"></image>
 			</view>
@@ -65,11 +65,11 @@
 				<image src="../../icon/m-7.png" class="icon"></image>
 				<text>个人入驻</text>
 			</view>
-			<view class="wc3 flex col fl-align" wx:if="{{user.shop==1}}">
+			<view class="wc3 flex col fl-align" wx:if="{{user.shop==1}}" bindtap="space_one">
 				<image src="../../icon/m-6.png" class="icon"></image>
 				<text>店铺工作台</text>
 			</view>
-			<view class="wc3 flex col fl-align" wx:if="{{user.practitioners==1}}">
+			<view class="wc3 flex col fl-align" wx:if="{{user.practitioners==1}}" bindtap="space_two">
 				<image src="../../icon/m-7.png" class="icon"></image>
 				<text>个人工作台</text>
 			</view>
