@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "postOne":"/components/poster_one",
+    "postTwo":"/components/poster_two"
+  },
+  "navigationBarTitleText": "海报分享"
+}

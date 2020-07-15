@@ -1,0 +1,17 @@
+page {
+  background: #f6f6f6;
+}
+
+.w710>view {
+  width: 640rpx;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.img {
+  width: 182rpx;
+  height: 182rpx;
+}
