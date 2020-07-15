@@ -19,10 +19,16 @@
 
 			<view class="flex col">
 				<text class="c-33">2.请上传实物或发票图片<text class="f24 c-99">（可选填）</text></text>
-				<view class="photo p-r b_r10" style="margin-top:20rpx;">
-					<image src="../../icon/photo.png" class="p-a"></image>
+				<view class="photo p-r b_r10" style="margin-top:20rpx; background: #DBDBDB;" wx:if="{{picture_list.length==0}}" bindtap="addPicture">
+					<image src="../../icon/photo.png" class=" p-a"></image>
 				</view>
-				<!-- <image src="" class="photo b_r10" style="margin-top:20rpx;"></image> -->
+				<view class="photos flex fl-w" wx:if="{{picture_list.length!=0}}" style="margin-top:20rpx;">
+					<view class="p-r" wx:for="{{picture_list}}" wx:key="index">
+						<image src="{{item}}" class="wh"></image>
+						<image src="../../icon/del.png" class="del p-a"></image>
+					</view>
+					<image src="../../img/add.png" class="add" wx:if="{{picture_list.length<5}}"></image>
+				</view>
 			</view>
 
 		</view>
@@ -41,7 +47,7 @@
 
 			<view class="flex fl-align fl-jsb">
 				<image src="../../icon/name.png" class="icon"></image>
-				<input style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" type="text" placeholder="请输入您的姓名"></input>
+				<input style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" type="text" placeholder="请输入您的姓名" bindblur="getName"></input>
 			</view>
 
 			<view class="flex fl-align fl-jsb">
@@ -55,19 +61,19 @@
 			<view class="flex fl-align fl-jsb">
 				<image src="../../icon/city.png" class="icon"></image>
 				<view class="flex fl-align fl-jsb" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;">
-					<input placeholder="请输入您的回收地址"></input>
+					<input placeholder="请输入您的回收地址" bindblur="getCity"></input>
 					<image src="../../icon/to.png" class="icon"></image>
 				</view>
 			</view>
 
 			<view class="flex fl-align fl-jsb">
 				<image src="../../icon/address.png" class="icon"></image>
-				<input style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" type="text" placeholder="请填写您的详情地址"></input>
+				<input style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" type="text" placeholder="请填写您的详情地址" bindblur="getAddress"></input>
 			</view>
 
 		</view>
 
-		<view class="send b-8F c-ff b_r40 t-c f30 f-wb">确认提交</view>
+		<view class="send b-8F c-ff b_r40 t-c f30 f-wb" bindtap="send">确认提交</view>
 
 	</view>
 

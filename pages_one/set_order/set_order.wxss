@@ -7,7 +7,7 @@ page {
 }
 
 .w100>view {
-  width: 600rpx;
+  width: 670rpx;
 }
 
 .send {
@@ -23,9 +23,7 @@ page {
 }
 
 .photo {
-  width: 600rpx;
   height: 270rpx;
-  background: #DBDBDB;
 }
 
 .photo>image {
@@ -33,6 +31,25 @@ page {
   height: 90rpx;
   left: calc((100% - 90rpx) / 2);
   top: calc((100% - 90rpx) / 2);
+}
+
+.photos>view {
+  width: 210rpx;
+  height: 210rpx;
+  margin: 4rpx;
+}
+
+.del {
+  width: 30rpx;
+  height: 30rpx;
+  right: 0rpx;
+  top: 0rpx;
+  z-index: 20;
+}
+
+.add {
+  width: 210rpx;
+  height: 210rpx;
 }
 
 .get {
