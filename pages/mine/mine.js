@@ -50,27 +50,9 @@ Page({
         text: '待评价',
         type: ''
       }
-    ],
-
-    nav_three: [
-      {
-        icon: '../../icon/m-6.png',
-        text: '店铺入驻',
-        path: ''
-      },
-      {
-        icon: '../../icon/m-7.png',
-        text: '个人入驻',
-        path: ''
-      }
     ]
-
-
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.getUser()
   },
@@ -80,7 +62,6 @@ Page({
     let data = {
       openid: wx.getStorageSync('openid')
     }
-    console.log('参数', data)
     http.sendRequest('huishou.getusermember', 'post', data).then(function (res) {
       console.log(res)
       if (res.error == 0) {
@@ -93,52 +74,26 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  //上门回收
+  enter_one: function (e) {
+    modal.navigate('/pages_one/order-list/order-list')
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  //门店预约
+  enter_two: function (e) {
+    modal.navigate('/pages_one/recyc_order_list/recyc_order_list')
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
+  // 店铺入驻
+  toApplyOne: function () {
+    modal.navigate('/pages_two/apply_one/apply_one')
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  // 个人入驻
+  toApplyTwo: function () {
+    modal.navigate('/pages_two/apply_two/apply_two')
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
 
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
