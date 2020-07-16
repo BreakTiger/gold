@@ -3,7 +3,7 @@ page {
 }
 
 .container>view {
-  height: 240rpx;
+  height: 200rpx;
   margin: 25rpx auto;
 }
 

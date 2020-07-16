@@ -66,13 +66,6 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages_one/shop_order/shop_order",
-					"pathName": "pages_one/shop_order/shop_order",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "pages_one/set_order/set_order",
 					"pathName": "pages_one/set_order/set_order",
 					"query": "data={\"count_price\":\"438.35\",\"price\":\"399.50\",\"gram\":\"1.1\"}",
@@ -80,16 +73,16 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/mine/mine",
-					"pathName": "pages/mine/mine",
+					"name": "pages_one/shop_order/shop_order",
+					"pathName": "pages_one/shop_order/shop_order",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages_one/order-list/order-list",
-					"pathName": "pages_one/order-list/order-list",
-					"query": "",
+					"name": "pages_one/order_success/order_success",
+					"pathName": "pages_one/order_success/order_success",
+					"query": "data={\"id\":\"19\",\"mobile\":\"13868367595\",\"createtime\":\"1594868242\",\"ordersn\":\"YY15948682429588\",\"username\":\"111\",\"yuyuetime\":\"1594836000\",\"shopname\":\"哈哈\",\"province\":\"广东省\",\"city\":\"广州市\",\"area\":\"天河区\",\"address\":\"天源某某号\"}",
 					"scene": null
 				}
 			]

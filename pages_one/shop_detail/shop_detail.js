@@ -7,7 +7,6 @@ Page({
   data: {
     id: '',
     detail: {},
-
   },
 
 

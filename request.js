@@ -1,6 +1,6 @@
 // 请求封装
 // 网络请求 - 封装文件
-const api = "https://umisky.pensee168.com/app/yun_shopv2_api.php?i=7&comefrom=wxapp&r=" //域名头部
+const api = "https://huishou.pensee168.com/app/yun_shopv2_api.php?i=7&comefrom=wxapp&r=" //域名头部
 
 //请求分装 -  不带有登录判断
 function sendRequest(url, method, data) {

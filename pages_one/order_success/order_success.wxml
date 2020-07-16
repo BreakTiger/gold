@@ -10,27 +10,27 @@
 
 			<view class="w100 flex fl-jsb">
 				<view class="f30 c-33 f-wb" style="width:120rpx;">门店地点</view>
-				<view class="f30 c-66 climp2" style="width:480rpx;text-align:right;">广东省广州市天河区天源路天河新天地B栋</view>
+				<view class="f30 c-66 climp2" style="width:480rpx;text-align:right;">{{detail.province}}{{detail.city}}{{detail.area}}{{detail.address}}</view>
 			</view>
 
       <view class="w100 flex fl-jsb">
 				<view class="f30 c-33 f-wb" style="width:120rpx;">门店电话</view>
-				<view class="f30 c-66" style="width:480rpx;text-align:right;">020-5263-526</view>
+				<view class="f30 c-66" style="width:480rpx;text-align:right;"></view>
 			</view>
 
       <view class="w100 flex fl-jsb">
 				<view class="f30 c-33 f-wb" style="width:120rpx;">预约时间</view>
-				<view class="f30 c-66" style="width:480rpx;text-align:right;">2020-06-10 14:00</view>
+				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.yuyuetime}}</view>
 			</view>
 
       <view class="w100 flex fl-jsb">
 				<view class="f30 c-33 f-wb" style="width:120rpx;">姓名</view>
-				<view class="f30 c-66" style="width:480rpx;text-align:right;">小小</view>
+				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.username}}</view>
 			</view>
 
        <view class="w100 flex fl-jsb">
 				<view class="f30 c-33 f-wb" style="width:120rpx;">联系方式</view>
-				<view class="f30 c-66" style="width:480rpx;text-align:right;">17666501256</view>
+				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.mobile}}</view>
 			</view>
 
 		</view>
