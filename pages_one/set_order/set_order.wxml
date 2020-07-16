@@ -27,7 +27,7 @@
 						<image src="{{item}}" class="wh"></image>
 						<image src="../../icon/del.png" class="del p-a" data-index="{{index}}" bindtap="toDel"></image>
 					</view>
-					<image src="../../img/add.png" class="add" wx:if="{{picture_list.length<5}}"></image>
+					<image src="../../img/add.png" class="add" bindtap="toAdd" wx:if="{{picture_list.length<5}}"></image>
 				</view>
 			</view>
 
@@ -37,12 +37,28 @@
 
 			<view class="f34 c-33 f-wb" style="margin:20rpx 0;">回收上门</view>
 
-			<view class="flex fl-align fl-jsb">
+			<view class="flex fl-jsb">
+
 				<image src="../../icon/time.png" class="icon"></image>
-				<view class="flex fl-align fl-jsb" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;">
-					<text class="f30 c-F0">预约回收时间</text>
-					<image src="../../icon/to.png" class="icon"></image>
+
+				<view class="flex col" style="width:92%;">
+
+					<picker mode="date" style="padding-bottom:20rpx;border-bottom:2rpx solid #f5f5f5;" bindchange="getDate">
+						<view class="w100 flex fl-align fl-jsb">
+							<text class="f30 c-F0">{{date}}</text>
+							<image src="../../icon/to.png" class="icon"></image>
+						</view>
+					</picker>
+
+					<picker mode="time" style="padding:20rpx 0;border-bottom:2rpx solid #f5f5f5;" bindchange="getTime">
+						<view class="w100 flex fl-align fl-jsb">
+							<text class="f30 c-F0">{{time}}</text>
+							<image src="../../icon/to.png" class="icon"></image>
+						</view>
+					</picker>
+
 				</view>
+
 			</view>
 
 			<view class="flex fl-align fl-jsb">
@@ -53,17 +69,19 @@
 			<view class="flex fl-align fl-jsb">
 				<image src="../../icon/mobile.png" class="icon"></image>
 				<view class="flex fl-align fl-jsb" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;">
-					<input placeholder="请输入您的手机号码" type="number"></input>
-					<button class="get">一键获取</button>
+					<input placeholder="请输入您的手机号码" type="number" value="{{phone}}"></input>
+					<button class="get" bindgetphonenumber="getPhone" open-type="getPhoneNumber">一键获取</button>
 				</view>
 			</view>
 
 			<view class="flex fl-align fl-jsb">
 				<image src="../../icon/city.png" class="icon"></image>
-				<view class="flex fl-align fl-jsb" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;">
-					<input placeholder="请输入您的回收地址" bindblur="getCity"></input>
-					<image src="../../icon/to.png" class="icon"></image>
-				</view>
+				<picker mode="region" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;" bindchange="getCity">
+					<view class="flex fl-align fl-jsb">
+						<text class="c-66 f30">{{city}}</text>
+						<image src="../../icon/to.png" class="icon"></image>
+					</view>
+				</picker>
 			</view>
 
 			<view class="flex fl-align fl-jsb">

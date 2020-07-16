@@ -235,10 +235,12 @@ Page({
         modal.navigate('/pages_one/shop_order/shop_order')
       } else {
         let data = {
+          id: that.data.types_choice || that.data.type_choice,
           count_price: that.data.money,
           price: that.data.price,
           gram: that.data.gram
         }
+        console.log('参数：', data)
         modal.navigate('/pages_one/set_order/set_order?data=', JSON.stringify(data))
       }
     } else {

@@ -8,6 +8,7 @@ function sendRequest(url, method, data) {
   var promise = new Promise(function (resolve, reject) {
     wx.showLoading({
       title: '加载中',
+      mask: true
     })
     wx.request({
       url: api + url,
@@ -30,36 +31,34 @@ function sendRequest(url, method, data) {
       }
     })
   })
-
   return promise;
-
 }
 
-// 七牛云
-const qiniuUploader = require("./components/qiniuUploader.js");
-function uploadFile(filePath, utoken) {
-  var promise = new Promise(function (resolve, reject) {
+//图片上传
+function uploadFile(filePath) {
+  var promise = Promise(function (resolve, reject) {
     wx.showLoading({
       title: '加载中',
+      mask: true
     })
-    console.log('文件：', filePath)
-    qiniuUploader.upload(filePath,
-      (res) => {
-        uni.hideLoading();
-        resolve(res)
+    wx.uploadFile({
+      filePath: filePath,
+      name: 'name',
+      url: api + 'huishou.uploadimg',
+      success: function (res) {
+        wx.hideLoading()
+        if (res.statusCode == 200) {
+          resolve(res.data);
+        } else {
+          resolve(res.data);
+        }
       },
-      (error) => {
-        uni.hideLoading();
-        reject(error)
-      }, {
-      region: 'SCN',
-      uploadURL: 'https://up-z2.qiniup.com',
-      domain: 'http://qakghu7iq.bkt.clouddn.com',
-      uptoken: utoken
-    }
-    )
+      fail: function (res) {
+        wx.hideLoading()
+        reject(res);
+      }
+    })
   })
-
   return promise;
 }
 
