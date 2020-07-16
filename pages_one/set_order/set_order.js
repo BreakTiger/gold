@@ -55,7 +55,11 @@ Page({
   // 提交
   send: function () {
 
-  }
+  },
+
+  toDel:function(){
+    console.log('删除')
+  },
 
 
 
