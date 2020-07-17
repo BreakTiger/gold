@@ -1,9 +1,9 @@
-// pages_two/recyc_order_list/recyc_order_list.js
+const app = getApp()
+const http = require('../../request.js')
+import modal from '../../modals.js'
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     nav: [
       {
@@ -18,7 +18,8 @@ Page({
         text: '待评价',
         type: 2
       }
-    ]
+    ],
+    choice: ''
   },
 
   /**

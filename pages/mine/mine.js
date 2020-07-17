@@ -10,27 +10,27 @@ Page({
       {
         icon: '../../icon/m-1.png',
         text: '全部',
-        type: ''
+        type: 0
       },
       {
         icon: '../../icon/m-2.png',
         text: '派单中',
-        type: ''
+        type: 1
       },
       {
         icon: '../../icon/m-3.png',
         text: '进行中',
-        type: ''
+        type: 2
       },
       {
         icon: '../../icon/m-4.png',
         text: '待评价',
-        type: ''
+        type: 3
       },
       {
         icon: '../../icon/m-5.png',
         text: '已取消',
-        type: ''
+        type: 4
       }
     ],
 
@@ -38,17 +38,17 @@ Page({
       {
         icon: '../../icon/m-1.png',
         text: '全部',
-        type: ''
+        type: 0
       },
       {
         icon: '../../icon/m-2.png',
         text: '预约中',
-        type: ''
+        type: 2
       },
       {
         icon: '../../icon/m-4.png',
         text: '待评价',
-        type: ''
+        type: 3
       }
     ]
   },

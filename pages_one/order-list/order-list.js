@@ -1,9 +1,10 @@
-// pages_two/order-list/order-list.js
+const app = getApp()
+const http = require('../../request.js')
+import modal from '../../modals.js'
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
+
   data: {
     nav: [
       {
@@ -26,62 +27,47 @@ Page({
         text: '已取消',
         type: 4
       }
-    ]
+    ],
+    choice: 0,
+
+    page: 1,
+
+    list: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
-
+    console.log(options)
+    this.getList()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getList: function () {
+    let that = this
+    let data = {
+      page: that.data.page,
+      pagesize: 10,
+      status: that.data.choice,
+      openid: wx.getStorageSync('openid'),
+      type: 1,
+      ordertype: 1
+    }
+    console.log('参数：', data)
+    http.sendRequest('huishou.orderList', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.error == 0) {
+        that.setData({
+          list: res.list
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  //详情
+  toDetail: function (e) {
+    console.log(e)
+    modal.navigate('/pages_one/order-detail/order-detail')
   }
+
 })

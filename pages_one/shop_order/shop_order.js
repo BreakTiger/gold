@@ -30,6 +30,13 @@ Page({
   },
 
   onLoad: function (options) {
+    console.log(options)
+    if (options.shopname) {
+      this.setData({
+        shop: options.shopname,
+        shop_id: options.id
+      })
+    }
     this.getShop()
   },
 
@@ -42,7 +49,7 @@ Page({
       lat: wx.getStorageSync('lat'),
       lng: wx.getStorageSync('lng')
     }
-    console.log('参数：', data)
+    // console.log('参数：', data)
     http.sendRequest('huishou.shoplist', 'post', data).then(function (res) {
       if (res.error == 0) {
         that.setData({
@@ -64,7 +71,6 @@ Page({
       type: 2
     }
     http.sendRequest('huishou.jingying', 'post', data).then(function (res) {
-      // console.log(res.list)
       if (res.error == 0) {
         that.setData({
           business_list: res.list
@@ -154,9 +160,9 @@ Page({
         ordertype: 2,
         openid: wx.getStorageSync('openid')
       }
-      console.log('参数：', data)
+      // console.log('参数：', data)
       http.sendRequest('huishou.addyuOrder', 'post', data).then(function (res) {
-        console.log(res.list)
+        // console.log(res.list)
         if (res.error == 0) {
           modal.navigate('/pages_one/order_success/order_success?data=', JSON.stringify(res.list))
         } else {

@@ -16,6 +16,8 @@ Page({
 
     picture_list: [], //图片
 
+    p_list: [],
+
     date: '预约回收日期',
 
     time: '预约回收时间',
@@ -24,9 +26,15 @@ Page({
 
     phone: '13868367595',
 
-    city: '请选择回收地址',
+    place: '请选择回收地址', //省 市 区
 
-    address: ''
+    province: '',
+
+    city: '',
+
+    area: '',
+
+    street: ''
   },
 
   onLoad: function (options) {
@@ -111,21 +119,24 @@ Page({
   //回收地址
   getCity: function (e) {
     let detail = e.detail.value
-    let city = detail[0] + detail[1] + detail[1]
+    let place = detail[0] + detail[1] + detail[2]
     this.setData({
-      city: city
+      place: place,
+      province: detail[0],
+      city: detail[1],
+      area: detail[2],
     })
   },
 
   //详细地址
   getAddress: function (e) {
     this.setData({
-      address: e.detail.value
+      street: e.detail.value
     })
   },
 
   // 提交
-  send: async function () {
+  send: function () {
     let that = this
     if (that.data.date == '预约回收日期') {
       modal.showToast('请选择预约回收的日期', 'none')
@@ -135,32 +146,56 @@ Page({
       modal.showToast('请填写姓名', 'none')
     } else if (!that.data.phone) {
       modal.showToast('请输入手机号码', 'none')
-    } else if (that.data.city == '请选择回收地址') {
+    } else if (that.data.place == '请选择回收地址') {
       modal.showToast('请选择收货地址', 'none')
-    } else if (!that.data.address) {
+    } else if (!that.data.street) {
       modal.showToast('请填写您的详细地址', 'none')
     } else {
       // 判断是否存在图片
       if (that.data.picture_list.length != 0) { //存在图片
-       
-      }else{
-
+        console.log('存在')
+        that.upImg(that.data.picture_list)
+      } else {
+        console.log('不存在')
+        that.sent()
       }
-      
     }
   },
 
-  //图片上传
-  upImg: function (item) {
-    let that = this
-    console.log(list)
+  //上传图片
+  upImg: function (list) {
+
   },
 
   //提交
-  send: function () {
-
+  sent: function () {
+    let that = this
+    let data = {
+      openid: wx.getStorageSync('openid'),
+      huishou_type: 1,
+      jin_type: that.data.id,
+      huishou_gram: that.data.gram,
+      yuyuetime: that.data.date + ' ' + that.data.time,
+      mobile: that.data.phone,
+      province: that.data.province,
+      city: that.data.city,
+      area: that.data.area,
+      address: that.data.street,
+      ordertype: '',
+      images: that.data.p_list,
+      price: that.data.price,
+      yuguprice: that.data.count_price
+    }
+    console.log('参数：', data)
+    http.sendRequest('huishou.addhuiOrder', 'post', data).then(function (res) {
+      console.log(res.list)
+      if (res.error == 0) {
+        modal.navigate('/pages_one/order_success/order_success?data=', JSON.stringify(res.list))
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   }
-
 
 
 

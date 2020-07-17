@@ -54,9 +54,8 @@ Page({
 
   // 现在预约
   toOrder: function () {
-
+    console.log(this.data.detail)
+    modal.navigate('/pages_one/shop_order/shop_order?shopname=', this.data.detail.shopname + '&id=' + this.data.detail.id)
   }
-
-
 
 })

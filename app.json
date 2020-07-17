@@ -56,7 +56,7 @@
       },
       {
         "pagePath": "pages/recyc/recyc",
-        "text": "回收",
+        "text": "回购",
         "iconPath": "tab/icon-4.png",
         "selectedIconPath": "tab/icon-3.png"
       },

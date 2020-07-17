@@ -4,7 +4,7 @@
 		<view class="t-c f28" wx:for="{{nav}}" wx:key="index">{{item.text}}</view>
 	</view>
 
-	<view class="list-item flex col fl-align">
+	<view class="list-item flex col fl-align" data-item="{{item}}" catchtap="toDetail">
 
 		<view class="flex fl-align fl-jsb">
 			<text class="f26">订单号：546376768767853</text>

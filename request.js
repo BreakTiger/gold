@@ -35,8 +35,9 @@ function sendRequest(url, method, data) {
 }
 
 //图片上传
-function uploadFile(filePath) {
-  var promise = Promise(function (resolve, reject) {
+function uploadFiles(filePath) {
+
+  var promise = new Promise(function (resolve, reject) {
     wx.showLoading({
       title: '加载中',
       mask: true
@@ -64,5 +65,5 @@ function uploadFile(filePath) {
 
 module.exports = {
   sendRequest: sendRequest,
-  uploadFile: uploadFile
+  uploadFiles: uploadFiles
 }

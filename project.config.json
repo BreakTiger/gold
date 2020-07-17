@@ -66,9 +66,23 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages_one/set_order/set_order",
-					"pathName": "pages_one/set_order/set_order",
-					"query": "data={\"id\":\"6\",\"count_price\":\"438.35\",\"price\":\"399.50\",\"gram\":\"1.1\"}",
+					"name": "pages/mine/mine",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages_one/order-list/order-list",
+					"pathName": "pages_one/order-list/order-list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages_one/recyc_order_list/recyc_order_list",
+					"pathName": "pages_one/recyc_order_list/recyc_order_list",
+					"query": "",
 					"scene": null
 				}
 			]
