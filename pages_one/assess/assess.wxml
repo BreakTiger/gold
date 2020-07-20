@@ -6,7 +6,7 @@
 			<image src="../../img/top.png" class="top-img"></image>
 			<view class="market b-ff flex col fl-align fl-jse b_r10">
 				<text class="f30 c-66">实时金价(元/克)</text>
-				<text class="f62 c-10">{{price}}</text>
+				<text class="f62 c-10 f-wb">{{price}}</text>
 			</view>
 		</view>
 

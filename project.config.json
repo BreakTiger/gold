@@ -66,8 +66,8 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/mine/mine",
-					"pathName": "pages/mine/mine",
+					"name": "pages_one/order-list/order-list",
+					"pathName": "pages_one/order-list/order-list",
 					"query": "",
 					"scene": null
 				}

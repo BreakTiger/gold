@@ -27,6 +27,7 @@ export default class modals {
       wx.showToast({
         title: tittle,
         icon: ion,
+        mask: true,
         duration: 2000
       })
     })
@@ -46,7 +47,7 @@ export default class modals {
         title: tittle,
       })
 
-      setTimeout(function() {
+      setTimeout(function () {
         wx.hideLoading()
       }, 2000)
     })
@@ -58,16 +59,16 @@ export default class modals {
       if (str) {
         wx.navigateTo({
           url: urllink + str,
-          success: function(res) {},
-          fail: function(res) {},
-          complete: function(res) {},
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
         })
       } else {
         wx.navigateTo({
           url: urllink,
-          success: function(res) {},
-          fail: function(res) {},
-          complete: function(res) {},
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
         })
       }
     })
@@ -77,9 +78,9 @@ export default class modals {
   static toswitch(url) {
     wx.switchTab({
       url: url,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {}
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { }
     })
   }
 

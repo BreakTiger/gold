@@ -4,14 +4,14 @@
 		<view class="t-c f28" wx:for="{{nav}}" wx:key="index" bindtap="toSwitch" data-type="{{item.type}}">{{item.text}}</view>
 	</view>
 
-	<view class="list-item flex col fl-align" data-item="{{item}}" catchtap="toDetail" wx:for="{{list}}" wx:key="index" wx:if="list.length!=0">
+	<view class="list-item flex col fl-align" data-id="{{item.id}}" bindtap="toDetail" wx:for="{{list}}" wx:key="index" wx:if="list.length!=0">
 
 		<view class="flex fl-align fl-jsb">
 			<text class="f26">订单号：{{item.ordersn}}</text>
-			<text class="f30 c-8F" wx:if="{{item.orderstatus==0}}">派单中</text>
-			<text class="f30 c-8F" wx:if="{{item.orderstatus==1}}">已完成</text>
-			<text class="f30 c-8F" wx:if="{{item.orderstatus==2}}">已评价</text>
-			<text class="f30 c-8F" wx:if="{{item.orderstatus==3}}">已取消</text>
+			<text class="f30 c-10" wx:if="{{item.orderstatus==0}}">派单中</text>
+			<text class="f30 c-8F" wx:if="{{item.orderstatus==1}}">进行中</text>
+			<text class="f30 c-33" wx:if="{{item.orderstatus==2}}">待评价</text>
+			<text class="f30 c-99" wx:if="{{item.orderstatus==3}}">已取消</text>
 		</view>
 
 		<view class="flex col" style="border-bottom:1rpx solid #f5f5f5;">
@@ -31,7 +31,13 @@
 
 		<view class="flex fl-align">
 
-			<view class="btn t-c f26 c-33 b_r30">取消订单</view>
+			<view class="btn t-c f26 c-33 b_r30" catchtap="toCancel" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.orderstatus==0}}">取消订单</view>
+
+			<view class="btn t-c f26 c-33 b_r30" wx:if="{{item.orderstatus!=0}}">查看详情</view>
+
+			<view class="btn t-c f26 c-33 b_r30" wx:if="{{item.orderstatus!=0&&item.orderstatus==1}}" catchtap="toFinish" data-id="{{item.id}}" data-index="{{index}}">确认完成</view>
+
+			<view class="btn t-c f26 c-33 b_r30" wx:if="{{item.orderstatus!=0&&item.orderstatus==2}}">评价订单</view>
 
 		</view>
 
