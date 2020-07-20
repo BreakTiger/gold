@@ -32,11 +32,21 @@ Page({
           detail: res.list
         })
         let article = res.list.content
-        WxParse.wxParse('article', 'html', article,that, 5);
+        WxParse.wxParse('article', 'html', article, that, 5);
       } else {
         modal.showToast(res.message, 'none')
       }
     })
+  },
+
+  onShareAppMessage: function (res) {
+    //按钮转发
+    if (res.from === 'button') {
+      return {
+        title: this.dataa.detail.name,
+        path: '/pages_one/infos_detail/infos_detail?id=' + this.data.id
+      }
+    }
   }
 
 })
