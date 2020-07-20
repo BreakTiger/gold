@@ -10,7 +10,7 @@
 
 	<view class="w710 b-ff b_r30 flex col fl-align" style="height:280rpx;margin-bottom: 25rpx;margin-top: -60rpx;z-index: 50;">
 
-		<view class="w100 flex fl-align fl-jsb" bindtap="enter_one">
+		<view class="w100 flex fl-align fl-jsb" bindtap="enter_one" data-type="0">
 			<text class="f36 c-33 f-wb" style="margin-left: 30rpx;">上门回收</text>
 			<view class="flex fl-align" style="margin-right: 30rpx;" >
 				<text class="f26 c-99">全部订单</text>

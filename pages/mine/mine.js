@@ -77,7 +77,8 @@ Page({
 
   //上门回收
   enter_one: function (e) {
-    modal.navigate('/pages_one/order-list/order-list')
+    let type = e.currentTarget.dataset.type
+    modal.navigate('/pages_one/order-list/order-list?type=',type)
   },
 
   //门店预约

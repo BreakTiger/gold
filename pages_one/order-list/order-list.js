@@ -28,7 +28,7 @@ Page({
         type: 4
       }
     ],
-    choice: 0,
+    choice: null,
 
     page: 1,
 
@@ -38,6 +38,9 @@ Page({
 
   onLoad: function (options) {
     console.log(options)
+    this.setData({
+      choice: options.type
+    })
     this.getList()
   },
 
