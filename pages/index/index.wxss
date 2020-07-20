@@ -31,7 +31,7 @@ page {
   height: 80rpx;
   line-height: 80rpx;
   border-radius: 40rpx;
-  margin: 60rpx 0 20rpx 0;
+  /* margin: 60rpx 0 20rpx 0; */
 }
 
 .go {
@@ -59,4 +59,15 @@ page {
   width: 26rpx;
   height: 20rpx;
   margin-right: 10rpx;
+}
+
+
+.title {
+  width: 236rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  background: linear-gradient(0deg, rgba(255, 94, 16, 1), rgba(234, 84, 5, 1));
+  border-radius: 0rpx 0rpx 50rpx 0rpx;
+  left: 0rpx;
+  top: 0rpx;
 }

@@ -25,9 +25,18 @@
 
 			</view>
 
-			<view class="assess f30 c-ff b-90 t-c" bindtap="toAssess">免费估价</view>
-
 		</view>
+
+	</view>
+
+	<!-- 实时金价 -->
+	<view class="flex col fl-align p-r b-ff" style="height:380rpx;">
+
+		<view class="title p-a t-c c-ff f30">实时金价</view>
+
+		<text style="margin:115rpx 0;">{{price}}<text>元/克</text></text>
+
+		<view class="assess f30 c-ff b-90 t-c" bindtap="toAssess">免费估价</view>
 
 	</view>
 

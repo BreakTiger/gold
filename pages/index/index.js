@@ -6,6 +6,7 @@ Page({
 
   data: {
     lunbo: [],
+    price: '0.00',
     shop: [],
     info: [],
     nav_list: [
@@ -44,6 +45,21 @@ Page({
       if (res.error == 0) {
         that.setData({
           lunbo: res.list
+        })
+        that.getPice()
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  //金价
+  getPice: function () {
+    let that = this
+    http.sendRequest('huishou.getipricej', 'post', {}).then(function (res) {
+      if (res.error == 0) {
+        that.setData({
+          price: res.list.price
         })
         that.getShop()
       } else {
