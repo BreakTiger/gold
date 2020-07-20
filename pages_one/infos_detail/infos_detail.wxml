@@ -6,7 +6,7 @@
 		<view class="w100 flex col fl-align b-ff" style="margin-bottom:5rpx;">
 			<view class="f36 c-33 f-wb">{{detail.name}}</view>
 			<view class="flex fl-align fl-jsb f24">
-				<text class="c-42">{{detail.typename}}<text class="c-66"> | {{detail.createtime}}</text></text>
+				<text class="c-10">{{detail.typename}}<text class="c-66"> | {{detail.createtime}}</text></text>
 				<view class="flex fl-align p-r">
 					<image src="../../icon/share.png" class="icon"></image>
 					<text class="c-66" style="margin-left:20rpx;">分享</text>

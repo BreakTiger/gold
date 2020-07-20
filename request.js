@@ -34,36 +34,17 @@ function sendRequest(url, method, data) {
   return promise;
 }
 
-//图片上传
-function uploadFiles(filePath) {
+// 上传
+function upLoading(filePath, data) {
+  console.log('文件路径：', filePath)
+  console.log('参数：', data)
 
-  var promise = new Promise(function (resolve, reject) {
-    wx.showLoading({
-      title: '加载中',
-      mask: true
-    })
-    wx.uploadFile({
-      filePath: filePath,
-      name: 'name',
-      url: api + 'huishou.uploadimg',
-      success: function (res) {
-        wx.hideLoading()
-        if (res.statusCode == 200) {
-          resolve(res.data);
-        } else {
-          resolve(res.data);
-        }
-      },
-      fail: function (res) {
-        wx.hideLoading()
-        reject(res);
-      }
-    })
-  })
-  return promise;
+
 }
+
+
 
 module.exports = {
   sendRequest: sendRequest,
-  uploadFiles: uploadFiles
+  upLoading: upLoading
 }
