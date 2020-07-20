@@ -63,7 +63,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages_one/set_order/set_order",
+					"pathName": "pages_one/set_order/set_order",
+					"query": "data={\"id_one\":\"6\",\"id_two\":\"1\",\"price\":\"399.50\",\"count_price\":\"438.35\",\"gram\":\"1.1\"}",
+					"scene": null
+				}
+			]
 		}
 	}
 }
