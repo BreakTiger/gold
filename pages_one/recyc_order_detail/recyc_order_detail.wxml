@@ -13,6 +13,11 @@
 		</view>
 
 		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">预约业务</text>
+			<text class="f26">以旧换新</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
 			<text class="f-wb f30">预约人</text>
 			<text class="f26">小小</text>
 		</view>
@@ -46,8 +51,10 @@
 			<text class="f26">广州市天河区天源路天河新天地</text>
 		</view>
 
-	</view>    
+	</view>
 
-	<view class="send c-ff f32 t-c b_r40 b-8F">评价门店</view>
+	<view class="send c-ff f32 t-c b_r40 b-c">评价门店</view>
+
+	<!-- <view class="send c-ff f32 t-c b_r40 b-c">取消订单</view> -->
 
 </view>

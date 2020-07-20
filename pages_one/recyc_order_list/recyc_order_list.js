@@ -53,6 +53,10 @@ Page({
         modal.showToast(res.message, 'none')
       }
     })
+  },
+
+  toDetail: function (e) {
+    modal.navigate('/pages_one/recyc_order_detail/recyc_order_detail?id=', e.currentTarget.dataset.id)
   }
 
 

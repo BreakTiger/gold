@@ -22,7 +22,8 @@
         "recyc_order_list/recyc_order_list",
         "recyc_order_detail/recyc_order_detail",
         "comment/comment",
-        "location/location"
+        "location/location",
+        "evaluate/evaluate"
       ]
     },
     {

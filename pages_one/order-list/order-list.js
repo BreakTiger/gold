@@ -38,10 +38,13 @@ Page({
 
 
   onLoad: function (options) {
-    // console.log('状态：', options.type)
+    console.log('状态：', options.type)
     // this.setData({
     //   choice: options.type
     // })
+  },
+
+  onShow: function () {
     this.getList()
   },
 
