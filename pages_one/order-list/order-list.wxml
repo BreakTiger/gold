@@ -1,14 +1,17 @@
 <view class="container flex col fl-align">
 
 	<view class="nav-line b_r10 flex fl-align fl-jsb">
-		<view class="t-c f28" wx:for="{{nav}}" wx:key="index">{{item.text}}</view>
+		<view class="t-c f28" wx:for="{{nav}}" wx:key="index" bindtap="toSwitch" data-type="{{item.type}}">{{item.text}}</view>
 	</view>
 
-	<view class="list-item flex col fl-align" data-item="{{item}}" catchtap="toDetail">
+	<view class="list-item flex col fl-align" data-item="{{item}}" catchtap="toDetail" wx:for="{{list}}" wx:key="index" wx:if="list.length!=0">
 
 		<view class="flex fl-align fl-jsb">
-			<text class="f26">订单号：546376768767853</text>
-			<text class="f30 c-8F">派单中</text>
+			<text class="f26">订单号：{{item.ordersn}}</text>
+			<text class="f30 c-8F" wx:if="{{item.orderstatus==0}}">派单中</text>
+			<text class="f30 c-8F" wx:if="{{item.orderstatus==1}}">已完成</text>
+			<text class="f30 c-8F" wx:if="{{item.orderstatus==2}}">已评价</text>
+			<text class="f30 c-8F" wx:if="{{item.orderstatus==3}}">已取消</text>
 		</view>
 
 		<view class="flex col" style="border-bottom:1rpx solid #f5f5f5;">
@@ -18,11 +21,11 @@
 			</view>
 			<view class="flex fl-align">
 				<view class="point"></view>
-				<text class="f26 c-33">回收克重：500克</text>
+				<text class="f26 c-33">回收克重：{{item.huishou_gram}}克</text>
 			</view>
 			<view class="flex fl-align">
 				<view class="point"></view>
-				<text class="f26 c-33">预约时间：2020-06-10</text>
+				<text class="f26 c-33">预约时间：{{item.yuyuetime}}</text>
 			</view>
 		</view>
 

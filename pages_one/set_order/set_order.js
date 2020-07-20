@@ -6,7 +6,9 @@ Page({
 
   data: {
 
-    id: '', //黄金属性ID
+    id_one: '', //黄金属性ID
+
+    id_two: '', //黄金属性ID
 
     price: '', //金价
 
@@ -39,12 +41,13 @@ Page({
 
   onLoad: function (options) {
     let datas = JSON.parse(options.data)
-    // console.log(datas)
+    console.log(datas)
     this.setData({
-      id: datas.id,
+      id_one: datas.id_one,
+      id_two: datas.id_two,
       price: datas.price,
-      gram: datas.gram,
-      count_price: datas.count_price
+      count_price: datas.count_price,
+      gram: datas.gram
     })
   },
 
@@ -62,7 +65,7 @@ Page({
     })
   },
 
-  // 增加
+  // 增加图片
   toAdd: function () {
     let that = this
     let old = that.data.picture_list
@@ -156,7 +159,6 @@ Page({
         console.log('存在')
         that.upImg(that.data.picture_list)
       } else {
-        console.log('不存在')
         that.sent()
       }
     }
@@ -172,8 +174,8 @@ Page({
     let that = this
     let data = {
       openid: wx.getStorageSync('openid'),
-      huishou_type: 1,
-      jin_type: that.data.id,
+      huishou_type: that.data.id_one || '',
+      jin_type: that.data.id_two,
       huishou_gram: that.data.gram,
       yuyuetime: that.data.date + ' ' + that.data.time,
       mobile: that.data.phone,
@@ -181,10 +183,11 @@ Page({
       city: that.data.city,
       area: that.data.area,
       address: that.data.street,
-      ordertype: '',
+      ordertype: 1,
       images: that.data.p_list,
       price: that.data.price,
-      yuguprice: that.data.count_price
+      yuguprice: that.data.count_price,
+      username: that.data.name
     }
     console.log('参数：', data)
     http.sendRequest('huishou.addhuiOrder', 'post', data).then(function (res) {
@@ -196,8 +199,5 @@ Page({
       }
     })
   }
-
-
-
 
 })

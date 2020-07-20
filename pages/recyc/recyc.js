@@ -8,10 +8,12 @@ Page({
 
   data: {
     price: '',
+
     type_list: [],
-    type_choice: '', //选择的黄金类型,
+    type_choice: '', //选择的黄金类型ID,
+
     types_list: [],
-    types_choice: '', //选择的黄金类型的属性
+    types_choice: '', //选择的黄金类型的属性ID
 
     gram: '',
     money: '',
@@ -123,7 +125,7 @@ Page({
       if (index == indexs) {
         item.choice = 1
         that.setData({
-          types_chopice: item.id
+          types_choice: item.id
         })
       } else {
         item.choice = 0
@@ -187,7 +189,7 @@ Page({
     let phone = that.data.phone
     if (!that.data.type_choice && list.length == 0) {
       modal.showToast('请选择黄金类型', 'none')
-    } else if (!that.data.types_chopice && list.length != 0) {
+    } else if (!that.data.types_choice && list.length != 0) {
       modal.showToast('请选择所选黄金类型的种类', 'none')
     } else if (!gram) {
       modal.showToast('请输入黄金克重', 'none')
@@ -209,7 +211,6 @@ Page({
           // 富文本解析
           let article = res.list.huixie
           WxParse.wxParse('article', 'html', article, that, 5);
-
         } else {
           modal.showToast(res.message, 'none')
         }
@@ -235,21 +236,18 @@ Page({
         modal.navigate('/pages_one/shop_order/shop_order')
       } else {
         let data = {
-          id: that.data.types_choice || that.data.type_choice,
-          count_price: that.data.money,
+          id_one: that.data.type_choice,
+          id_two: that.data.types_choice,
           price: that.data.price,
+          count_price: that.data.money,
           gram: that.data.gram
         }
-        console.log('参数：', data)
+        console.log(data)
         modal.navigate('/pages_one/set_order/set_order?data=', JSON.stringify(data))
       }
     } else {
       modal.showToast('请先阅读，并同意《黄金回收服务协议》', 'none')
     }
   }
-
-
-
-
 
 })

@@ -18,4 +18,12 @@ Page({
   },
 
 
+  //完成
+  toFinish: function () {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  }
+
+
 })

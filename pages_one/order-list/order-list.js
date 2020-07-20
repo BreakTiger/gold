@@ -64,6 +64,11 @@ Page({
     })
   },
 
+  //切换
+  toSwitch: function (e) {
+    console.log(e.currentTarget.dataset.type)
+  },
+
   //详情
   toDetail: function (e) {
     console.log(e)

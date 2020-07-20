@@ -37,6 +37,6 @@
 
 	</view>
 
-  <view class="finsh c-ff f32 b-8F b_r40 t-c">完成</view>
+  <view class="finsh c-ff f32 b-8F b_r40 t-c" bindtap="toFinish">完成</view>
 
 </view>
