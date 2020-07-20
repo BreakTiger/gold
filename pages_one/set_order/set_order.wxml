@@ -70,7 +70,7 @@
 				<image src="../../icon/mobile.png" class="icon"></image>
 				<view class="flex fl-align fl-jsb" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;">
 					<input placeholder="请输入您的手机号码" type="number" value="{{phone}}"></input>
-					<button class="get" bindgetphonenumber="getPhone" open-type="getPhoneNumber">一键获取</button>
+					<button class="get b-10" bindgetphonenumber="getPhone" open-type="getPhoneNumber">一键获取</button>
 				</view>
 			</view>
 
@@ -91,7 +91,7 @@
 
 		</view>
 
-		<view class="send b-8F c-ff b_r40 t-c f30 f-wb" bindtap="send">确认提交</view>
+		<view class="send b-c c-ff b_r40 t-c f30 f-wb" bindtap="send">确认提交</view>
 
 	</view>
 

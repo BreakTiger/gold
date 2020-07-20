@@ -8,7 +8,7 @@
 
 		<view class="market b-ff flex col fl-align fl-jse b_r10">
 			<text class="f30 c-66">实时金价(元/克)</text>
-			<text class="f62 c-90">{{price}}</text>
+			<text class="f62 c-10">{{price}}</text>
 		</view>
 
 		<view class="w710 flex col f30 c-34">
@@ -22,7 +22,7 @@
 				</view>
 			</view>
 			<view class="flex fl-w f28" style="margin:20rpx 0 0 25rpx">
-				<view class="btn {{item.choice==1?'b-90 c-ff':'b-E5 c-90'}}" wx:for="{{types_list}}" wx:key="index" data-index="{{index}}" bindtap="choiceType">{{item.name}}</view>
+				<view class="btn {{item.choice==1?'b-c c-ff':'b-E5 c-10'}}" wx:for="{{types_list}}" wx:key="index" data-index="{{index}}" bindtap="choiceType">{{item.name}}</view>
 			</view>
 		</view>
 
@@ -50,12 +50,11 @@
 		<view class="w710 flex col f30 c-34">
 			<view>5.选择类型</view>
 			<view class="flex fl-w f28" style="margin:20rpx 0 0 25rpx">
-				<view class="btn {{choice==item.type?'b-90 c-ff':'b-E5 c-90'}}" wx:for="{{kind}}" wx:key="index" data-type="{{item.type}}" bindtap="getTypes">{{item.name}}</view>
+				<view class="btn {{choice==item.type?'b-c c-ff':'b-E5 c-10'}}" wx:for="{{kind}}" wx:key="index" data-type="{{item.type}}" bindtap="getTypes">{{item.name}}</view>
 			</view>
 		</view>
 
-		<view class="recyc b-90 c-ff f30 f-wb t-c" bindtap="getRule">立即回收</view>
-
+		<view class="recyc b-c c-ff f30 f-wb t-c" bindtap="getRule">立即回收</view>
 
 	</view>
 
@@ -68,10 +67,10 @@
 			</scroll-view>
 			<view class="rule-line flex fl-align">
 				<icon type="circle" size="25" style="margin-right:20rpx;" wx:if="{{agree==0}}" bindtap="agrees"></icon>
-				<icon type="success" size="25" color="#E2C28F" style="margin-right:20rpx;" wx:if="{{agree==1}}" bindtap="agrees"></icon>
+				<icon type="success" size="25" color="##FF5E10" style="margin-right:20rpx;" wx:if="{{agree==1}}" bindtap="agrees"></icon>
 				<text class="f24 c-33">我已阅读并同意《黄金回收服务协议》</text>
 			</view>
-			<view class="agree t-c b_r40 b-8F c-ff f30 f-wb" bindtap="toAgrees">同意</view>
+			<view class="agree t-c b_r40 b-c c-ff f30 f-wb" bindtap="toAgrees">同意</view>
 		</view>
 
 	</view>

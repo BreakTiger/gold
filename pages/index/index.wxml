@@ -34,9 +34,9 @@
 
 		<view class="title p-a t-c c-ff f30">实时金价</view>
 
-		<text style="margin:95rpx 0;" class="f-wb f72">{{price}}<text class="f30">元/克</text></text>
+		<text style="margin:95rpx 0;" class="f-wb f72 c-10">{{price}}<text class="f30">元/克</text></text>
 
-		<view class="assess f30 c-ff b-90 t-c" bindtap="toAssess">免费估价</view>
+		<view class="assess f30 c-ff b-c t-c" bindtap="toAssess">免费估价</view>
 
 	</view>
 

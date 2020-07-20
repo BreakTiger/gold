@@ -62,12 +62,12 @@
   height: 64rpx;
   line-height: 64rpx;
   border-radius: 3rpx;
-  margin: 12rpx;
+  text-align: center;
+  margin-right: 20rpx;
+  border: 1rpx solid rgba(255, 94, 16, 1);
 }
 
-.choices {
-  background: rgba(200, 170, 125, 1);
-}
+
 
 .choicesd {
   background: rgba(200, 170, 125, 0.2);

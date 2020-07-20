@@ -113,6 +113,10 @@ page {
   color: #E2C28F;
 }
 
+.c-10{
+  color: #FF5E10;
+}
+
 .c-99 {
   color: #999999;
 }
@@ -149,6 +153,14 @@ page {
 
 .b-8F {
   background: #E2C28F;
+}
+
+.b-10 {
+  background: #FF5E10;
+}
+
+.b-c {
+  background: linear-gradient(-30deg, rgba(227, 79, 2, 1), rgba(255, 108, 37, 1));
 }
 
 /* 超出省略 */
