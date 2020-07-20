@@ -40,13 +40,13 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#E2C290",
+    "navigationBarBackgroundColor": "#FA6F2A",
     "navigationBarTitleText": "黄金回购",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#343434",
-    "selectedColor": "#C2945A",
+    "selectedColor": "#FF5E10",
     "list": [
       {
         "pagePath": "pages/index/index",
