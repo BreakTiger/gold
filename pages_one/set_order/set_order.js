@@ -165,17 +165,25 @@ Page({
   },
 
   //上传图片
-  upImg: function (list) {
+  upImg: async function (list) {
     console.log('图片数组：', list)
     let that = this
-    list.forEach(function (item) {
-      // console.log(item)
-      http.upLoading(item,{type:1}).then(function(res){
-
+    let a = []
+    for (let i = 0; i < list.length; i++) {
+      await http.upLoading(list[i], { type: 1 }).then(function (res) {
+        console.log(res)
+        if (res.error == 0) {
+          a.push(res.list.url)
+        } else {
+          modal.showToast(res.message, 'none')
+        }
       })
+    }
+    console.log('上传后：', a)
+    that.setData({
+      p_list: a
     })
-    // http.upLoading()
-
+    that.sent()
   },
 
   //提交
@@ -198,9 +206,7 @@ Page({
       yuguprice: that.data.count_price,
       username: that.data.name
     }
-    console.log('参数：', data)
     http.sendRequest('huishou.addhuiOrder', 'post', data).then(function (res) {
-      console.log(res.list)
       if (res.error == 0) {
         modal.navigate('/pages_one/order_success/order_success?data=', JSON.stringify(res.list))
       } else {

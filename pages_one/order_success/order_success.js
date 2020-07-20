@@ -9,7 +9,6 @@ Page({
     detail: {}
   },
 
-
   onLoad: function (options) {
     console.log(JSON.parse(options.data))
     this.setData({

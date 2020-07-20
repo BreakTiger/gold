@@ -49,18 +49,21 @@ function upLoading(filePath, data) {
       url: api + 'huishou.uploadimg',
       formData: data,
       success: function (res) {
-        resolve(res)
+        wx.hideLoading()
+        if (res.statusCode == 200) {
+          resolve(JSON.parse(res.data))
+        } else {
+          resolve(JSON.parse(res.data))
+        }
       },
       fail: function (res) {
+        wx.hideLoading()
         reject(res)
       }
     })
-
   })
   return promise
 }
-
-
 
 module.exports = {
   sendRequest: sendRequest,

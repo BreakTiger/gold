@@ -43,12 +43,12 @@ Page({
       {
         icon: '../../icon/m-2.png',
         text: '预约中',
-        type: 2
+        type: 1
       },
       {
         icon: '../../icon/m-4.png',
         text: '待评价',
-        type: 3
+        type: 2
       }
     ]
   },
@@ -64,7 +64,6 @@ Page({
       openid: wx.getStorageSync('openid')
     }
     http.sendRequest('huishou.getusermember', 'post', data).then(function (res) {
-      // console.log(res)
       if (res.error == 0) {
         that.setData({
           user: res.list
@@ -77,7 +76,7 @@ Page({
 
   //上门回收
   enter_one: function (e) {
-    let type = e.currentTarget.dataset.type
+    let type = e.currentTarget.dataset.type || ''
     modal.navigate('/pages_one/order-list/order-list?type=',type)
   },
 
