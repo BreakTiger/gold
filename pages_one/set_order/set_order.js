@@ -41,7 +41,7 @@ Page({
 
   onLoad: function (options) {
     let datas = JSON.parse(options.data)
-    console.log(datas)
+    // console.log(datas)
     this.setData({
       id_one: datas.id_one,
       id_two: datas.id_two,
@@ -166,6 +166,15 @@ Page({
 
   //上传图片
   upImg: function (list) {
+    console.log('图片数组：', list)
+    let that = this
+    list.forEach(function (item) {
+      // console.log(item)
+      http.upLoading(item,{type:1}).then(function(res){
+
+      })
+    })
+    // http.upLoading()
 
   },
 

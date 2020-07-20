@@ -36,10 +36,28 @@ function sendRequest(url, method, data) {
 
 // 上传
 function upLoading(filePath, data) {
-  console.log('文件路径：', filePath)
-  console.log('参数：', data)
+  var promise = new Promise(function (resolve, reject) {
+    console.log('文件路径：', filePath)
+    console.log('参数：', data)
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    wx.uploadFile({
+      filePath: filePath,
+      name: 'file',
+      url: api + 'huishou.uploadimg',
+      formData: data,
+      success: function (res) {
+        resolve(res)
+      },
+      fail: function (res) {
+        reject(res)
+      }
+    })
 
-
+  })
+  return promise
 }
 
 
