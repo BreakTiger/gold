@@ -44,7 +44,7 @@
 	</view>
 	<!-- 评价 -->
 	<view class="content w710 b-ff flex col fl-align">
-		<view class="flex fl-align fl-jsb">
+		<view class="flex fl-align fl-jsb" bindtap="toComment">
 			<text class="f30 c-33 f-wb">评价（{{detail.pingjialist.length}}）</text>
 			<text class="f26 c-8F">查看更多</text>
 		</view>

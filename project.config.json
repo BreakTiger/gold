@@ -63,15 +63,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages_one/recyc_order_list/recyc_order_list",
-					"pathName": "pages_one/recyc_order_list/recyc_order_list",
-					"query": "",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

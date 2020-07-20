@@ -57,13 +57,14 @@ Page({
     this.getUser()
   },
 
+  //用户信息
   getUser: function () {
     let that = this
     let data = {
       openid: wx.getStorageSync('openid')
     }
     http.sendRequest('huishou.getusermember', 'post', data).then(function (res) {
-      console.log(res)
+      // console.log(res)
       if (res.error == 0) {
         that.setData({
           user: res.list

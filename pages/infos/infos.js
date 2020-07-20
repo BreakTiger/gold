@@ -23,9 +23,9 @@ Page({
       pagesize: 10,
       openid: wx.getStorageSync('openid')
     }
-    console.log('参数：', data)
+    // console.log('参数：', data)
     http.sendRequest('huishou.knowledge', 'post', data).then(function (res) {
-      console.log(res)
+      // console.log(res)
       if (res.error == 0) {
         that.setData({
           list: res.list

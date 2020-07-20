@@ -35,6 +35,11 @@ Page({
     })
   },
 
+  //评论
+  toComment: function () {
+    modal.navigate('/pages_one/comment/comment?id=', this.data.id)
+  },
+
 
   //导航
   toLocation: function () {
@@ -56,6 +61,18 @@ Page({
   toOrder: function () {
     console.log(this.data.detail)
     modal.navigate('/pages_one/shop_order/shop_order?shopname=', this.data.detail.shopname + '&id=' + this.data.detail.id)
+  },
+
+  //分享
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      return {
+        title: this.data.detail.shopname,
+        path: '/pages_one/shop_detail/shop_detail?id=' + this.data.id
+      }
+    }
   }
+
+
 
 })

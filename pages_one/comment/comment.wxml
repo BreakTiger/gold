@@ -1,18 +1,22 @@
 <view class="container flex col fl-align">
 
-	<view class="w710 b-ff flex col fl-align" style="margin:20rpx 0;padding:20rpx 0;">
+	<view class="w710 b-ff flex col fl-align" style="margin:20rpx 0;padding:20rpx 0;" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
 		<view class="flex fl-align fl-jsb">
 			<view class="flex fl-align">
 				<text class="f28 c-33">用户评价</text>
-				<image src="../../icon/level.png" class="icon"></image>
+				<image src="../../icon/level.png" class="icon" wx:for="{{item.level}}" wx:key="index"></image>
+				<image src="../../icon/levels.png" class="icon" wx:for="{{5 - item.level}}" wx:key="index"></image>
 			</view>
-			<text class="f24 c-99">2020-04-18  15:52</text>
+			<text class="f24 c-99">{{item.createtime}}</text>
 		</view>
-		<view class="f24 c-33" style="margin:20rpx 0;">该员工性格温和平静,以柔克刚,处世低调。在工作平衡厉害关系,维护他人利益,...</view>
-		<view class="flex fl-w">
-			<image src="../../img/lun.png" class="img"></image>
+		<view class="f24 c-33" style="margin:20rpx 0;">{{item.content}}</view>
+		<view class="flex fl-w" wx:if="{{item.images.length!=0}}">
+			<image src="item" class="img" wx:for="{{item.images}}" wx:key="index"></image>
 		</view>
 	</view>
 
+	<view class="flex col fl-align" wx:if="{{list.length==0}}">
+		暂无评价
+	</view>
 
 </view>
