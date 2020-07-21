@@ -7,7 +7,7 @@
 
 	<text class="f24 c-99">提交成功，请等待审核~</text>
 
-	<view class="btn t-c f30">回首页</view>
+	<view class="btn t-c f30" bindtap="backHome">回首页</view>
 
   <!-- 审核失败 -->
 

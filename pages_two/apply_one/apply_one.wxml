@@ -1,10 +1,10 @@
 <view class="container">
 
 	<!-- 规则 -->
-	<Rule wx:if="{{step==0}}" status="{{status}}"></Rule>
+	<Rule wx:if="{{step==0}}" status="{{status}}" bind:Apply="getApply"></Rule>
 
 	<!-- 信息填写 -->
-	<applyOne wx:if="{{step==1}}"></applyOne>
+	<applyOne wx:if="{{step==1}}" bind:Apply="getApply"></applyOne>
 
 	<!-- 审核结果 -->
 	<applyTwo wx:if="{{step==2}}"></applyTwo>

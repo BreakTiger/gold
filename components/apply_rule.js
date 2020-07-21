@@ -55,7 +55,7 @@ Component({
 
     // 同意
     agree: function () {
-
+      this.triggerEvent('Apply', { step: 1 })
     }
 
 

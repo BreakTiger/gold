@@ -6,11 +6,19 @@ Page({
 
   data: {
     status: 1,
-    step: 1
+    step: 0
   },
 
   onLoad: function (options) {
 
   },
+
+  //申请
+  getApply: function (e) {
+    console.log(e)
+    this.setData({
+      step: e.detail.step
+    })
+  }
 
 })

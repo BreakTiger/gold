@@ -22,7 +22,9 @@ Component({
     p_list: [],
 
     city_in: '请选择店铺所在的城市',
-
+    province: '',
+    city: '',
+    area: '',
     address: '',
 
     phone: '',
@@ -35,11 +37,13 @@ Component({
 
     kind_list: [], //经营类目
 
+    kind_text: '',
+
     kind_id: '',
 
-    area_list: [],
+    area_list: [],//回收区域列表
 
-    area_id: []
+    area_id: [] //选择的回收区域
   },
 
   created() {
@@ -135,7 +139,10 @@ Component({
       let city = e.detail.value
       let city_in = city[0] + city[1] + city[2]
       this.setData({
-        city_in: city_in
+        city_in: city_in,
+        province: city[0],
+        city: city[1],
+        area: city[2]
       })
     },
 
@@ -201,9 +208,9 @@ Component({
         if (indexs == index) {
           if (item.is_true == 0) {
             item.choice = 1
-            console.log(item.id)
             that.setData({
-              kind_id: item.id
+              kind_id: item.id,
+              kind_text: item.name
             })
           }
         } else {
@@ -232,8 +239,8 @@ Component({
           }
         }
         if (item.choice == 1) {
-          let id = item.id
-          ids.push(id)
+          let area = item.area
+          ids.push(area)
         }
       })
       // console.log(ids)
@@ -271,16 +278,15 @@ Component({
       } else {
         that.upLicense()
       }
-
     },
 
     //上传 - 营业执照
     upLicense: async function () {
       let that = this
       let path = that.data.license
+      console.log(path)
       await http.upLoading(path, { type: 1 }).then(function (res) {
         let result = JSON.parse(res)
-        console.log(result)
         if (result.error == 0) {
           that.setData({
             up_license: result.list.url
@@ -291,11 +297,14 @@ Component({
       })
 
       let list = that.data.picture
-      if (list.length != 0) {
-        that.upList(list)
+      console.log(list)
+
+      if (list.length == 0) {
+        that.sent()
       } else {
-        that.toSent()
+        that.upList(list)
       }
+
     },
 
     //上传店铺图片
@@ -304,7 +313,7 @@ Component({
       let a = []
       for (let i = 0; i < list.length; i++) {
         await http.upLoading(list[i], { type: 1 }).then(function (res) {
-          console.log(res)
+          let result = JSON.parse(res)
           if (result.error == 0) {
             a.push(result.list.url)
           } else {
@@ -320,7 +329,33 @@ Component({
 
     //提交
     sent: function () {
-
+      let that = this
+      let data = {
+        mobile: that.data.phone,
+        managementid: that.data.kind_id,
+        management_text: that.data.kind_text,
+        lat: '',
+        lng: '',
+        image: that.data.p_list,
+        yinimages: that.data.up_license,
+        shopname: that.data.shop_name,
+        openid: wx.getStorageSync('openid'),
+        province: that.data.province,
+        city: that.data.city,
+        area: that.data.area,
+        address: that.data.address,
+        huicity: that.data.city_rec,
+        huishouarea: that.data.area_id
+      }
+      console.log('参数：', data)
+      http.sendRequest('huishou.addshop', 'post', data).then(function (res) {
+        console.log(res)
+        if (res.error == 0) {
+          that.triggerEvent('Apply', { step: 2 })
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
     }
 
 
