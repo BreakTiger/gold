@@ -24,7 +24,9 @@ Component({
     city_rec: '请选择全市上门回收',
     area_rec: '',
 
-    king_list: []
+    king_list: [],
+
+    area_list: []
   },
 
   created() {
@@ -150,10 +152,28 @@ Component({
 
     //回收城市
     getCityRec: function (e) {
+      let that = this
       let city = e.detail.value
-      let city_rec = city[0] + city[1] + city[2]
-      this.setData({
+      let city_rec = city[1]
+      that.setData({
         city_rec: city_rec
+      })
+      let data = {
+        city: city_rec
+      }
+      http.sendRequest('huishou.geuarea', 'post', data).then(function (res) {
+        console.log(res.list)
+        if (res.error == 0) {
+          let area = res.list
+          area.forEach(function (item) {
+            item.choice = 0
+          })
+          that.setData({
+            area_list: area
+          })
+        } else {
+          modal.showToast(res.message, 'none')
+        }
       })
     },
 
@@ -167,6 +187,17 @@ Component({
     //提交
     toSent: function () {
       let that = this
+      if (!that.data.shop_name) {
+        modal.showToast('请填写店铺名称', 'none')
+      } else if (!that.data.license) {
+        modal.showToast('请上传营业执照', 'none')
+      } else if (that.data.city_in == '请选择店铺所在的城市') {
+        modal.showToast('请选择店铺所在的城市', 'none')
+      } else if (!that.data.address) {
+        modal.showToast('请输入店铺的详细地址', 'none')
+      } else if (!that.data.phone) {
+        modal.showToast('请输入手机号码', 'none')
+      }
 
     }
 

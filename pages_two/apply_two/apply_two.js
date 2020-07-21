@@ -4,11 +4,10 @@ import modal from '../../modals.js'
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
+  
   data: {
-    status:2
+    status:2,
+    step:0
   },
 
   /**

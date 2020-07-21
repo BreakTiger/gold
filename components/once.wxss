@@ -71,3 +71,7 @@
 .b-f3 {
   background: #f3f3f3;
 }
+
+.b-f0 {
+  background: #f0f0f0;
+}

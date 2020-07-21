@@ -4,8 +4,8 @@ page {
   background: #E1E1E1;
 }
 
-.f72 {
-  font-size: 72rpx;
+.f62 {
+  font-size: 62rpx;
 }
 
 .container>view {
@@ -22,6 +22,13 @@ page {
   width: 710rpx;
   height: 360rpx;
   margin-bottom: 20rpx;
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 
 .nav-item {

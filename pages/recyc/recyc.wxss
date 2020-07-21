@@ -13,7 +13,7 @@ page {
 .market {
   width: 606rpx;
   height: 237rpx;
-  box-shadow: 1rpx 9rpx 16rpx 1rpx rgba(146, 18, 97, 0.35);
+  box-shadow:0rpx 9rpx 16rpx 0rpx rgba(122, 122, 122, 0.35);
   margin-top: -200rpx;
   margin-bottom: 50rpx;
 }

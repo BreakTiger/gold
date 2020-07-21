@@ -1,12 +1,12 @@
 <view class="container">
 
 	<!-- 规则 -->
-	<!-- <Rule status="{{status}}"></Rule> -->
+	<Rule wx:if="{{step==0}}" status="{{status}}"></Rule>
 
 	<!-- 信息填写 -->
-	<applyOne></applyOne>
+	<applyOne wx:if="{{step==1}}"></applyOne>
 
 	<!-- 审核结果 -->
-	<!-- <applyTwo></applyTwo> -->
+	<applyTwo wx:if="{{step==2}}"></applyTwo>
 
 </view>

@@ -1,5 +1,5 @@
 <view class="container">
 
-	<Rule status="{{status}}"></Rule>
+	<Rule wx:if="{{step==0}}" status="{{status}}"></Rule>
 
 </view>

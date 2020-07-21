@@ -27,12 +27,13 @@
 
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">所在城市<text class="c-FF0">*</text></text></view>
-		<view class="flex fl-align fl-jsb">
-			<picker mode="region" bindchange="getCityin">
+		<picker mode="region" bindchange="getCityin">
+			<view class="flex fl-align fl-jsb">
 				<view class="f24 c-99">{{city_in}}</view>
-			</picker>
-			<image src="../icon/to.png" class="go"></image>
-		</view>
+				<image src="../icon/to.png" class="go"></image>
+			</view>
+		</picker>
+
 	</view>
 
 	<view class="w100 flex col">
@@ -51,25 +52,24 @@
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">经营类目</text></view>
 		<view class="w100 flex fl-w f24">
-			<view wx:for="{{king_list}}" wx:key="index" class="{{item.choice==1?'b-c c-ff laber':''}} labers b_r10" bindtap="choice_kind" data-id="{{item.id}}">{{item.name}}</view>
+			<view wx:for="{{king_list}}" wx:key="index" class="{{item.choice==1?'b-c c-ff laber':''}} {{item.is_true==1?'b-f0':''}} labers b_r10" bindtap="choice_kind" data-id="{{item.id}}">{{item.name}}</view>
 		</view>
 	</view>
 
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">上门回收城市<text class="c-FF0">*</text></text></view>
-		<view class="flex fl-align fl-jsb">
-			<picker mode="region" bindchange="getCityRec">
+		<picker mode="region" bindchange="getCityRec">
+			<view class="flex fl-align fl-jsb">
 				<view class="f24 c-99">{{city_rec}}</view>
-			</picker>
-			<image src="../icon/to.png" class="go"></image>
-		</view>
+				<image src="../icon/to.png" class="go"></image>
+			</view>
+		</picker>
 	</view>
 
-	<view class="w100 flex col">
+	<view class="w100 flex col" wx:if="{{area_list.length!=0}}">
 		<view><text class="f30 c-00">回收区域</text></view>
 		<view class="w100 flex fl-w f24">
-			<view class="labers b_r10 b-c c-ff">越秀区</view>
-			<view class="labers b_r10" style=" border: 1rpx solid #666666;">海珠区</view>
+			<view class="{{item.choice==1?'b-c c-ff laber':''}} labers b_r10" wx:for="{{area_list}}" wx:key="index">{{item.area}}</view>
 		</view>
 	</view>
 
@@ -79,6 +79,5 @@
 		<view class="b-f3" bindtap="toCancel">取消</view>
 		<view class="b-c c-ff" bindtap="toSent">立即提交</view>
 	</view>
-
 
 </view>
