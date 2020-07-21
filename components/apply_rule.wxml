@@ -2,7 +2,7 @@
 
 <view class="content flex col fl-align">
 
-	<image src="../img/rule.png" class="rule"></image>
+	<!-- <image src="../img/rule.png" class="rule"></image> -->
 
 	<!-- 富文本 -->
 	<view class="w710" style="margin:20rpx 0;">

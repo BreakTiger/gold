@@ -48,12 +48,15 @@ function upLoading(filePath, data) {
       name: 'file',
       url: api + 'huishou.uploadimg',
       formData: data,
+      header: {
+        "content-type": "application/json"
+      },
       success: function (res) {
         wx.hideLoading()
         if (res.statusCode == 200) {
-          resolve(JSON.parse(res.data))
+          resolve(res.data)
         } else {
-          resolve(JSON.parse(res.data))
+          resolve(res.data)
         }
       },
       fail: function (res) {

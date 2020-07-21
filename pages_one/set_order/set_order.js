@@ -26,7 +26,7 @@ Page({
 
     name: '',
 
-    phone: '13868367595',
+    phone: '',
 
     place: '请选择回收地址', //省 市 区
 
@@ -117,6 +117,23 @@ Page({
   //一键获取手机号
   getPhone: function (e) {
     console.log(e.detail)
+    let that = this
+    let data = {
+      data: e.detail.encryptedData,
+      code: wx.getStorageSync('code'),
+      iv: e.detail.iv
+    }
+    console.log('参数：', data)
+    http.sendRequest('wxapp.getWechatUserPhone', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.error == 0) {
+        that.setData({
+          phone: res.data.phoneNumber
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   //回收地址
@@ -156,7 +173,6 @@ Page({
     } else {
       // 判断是否存在图片
       if (that.data.picture_list.length != 0) { //存在图片
-        console.log('存在')
         that.upImg(that.data.picture_list)
       } else {
         that.sent()
@@ -166,20 +182,19 @@ Page({
 
   //上传图片
   upImg: async function (list) {
-    console.log('图片数组：', list)
     let that = this
     let a = []
     for (let i = 0; i < list.length; i++) {
       await http.upLoading(list[i], { type: 1 }).then(function (res) {
-        console.log(res)
-        if (res.error == 0) {
-          a.push(res.list.url)
+        let result = JSON.parse(res)
+        if (result.error == 0) {
+          a.push(result.list.url)
         } else {
-          modal.showToast(res.message, 'none')
+          modal.showToast(result.message, 'none')
         }
       })
     }
-    console.log('上传后：', a)
+    // console.log('上传后：', a)
     that.setData({
       p_list: a
     })
@@ -206,6 +221,7 @@ Page({
       yuguprice: that.data.count_price,
       username: that.data.name
     }
+    console.log('参数：', data)
     http.sendRequest('huishou.addhuiOrder', 'post', data).then(function (res) {
       if (res.error == 0) {
         modal.navigate('/pages_one/order_success/order_success?data=', JSON.stringify(res.list))
