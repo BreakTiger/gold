@@ -15,6 +15,15 @@
 .photo {
   width: 219rpx;
   height: 219rpx;
+  margin: 9rpx;
+}
+
+.del {
+  width: 30rpx;
+  height: 30rpx;
+  top: 0rpx;
+  right: 0rpx;
+  z-index: 20;
 }
 
 .go {
@@ -26,19 +35,24 @@
   width: 150rpx !important;
   height: 50rpx !important;
   line-height: 50rpx;
-  background: #E2C28F;
   font-size: 24rpx !important;
   color: #ffffff;
   padding: 0rpx;
   margin: 0rpx !important;
 }
 
-.laber {
+.labers {
   width: 159rpx;
   height: 60rpx;
   line-height: 60rpx;
   text-align: center;
   margin-right: 15rpx;
+  margin-bottom: 15rpx;
+  border: 1rpx solid #666666;
+}
+
+.laber {
+  border: none;
 }
 
 .botton-line {

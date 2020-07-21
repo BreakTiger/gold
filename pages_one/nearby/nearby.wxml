@@ -1,6 +1,6 @@
 <view class="container">
 
-	<view class="w710 b-ff flex fl-align fl-jsb b_r10" wx:for="{{list}}" wx:key="index">
+	<view class="w710 b-ff flex fl-align fl-jsb b_r10" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
 
 		<image src="{{item.logo}}" class="shop-img"></image>
 
@@ -23,5 +23,7 @@
 		</view>
 
 	</view>
+
+	<view class="flex col fl-align" wx:if="{{list.length==0}}">附近暂无支持的店铺</view>
 
 </view>

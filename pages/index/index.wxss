@@ -24,10 +24,17 @@ page {
   margin-bottom: 20rpx;
 }
 
+.nav-item {
+  width: 120rpx;
+  margin-left: 50rpx;
+  display: inline-block;
+  white-space: normal;
+}
+
 .nav-item>image {
   width: 100rpx;
   height: 100rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 15rpx;
 }
 
 .assess {

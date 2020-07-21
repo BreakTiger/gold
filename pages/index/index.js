@@ -6,28 +6,11 @@ Page({
 
   data: {
     lunbo: [],
+    // 经营类目：
+    nav_list: [],
     price: '0.00',
     shop: [],
     info: [],
-    nav_list: [
-      {
-        icon: '../../icon/home-1.png',
-        text: '上门回收'
-      },
-      {
-        icon: '../../icon/home-2.png',
-        text: '门店回收'
-      },
-      {
-        icon: '../../icon/home-3.png',
-        text: '以旧换新'
-      },
-      {
-        icon: '../../icon/home-4.png',
-        text: '饰品修复'
-      }
-    ],
-
     login: false
   },
 
@@ -47,6 +30,27 @@ Page({
       if (res.error == 0) {
         that.setData({
           lunbo: res.list
+        })
+        that.getKind()
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  //经营类目
+  getKind: function () {
+    let that = this
+    let data = {
+      page: 1,
+      pagesize: 10
+    }
+    console.log('参数：', data)
+    http.sendRequest('huishou.jingying', 'post', data).then(function (res) {
+      console.log(res.list)
+      if (res.error == 0) {
+        that.setData({
+          nav_list: res.list
         })
         that.getPice()
       } else {
@@ -110,8 +114,16 @@ Page({
   },
 
   // 附近门店
-  toShop: function () {
-    modal.navigate('/pages_one/nearby/nearby')
+  toShop: function (e) {
+    let openid = wx.getStorageSync('openid')
+    if (openid) {
+      modal.navigate('/pages_one/nearby/nearby?id=', e.currentTarget.dataset.id)
+    } else {
+      this.setData({
+        login: true
+      })
+    }
+
   },
 
   // 免费估价
@@ -135,6 +147,17 @@ Page({
   toInfoDetail: function (e) {
     let id = e.currentTarget.dataset.id
     modal.navigate('/pages_one/infos_detail/infos_detail?id=', id)
+  },
+
+  //登录
+  getAddGrug: function (e) {
+    this.setData({
+      login: e.detail.login
+    })
+    // let openid = wx.getStorageSync('openid') | ''
+    // this.setData({
+    //   openid: openid
+    // })
   }
 
 })

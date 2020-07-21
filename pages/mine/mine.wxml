@@ -26,7 +26,7 @@
 			<view class="w100 flex fl-align fl-jsb" style="height: 158rpx;">
 				<view class="wc5 flex col fl-align" wx:for="{{nav_one}}" wx:key="index" bindtap="enter_one" data-type="{{item.type}}">
 					<image src="{{item.icon}}" class="icon"></image>
-					<text>{{item.text}}</text>
+					<text class="f26">{{item.text}}</text>
 				</view>
 			</view>
 
@@ -46,7 +46,7 @@
 
 				<view class="wc3 flex col fl-align" wx:for="{{nav_two}}" wx:key="index" bindtap="enter_two">
 					<image src="{{item.icon}}" class="icon"></image>
-					<text>{{item.text}}</text>
+					<text class="f26">{{item.text}}</text>
 				</view>
 
 			</view>
@@ -62,19 +62,19 @@
 			<view class="w100 flex fl-align" style="height: 158rpx;">
 				<view class="wc3 flex col fl-align" bindtap="toApplyOne" wx:if="{{user.shop!=1}}">
 					<image src="../../icon/m-6.png" class="icon"></image>
-					<text>店铺入驻</text>
+					<text class="f26">店铺入驻</text>
 				</view>
 				<view class="wc3 flex col fl-align" bindtap="toApplyTwo" wx:if="{{user.practitioners!=1}}">
 					<image src="../../icon/m-7.png" class="icon"></image>
-					<text>个人入驻</text>
+					<text class="f26">个人入驻</text>
 				</view>
 				<view class="wc3 flex col fl-align" wx:if="{{user.shop==1}}" bindtap="space_one">
 					<image src="../../icon/m-6.png" class="icon"></image>
-					<text>店铺工作台</text>
+					<text class="f26">店铺工作台</text>
 				</view>
 				<view class="wc3 flex col fl-align" wx:if="{{user.practitioners==1}}" bindtap="space_two">
 					<image src="../../icon/m-7.png" class="icon"></image>
-					<text>个人工作台</text>
+					<text class="f26">个人工作台</text>
 				</view>
 			</view>
 
