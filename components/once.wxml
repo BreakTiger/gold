@@ -2,7 +2,7 @@
 
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">店铺名称<text class="c-FF0">*</text></text></view>
-		<input placeholder="请填写店铺名称" bindtap="getShop"></input>
+		<input placeholder="请填写店铺名称" bindblur="getShop"></input>
 	</view>
 
 	<view class="w100 flex col fl-align">
@@ -14,14 +14,11 @@
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">店铺图片<text class="c-FF0">*</text><text class="f24 c-66">（可上传1-5张）</text></text></view>
 		<view class="w100 flex fl-w">
-
 			<view class="photo p-r" wx:for="{{picture}}" wx:key="index">
 				<image src="../icon/del.png" class="del p-a" data-index="{{index}}" bindtap="toDel"></image>
 				<image src="{{item}}" class="wh"></image>
 			</view>
-
 			<image src="../img/photo.png" class="photo" bindtap="addPicture" wx:if="{{picture.length<5}}"></image>
-
 		</view>
 	</view>
 
@@ -38,7 +35,7 @@
 
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">详细地址<text class="c-FF0">*</text></text></view>
-		<input placeholder="请输入店铺的详细地址" class="f24 c-99" bindtap="toAddress"></input>
+		<input placeholder="请输入店铺的详细地址" class="f24 c-99" bindblur="toAddress"></input>
 	</view>
 
 	<view class="w100 flex col">
@@ -52,7 +49,7 @@
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">经营类目</text></view>
 		<view class="w100 flex fl-w f24">
-			<view wx:for="{{king_list}}" wx:key="index" class="{{item.choice==1?'b-c c-ff laber':''}} {{item.is_true==1?'b-f0':''}} labers b_r10" bindtap="choice_kind" data-id="{{item.id}}">{{item.name}}</view>
+			<view wx:for="{{kind_list}}" wx:key="index" class="{{item.choice==1?'b-c c-ff laber':''}} {{item.is_true==1?'b-f0':''}} labers b_r10" bindtap="choice_kind" data-index="{{index}}">{{item.name}}</view>
 		</view>
 	</view>
 
@@ -69,7 +66,7 @@
 	<view class="w100 flex col" wx:if="{{area_list.length!=0}}">
 		<view><text class="f30 c-00">回收区域</text></view>
 		<view class="w100 flex fl-w f24">
-			<view class="{{item.choice==1?'b-c c-ff laber':''}} labers b_r10" wx:for="{{area_list}}" wx:key="index">{{item.area}}</view>
+			<view class="{{item.choice==1?'b-c c-ff laber':''}} labers b_r10" wx:for="{{area_list}}" wx:key="index" bindtap="choice_area" data-index="{{index}}">{{item.area}}</view>
 		</view>
 	</view>
 
