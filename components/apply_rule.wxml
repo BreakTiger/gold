@@ -5,13 +5,14 @@
 	<image src="../img/rule.png" class="rule"></image>
 
 	<!-- 富文本 -->
-	<text>111111</text>
-	<!-- <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
+	<view class="w710" style="margin:20rpx 0;">
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
 
 	<!-- 按钮栏 -->
 	<view class="btn-line flex fl-align fl-jsb f24" style="margin:25rpx 0;">
-		<view class="b-f3">不同意</view>
-		<view class="b-8F c-ff">同意并继续</view>
+		<view class="b-f3" bindtap="disagree">不同意</view>
+		<view class="b-c c-ff" bindtap="agree">同意并继续</view>
 	</view>
 
 </view>

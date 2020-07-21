@@ -1,5 +1,5 @@
 <view class="container">
 
-	<Rule></Rule>
+	<Rule status="{{status}}"></Rule>
 
 </view>

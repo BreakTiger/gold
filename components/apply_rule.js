@@ -12,7 +12,7 @@ Component({
   },
 
   properties: {
-
+    status: Number
   },
 
   data: {
@@ -24,16 +24,40 @@ Component({
   },
 
   methods: {
+
+    // 规则
     getRule: function () {
       let that = this
       http.sendRequest('huishou.set', 'post', {}).then(function (res) {
-        console.log(res.list.dianxie)
         if (res.error == 0) {
-
+          // 富文本解析
+          let status = that.properties.status
+          console.log(status)
+          if (status == 1) {
+            let article = res.list.dianxie
+            WxParse.wxParse('article', 'html', article, that, 5);
+          } else {
+            let article = res.list.userxie
+            WxParse.wxParse('article', 'html', article, that, 5);
+          }
         } else {
           modal.showToast(res.message, 'none')
         }
       })
+    },
+
+    //不同意
+    disagree: function () {
+      wx.navigateBack({
+        delta: 1,
+      })
+    },
+
+    // 同意
+    agree: function () {
+
     }
+
+
   }
 })

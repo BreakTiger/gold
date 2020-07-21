@@ -54,6 +54,6 @@
 
 	</view>
 
-	<view class="send b-8F c-ff t-c f30 f-wb b_r40" bindtap="toSend">确认提交</view>
+	<view class="send b-c c-ff t-c f30 f-wb b_r40" bindtap="toSend">确认提交</view>
 
 </view>

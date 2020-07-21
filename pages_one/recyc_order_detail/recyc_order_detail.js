@@ -36,4 +36,28 @@ Page({
     })
   },
 
+  // 完成
+  toFinish: function () {
+    let that = this
+    console.log(111)
+    let data = {
+      id: that.data.detail.id,
+      openid: wx.getStorageSync('openid')
+    }
+    console.log('参数：', data)
+    http.sendRequest('huishou.complete', 'post', data).then(function (res) {
+      console.log(res)
+      if (res.error == 0) {
+        modal.showToast(res.message, 'none')
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1,
+          })
+        }, 2000);
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  }
+
 })

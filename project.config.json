@@ -66,23 +66,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/mine/mine",
-					"pathName": "pages/mine/mine",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages_two/apply_one/apply_one",
-					"pathName": "pages_two/apply_one/apply_one",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages_two/apply_two/apply_two",
-					"pathName": "pages_two/apply_two/apply_two",
-					"query": "",
+					"name": "pages_one/recyc_order_detail/recyc_order_detail",
+					"pathName": "pages_one/recyc_order_detail/recyc_order_detail",
+					"query": "id=69",
 					"scene": null
 				}
 			]
