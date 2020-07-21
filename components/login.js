@@ -17,6 +17,7 @@ Component({
   },
 
   methods: {
+    
     // 取消
     cencal: function () {
       this.triggerEvent('addDrug', { login: false })
@@ -25,13 +26,11 @@ Component({
     //用户信息 - 获取key
     wxGetUserInfo: function (e) {
       let that = this
-      // console.log(e.detail)
       let detail = e.detail
       let data = {
         code: wx.getStorageSync('code')
       }
       http.sendRequest('wxapp.login', 'post', data).then(function (res) {
-        console.log(res)
         if (res.error == 0) {
           let session_key = res.session_key
           wx.setStorageSync('session_key', session_key)
@@ -56,7 +55,6 @@ Component({
         sessionKey: wx.getStorageSync('session_key')
       }
       http.sendRequest('wxapp.auth', 'post', data).then(function (res) {
-        console.log(res)
         if (res.error == 0) {
           wx.setStorageSync('openid', that.data.openid)
           that.triggerEvent('addDrug', { login: false})
@@ -65,7 +63,5 @@ Component({
         }
       })
     }
-
-
   }
 })

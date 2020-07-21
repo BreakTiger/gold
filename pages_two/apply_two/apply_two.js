@@ -1,4 +1,7 @@
-// pages_one/apply_two/apply_two.js
+const app = getApp()
+const http = require('../../request.js')
+import modal from '../../modals.js'
+
 Page({
 
   /**

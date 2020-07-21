@@ -70,6 +70,20 @@
 					"pathName": "pages/mine/mine",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages_two/apply_one/apply_one",
+					"pathName": "pages_two/apply_one/apply_one",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages_two/apply_two/apply_two",
+					"pathName": "pages_two/apply_two/apply_two",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

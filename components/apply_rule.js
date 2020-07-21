@@ -1,4 +1,8 @@
-// components/apply_rule.js
+const app = getApp()
+const http = require('../request.js')
+import modal from '../modals.js'
+const WxParse = require('../wxParse/wxParse.js')
+
 Component({
   /**
    * 组件的属性列表
@@ -6,21 +10,30 @@ Component({
   options: {
     addGlobalClass: true
   },
+
   properties: {
 
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
-
+    rule: ''
   },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+  created() {
+    this.getRule()
+  },
 
+  methods: {
+    getRule: function () {
+      let that = this
+      http.sendRequest('huishou.set', 'post', {}).then(function (res) {
+        console.log(res.list.dianxie)
+        if (res.error == 0) {
+
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    }
   }
 })

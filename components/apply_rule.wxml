@@ -1,9 +1,12 @@
+<import src="../wxParse/wxParse.wxml" />
+
 <view class="content flex col fl-align">
 
 	<image src="../img/rule.png" class="rule"></image>
 
 	<!-- 富文本 -->
 	<text>111111</text>
+	<!-- <template is="wxParse" data="{{wxParseData:article.nodes}}" /> -->
 
 	<!-- 按钮栏 -->
 	<view class="btn-line flex fl-align fl-jsb f24" style="margin:25rpx 0;">

@@ -1,3 +1,5 @@
+@import '../wxParse/wxParse.wxss';
+
 .rule {
   width: 565rpx;
   height: 402rpx;
@@ -18,7 +20,6 @@
 }
 
 
-.b-f3{
+.b-f3 {
   background: #f3f3f3;
 }
-

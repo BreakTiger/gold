@@ -164,9 +164,6 @@ Page({
     if (openid) {
       this.getUser()
     }
-  },
-
-
-
-
+  }
+  
 })
