@@ -12,7 +12,7 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         // console.log(res)
         wx.setStorageSync('code', res.code)
-        wx.setStorageSync('openid', 'sns_wa_o2bFa5P3qK1uFbXQOOPCyrlRg3eg')
+        // wx.setStorageSync('openid', 'sns_wa_o2bFa5P3qK1uFbXQOOPCyrlRg3eg')
 
         wx.setStorageSync('lat', '23.07466308995538')
         wx.setStorageSync('lng', '113.32205928152793')

@@ -13,7 +13,9 @@ Page({
     types_chopice: '',
 
     gram: '',//克重
-    phone: '' //电话
+    phone: '', //电话
+
+    login: false
   },
 
   onLoad: function (options) {
@@ -134,52 +136,67 @@ Page({
   //立即回收
   toRecyc: function () {
     let that = this
-    let list = that.data.types_list
-    let gram = that.data.gram
-    let phone = that.data.phone
-    if (!that.data.type_choice && list.length == 0) {
-      modal.showToast('请选择黄金类型', 'none')
-    } else if (!that.data.types_chopice && list.length != 0) {
-      modal.showToast('请选择所选黄金类型的种类', 'none')
-    } else if (!gram) {
-      modal.showToast('请输入黄金克重', 'none')
-    } else if (!phone) {
-      modal.showToast('请输入手机号码', 'none')
-    } else if (!(/^1[3456789]\d{9}$/.test(phone))) {
-      modal.showToast('请输入如合法的手机号码', 'none')
-    } else {
-      let data = {}
-      if (list.length != 0) {
-        if (that.data.types_chopice) {
+    let openid = wx.getStorageSync('openid') || ''
+    if (openid) {
+      let list = that.data.types_list
+      let gram = that.data.gram
+      let phone = that.data.phone
+      if (!that.data.type_choice && list.length == 0) {
+        modal.showToast('请选择黄金类型', 'none')
+      } else if (!that.data.types_chopice && list.length != 0) {
+        modal.showToast('请选择所选黄金类型的种类', 'none')
+      } else if (!gram) {
+        modal.showToast('请输入黄金克重', 'none')
+      } else if (!phone) {
+        modal.showToast('请输入手机号码', 'none')
+      } else if (!(/^1[3456789]\d{9}$/.test(phone))) {
+        modal.showToast('请输入如合法的手机号码', 'none')
+      } else {
+        let data = {}
+        if (list.length != 0) {
+          if (that.data.types_chopice) {
+            data = {
+              type: that.data.types_chopice,
+              gram: gram,
+              mobile: phone,
+              openid: wx.getStorageSync('openid')
+            }
+          } else {
+            modal.showToast('请选择黄金类型的属性')
+          }
+        } else {
           data = {
-            type: that.data.types_chopice,
+            type: that.data.type_choice,
             gram: gram,
             mobile: phone,
             openid: wx.getStorageSync('openid')
           }
-        } else {
-          modal.showToast('请选择黄金类型的属性')
         }
-      } else {
-        data = {
-          type: that.data.type_choice,
-          gram: gram,
-          mobile: phone,
-          openid: wx.getStorageSync('openid')
-        }
-      }
-      console.log('参数：', data)
-      http.sendRequest('huishou.sbpinggu', 'post', data).then(function (res) {
-        if (res.error == 0) {
-          let data = {
-            count_price: res.list.countprice,
-            price: res.list.price
+        console.log('参数：', data)
+        http.sendRequest('huishou.sbpinggu', 'post', data).then(function (res) {
+          if (res.error == 0) {
+            let data = {
+              count_price: res.list.countprice,
+              price: res.list.price
+            }
+            modal.navigate('/pages_one/assess_success/assess_success?data=', JSON.stringify(data))
+          } else {
+            modal.showToast(res.message, 'none')
           }
-          modal.navigate('/pages_one/assess_success/assess_success?data=', JSON.stringify(data))
-        } else {
-          modal.showToast(res.message, 'none')
-        }
+        })
+      }
+    } else {
+      this.setData({
+        login: true
       })
     }
+  },
+
+  //登录
+  getAddGrug: function (e) {
+    this.setData({
+      login: e.detail.login
+    })
   }
+  
 })

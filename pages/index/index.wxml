@@ -80,5 +80,7 @@
 
 	</view>
 
+	<login wx:if="{{login}}"></login>
+
 
 </view>

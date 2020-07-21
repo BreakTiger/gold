@@ -32,7 +32,9 @@ Page({
     choice: null, //服务方式
 
     shadows: false,
-    agree: 0
+    agree: 0,
+
+    login: false
   },
 
   onLoad: function (options) {
@@ -248,6 +250,14 @@ Page({
     } else {
       modal.showToast('请先阅读，并同意《黄金回收服务协议》', 'none')
     }
+  },
+
+
+  //登录
+  getAddGrug: function (e) {
+    this.setData({
+      login: e.detail.login
+    })
   }
 
 })

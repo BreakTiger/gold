@@ -42,7 +42,6 @@
 
 	</view>
 
-
-
+	<login wx:if="{{login}}" bind:addDrug="getAddGrug"></login>
 
 </view>

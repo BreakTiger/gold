@@ -66,16 +66,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages_one/recyc_order_list/recyc_order_list",
-					"pathName": "pages_one/recyc_order_list/recyc_order_list",
+					"name": "pages/mine/mine",
+					"pathName": "pages/mine/mine",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages_one/recyc_order_detail/recyc_order_detail",
-					"pathName": "pages_one/recyc_order_detail/recyc_order_detail",
-					"query": "id=44",
 					"scene": null
 				}
 			]

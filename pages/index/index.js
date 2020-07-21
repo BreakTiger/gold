@@ -26,7 +26,9 @@ Page({
         icon: '../../icon/home-4.png',
         text: '饰品修复'
       }
-    ]
+    ],
+
+    login: false
   },
 
   onLoad: function (options) {

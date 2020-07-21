@@ -1,1 +1,24 @@
-/* components/login.wxss */
+.login {
+  width: 670rpx;
+  height: 450rpx;
+}
+
+.login>image {
+  width: 550rpx;
+  height: 20rpx;
+}
+
+.login>view {
+  width: 550rpx;
+}
+
+.login>view>button {
+  width: 254rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  border: 2rpx solid rgba(0, 0, 0, 1);
+  margin: 0rpx;
+  padding: 0rpx;
+  font-size: 24rpx !important;
+  font-weight: bold;
+}

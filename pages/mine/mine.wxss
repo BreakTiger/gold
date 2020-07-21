@@ -2,6 +2,10 @@ page {
   background: #F6F6F6;
 }
 
+.content>.w710 {
+  margin: auto;
+}
+
 .f46 {
   font-size: 46rpx;
 }

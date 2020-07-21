@@ -1,4 +1,7 @@
 {
+  "usingComponents": {
+    "login": "/components/login"
+  },
   "pages": [
     "pages/index/index",
     "pages/recyc/recyc",

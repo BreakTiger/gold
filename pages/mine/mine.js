@@ -5,6 +5,8 @@ import modal from '../../modals.js'
 Page({
 
   data: {
+    openid: '',
+
     user: {},
     nav_one: [
       {
@@ -50,11 +52,23 @@ Page({
         text: '待评价',
         type: 2
       }
-    ]
+    ],
+
+    login: false
   },
 
   onLoad: function (options) {
-    this.getUser()
+    let openid = wx.getStorageSync('openid') || ''
+    this.setData({
+      openid: openid
+    })
+    if (!openid) {
+      this.setData({
+        login: true
+      })
+    } else {
+      this.getUser()
+    }
   },
 
   //用户信息
@@ -65,6 +79,7 @@ Page({
     }
     http.sendRequest('huishou.getusermember', 'post', data).then(function (res) {
       if (res.error == 0) {
+        console.log(res.list)
         that.setData({
           user: res.list
         })
@@ -76,23 +91,48 @@ Page({
 
   //上门回收
   enter_one: function (e) {
-    let type = e.currentTarget.dataset.type || ''
-    modal.navigate('/pages_one/order-list/order-list?type=',type)
+    if (this.data.openid) {
+      let type = e.currentTarget.dataset.type || ''
+      modal.navigate('/pages_one/order-list/order-list?type=', type)
+    } else {
+      this.setData({
+        login: true
+      })
+    }
   },
 
   //门店预约
   enter_two: function (e) {
-    modal.navigate('/pages_one/recyc_order_list/recyc_order_list')
+    if (this.data.openid) {
+      modal.navigate('/pages_one/recyc_order_list/recyc_order_list')
+    } else {
+      this.setData({
+        login: true
+      })
+    }
   },
 
   // 店铺入驻
   toApplyOne: function () {
-    modal.navigate('/pages_two/apply_one/apply_one')
+    if (this.data.openid) {
+      modal.navigate('/pages_two/apply_one/apply_one')
+    } else {
+      this.setData({
+        login: true
+      })
+    }
   },
 
   // 个人入驻
   toApplyTwo: function () {
-    modal.navigate('/pages_two/apply_two/apply_two')
+    if (this.data.openid) {
+      modal.navigate('/pages_two/apply_two/apply_two')
+    } else {
+      this.setData({
+        login: true
+      })
+    }
+
   },
 
   //店铺工作台
@@ -104,6 +144,29 @@ Page({
   space_two: function () {
     modal.navigate('/pages_two/workspace_two/workspace_two')
   },
+
+  //登录窗
+  logined: function () {
+    this.setData({
+      login: true
+    })
+  },
+
+  //登录
+  getAddGrug: function (e) {
+    this.setData({
+      login: e.detail.login
+    })
+    let openid = wx.getStorageSync('openid') || ''
+    this.setData({
+      openid: openid
+    })
+    if (openid) {
+      this.getUser()
+    }
+  },
+
+
 
 
 })
