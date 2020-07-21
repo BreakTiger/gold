@@ -9,9 +9,9 @@
 
 	<view class="btn t-c f30" bindtap="backHome">回首页</view>
 
-  <!-- 审核失败 -->
+	<!-- 审核失败 -->
+	<!-- <view class="btn t-c f30" bindtap="backHome">再次申请</view> -->
 
-
-  <!-- 审核成功 -->
-
+	<!-- 审核成功 -->
+	<!-- <view class="btn t-c f30" bindtap="backHome">去管理中心</view> -->
 </view>
