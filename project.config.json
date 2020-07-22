@@ -63,15 +63,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages_two/apply_one/apply_one",
-					"pathName": "pages_two/apply_one/apply_one",
-					"query": "",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

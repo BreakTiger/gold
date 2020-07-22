@@ -2,14 +2,17 @@
 
 	<view class="mine p-r">
 		<image src="../../img/mine.png" class="wh"></image>
+
 		<view class="p-a flex fl-align" wx:if="{{openid}}">
 			<image src="{{user.avatar}}" class="head b_rh"></image>
 			<text class="f46 c-ff">{{user.nickname}}</text>
 		</view>
-		<view class="p-a flex fl-align" wx:if="{{!openid}}" bindtap="logined">
+
+		<view class="p-a flex fl-align" bindtap="logined" wx:else>
 			<image src="../../img/e_head.png" class="head b_rh"></image>
 			<view style="font-size: 36rpx; font-weight: bold;color: #FFFFFF;">点击登录</view>
 		</view>
+
 	</view>
 
 	<view class="content w100 flex col flex" style="margin-top:-60rpx;">

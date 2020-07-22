@@ -175,11 +175,7 @@ Page({
         console.log('参数：', data)
         http.sendRequest('huishou.sbpinggu', 'post', data).then(function (res) {
           if (res.error == 0) {
-            let data = {
-              count_price: res.list.countprice,
-              price: res.list.price
-            }
-            modal.navigate('/pages_one/assess_success/assess_success?data=', JSON.stringify(data))
+            modal.navigate('/pages_one/assess_success/assess_success?data=', JSON.stringify(res.list))
           } else {
             modal.showToast(res.message, 'none')
           }
@@ -198,5 +194,5 @@ Page({
       login: e.detail.login
     })
   }
-  
+
 })

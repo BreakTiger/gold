@@ -7,6 +7,9 @@ Page({
 
 
   data: {
+
+    detail: {},
+
     price: '',
 
     type_list: [],
@@ -39,6 +42,14 @@ Page({
 
   onLoad: function (options) {
     this.getPrice()
+  },
+
+  onShow: function () {
+    let data = app.globalData.putInfo || ''
+    console.log(data)
+    if (Object.keys(data).length != 0) {
+      console.log('开始整理')
+    }
   },
 
   //实时金价
@@ -252,12 +263,21 @@ Page({
     }
   },
 
-
   //登录
   getAddGrug: function (e) {
     this.setData({
       login: e.detail.login
     })
-  }
+  },
+
+  // 离开页面
+  onHide: function () {
+    console.log(1111)
+    //
+    this.setData({
+      shadows: false,
+      agree: 0
+    })
+  },
 
 })

@@ -4,21 +4,21 @@ import modal from '../../modals.js'
 Page({
 
   data: {
-    pirce: '',
-    count_price: ''
+    detail: {}
   },
 
   onLoad: function (options) {
     console.log(JSON.parse(options.data))
     let data = JSON.parse(options.data)
     this.setData({
-      price: data.price,
-      count_price: data.count_price
+      detail: data
     })
   },
 
   // 上门回收
   recyc_one: function () {
+    //储存到全局
+    app.globalData.putInfo = this.data.detail
     wx.switchTab({
       url: '/pages/recyc/recyc',
     })
@@ -26,8 +26,10 @@ Page({
 
   // 到店回收
   recyc_two: function () {
+    //储存到全局
+    app.globalData.putInfo = this.data.detail
     modal.navigate('/pages_one/nearby/nearby')
   }
 
-  
+
 })

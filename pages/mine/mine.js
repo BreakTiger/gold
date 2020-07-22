@@ -5,9 +5,12 @@ import modal from '../../modals.js'
 Page({
 
   data: {
+
     openid: '',
 
-    user: {},
+    user: {}, //用户信息
+
+    //上门回收
     nav_one: [
       {
         icon: '../../icon/m-1.png',
@@ -36,6 +39,7 @@ Page({
       }
     ],
 
+    //门店预约
     nav_two: [
       {
         icon: '../../icon/m-1.png',
@@ -54,19 +58,20 @@ Page({
       }
     ],
 
-    login: false
+    login: false //登录窗状态
   },
 
   onLoad: function (options) {
     let openid = wx.getStorageSync('openid') || ''
+    console.log('111:', openid)
     this.setData({
       openid: openid
     })
-    if (!openid) {
+    if (!openid) { //未登录
       this.setData({
         login: true
       })
-    } else {
+    } else { //已经登录
       this.getUser()
     }
   },
@@ -164,5 +169,5 @@ Page({
       this.getUser()
     }
   }
-  
+
 })
