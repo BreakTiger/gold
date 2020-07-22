@@ -1,8 +1,8 @@
 <view class="container flex col fl-align">
 	<!-- 轮播 -->
 	<view class="lunbo p-r">
-		<swiper class="wh" wx:for="{{detail.image}}" wx:key="index">
-			<swiper-item>
+		<swiper class="wh">
+			<swiper-item  wx:for="{{detail.image}}" wx:key="index">
 				<image src="{{item}}" class="wh"></image>
 			</swiper-item>
 		</swiper>
