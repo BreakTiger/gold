@@ -218,7 +218,17 @@ Page({
             modal.showToast('保存成功')
           },
           fail: function () {
-            modal.showToast('保存失败', 'none')
+            wx.showModal({
+              title: '提示',
+              content: '海报保存失败，请检查小程序是否授权保存图片',
+              success: function (res) {
+                if (res.confirm) {
+                  wx.openSetting({
+                    withSubscriptions: true,
+                  })
+                }
+              }
+            })
           }
         })
       }

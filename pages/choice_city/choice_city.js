@@ -116,7 +116,6 @@ Page({
     }
   },
 
-
   // 当前城市 - 手动定位
   getLocation: function () {
     let that = this
@@ -146,7 +145,6 @@ Page({
     })
   },
 
-
   //首字母
   getPy: function (e) {
     this.setData({
@@ -158,9 +156,6 @@ Page({
     this.setData({
       scrollTopId: this.data.showPy
     })
-  },
-
-
-
+  }
 
 })

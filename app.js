@@ -1,6 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
+    
     if (wx.canIUse('getUpdateManager')) {
       const updateManager = wx.getUpdateManager()
       updateManager.onCheckForUpdate(function (res) {

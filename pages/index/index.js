@@ -47,8 +47,6 @@ Page({
       success: function (res) {
         let lat = res.latitude
         let lon = res.longitude
-        wx.setStorageSync('lat', lat)
-        wx.setStorageSync('lon', lon)
         demo.reverseGeocoder({
           location: {
             latitude: lat,
@@ -59,6 +57,8 @@ Page({
             that.setData({
               city: res.result.address_component.city
             })
+            wx.setStorageSync('lat', lat)
+            wx.setStorageSync('lon', lon)
             wx.setStorageSync('city', res.result.address_component.city)
           },
           fail: function (error) {
@@ -218,6 +218,24 @@ Page({
     })
   },
 
+  // 轮播跳转
+  toLink: function (e) {
+    console.log(e.currentTarget.dataset.item)
+    let type = e.currentTarget.dataset.item.urltype
+    if (type == 0) {
+      console.log('无连接')
+    } else if (type == 1) {
+      console.log('文章')
+      let id = e.currentTarget.dataset.item.wid
+      modal.navigate('/pages_one/infos_detail/infos_detail?id=', id)
+    } else if (type == 2) {
+      console.log('小程序链接')
+      let url = e.currentTarget.dataset.item.url
+      console.log('链接：', url)
+      modal.navigate(url)
+    }
+  },
+
   // 下拉刷新
   onPullDownRefresh: function () {
     wx.showToast({
@@ -228,7 +246,7 @@ Page({
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 1000);
-    this.onShow();
+    this.getLocation()
   }
 
 })
