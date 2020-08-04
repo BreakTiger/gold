@@ -19,7 +19,7 @@ Page({
   getList: function () {
     let that = this
     let data = {
-      page: that.page,
+      page: that.data.page,
       pagesize: 10,
       openid: wx.getStorageSync('openid')
     }
@@ -40,5 +40,53 @@ Page({
   toInfoDetail: function (e) {
     let id = e.currentTarget.dataset.id
     modal.navigate('/pages_one/infos_detail/infos_detail?id=', id)
+  },
+
+  // 下拉刷新
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
+    this.setData({
+      page: 1
+    })
+    this.getList()
+  },
+
+  onReachBottom: function () {
+    console.log('到底')
+    let that = this
+    let old = that.data.list
+    console.log(old)
+    let data = {
+      page: that.data.page + 1,
+      pagesize: 10,
+      openid: wx.getStorageSync('openid')
+    }
+    console.log('参数：', data)
+    http.sendRequest('huishou.knowledge', 'post', data).then(function (res) {
+      if (res.error == 0) {
+        let list = res.list
+        if (list.length != 0) {
+          let news = old.concat(list)
+          that.setData({
+            list: news,
+            page: data.page
+          })
+        } else {
+          modal.showToast('已经到底了哦', 'none')
+        }
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+
   }
+
+
 })

@@ -9,7 +9,8 @@ Component({
   },
 
   properties: {
-
+    status: String,
+    content: String
   },
 
   data: {
@@ -20,9 +21,15 @@ Component({
 
     //返回首页
     backHome: function () {
+      console.log(this.data.content)
       wx.switchTab({
         url: '/pages/index/index',
       })
+    },
+
+    // 再次申请
+    apply_again: function () {
+      this.triggerEvent('Again', { step: 0, shop_status: [] })
     }
   }
 })

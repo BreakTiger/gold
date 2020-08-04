@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "奖励中心"
+  "navigationBarTitleText": "奖励中心",
+  "enablePullDownRefresh": true
 }

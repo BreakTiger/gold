@@ -5,7 +5,7 @@
 }
 
 .content {
-  width: 600rpx;
+  width: 670rpx;
   margin: 0 auto;
 }
 

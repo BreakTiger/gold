@@ -4,65 +4,62 @@ import modal from '../../modals.js'
 
 Page({
 
-  
+
   data: {
-    status:2,
-    step:0
+    status: 2, //类型 1 店铺 2 个人
+    user_status: {}, //个人申请入驻状态
+    step: 0,
+    content: '',
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
-
+    this.getType()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  getType: function () {
+    let that = this
+    let data = {
+      openid: wx.getStorageSync('openid')
+    }
+    // console.log('参数：', data)
+    http.sendRequest('huishou.getshenhe', 'post', data).then(function (res) {
+      console.log(res.list)
+      if (res.error == 0) {
+        that.setData({
+          user_status: res.list.user_status,
+          content: res.list.user_status.error_centent
+        })
 
+        if (res.list.user_status.status) {
+          that.setData({
+            step: 2
+          })
+        }
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 申请
+  getApply: function (e) {
+    this.setData({
+      step: e.detail.step
+    })
+    if (e.detail.step == 2) {
+      this.getType()
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 再次申请
+  getAgain: function (e) {
+    console.log(e.detail)
+    this.setData({
+      step: e.detail.step,
+      user_status: e.detail.user_status
+    })
   }
+
+
 })

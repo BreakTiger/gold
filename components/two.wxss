@@ -1,1 +1,21 @@
-/* components/two.wxss */
+.type {
+  width: 420rpx;
+  height: 420rpx;
+  margin-top: 120rpx;
+}
+
+.content {
+  width: 670rpx;
+  margin: 0 auto;
+}
+
+.btn {
+  width: 660rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 1rpx solid rgba(229, 229, 229, 1);
+  box-shadow: 0rpx 11rpx 33rpx 2rpx rgba(0, 0, 0, 0.1);
+  border-radius: 20rpx;
+  margin: 35rpx 0;
+}

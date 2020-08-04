@@ -15,6 +15,7 @@
 			</view>
 		</view>
 		<view class="w100 flex col fl-align b-ff">
+			<video src="{{detail.video}}" class="video" wx:if="{{detail.video}}"></video>
 			<template is="wxParse" data="{{wxParseData:article.nodes}}" />
 		</view>
 

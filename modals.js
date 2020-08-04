@@ -33,11 +33,11 @@ export default class modals {
     })
   }
 
-  static bigimg(img) {
+  static bigimg(list, img) {
     var that = this
     wx.previewImage({
       current: img, // 当前显示图片的http链接
-      urls: [img] // 需要预览的图片http链接列表（重点）
+      urls: list // 需要预览的图片http链接列表（重点）
     })
   }
 

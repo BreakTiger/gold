@@ -1,0 +1,113 @@
+<view class="container flex col fl-align">
+
+	<view class="w710 flex col">
+		<text class="f30">接单状态</text>
+		<view class="oder-type flex fl-align fl-jsb f24 b_r10">
+			<view class="t-c {{opened == item.open?'c-ff b-10':'c-66'}}" wx:for="{{open_list}}" wx:key="index" data-type="{{item.open}}" bindtap="change_open">{{item.name}}</view>
+		</view>
+	</view>
+
+	<view class="w710 flex col">
+		<text class="f30">店铺名称<text class="c-F0">*</text></text>
+		<input placeholder="请输入店铺名称" value="{{shop_name}}" bindblur="getShopName"></input>
+	</view>
+
+	<view class="w710 flex col">
+		<text class="f30">店铺图片<text class="c-F0">*</text><text class="f24 c-66">（可上传1-5张）建议尺寸：750 * 440</text></text>
+		<view class="w100 flex fl-w">
+			<view class="photo p-r" wx:for="{{shop_img}}" wx:key="index">
+				<image src="{{item}}" class="wh"></image>
+				<image src="../../icon/del.png" class="del p-a" bindtap="del" data-index="{{index}}"></image>
+			</view>
+			<image src="../../img/photo.png" class="photo" bindtap="addPicture" wx:if="{{shop_img.length<5}}"></image>
+		</view>
+	</view>
+
+	<view class="w710 flex col">
+		<text class="f30">店铺介绍<text class="c-F0">*</text></text>
+		<textarea class="w100" placeholder="请输入店铺介绍" bindblur="introduce" value="{{content}}"></textarea>
+	</view>
+
+	<view class="w710 flex col">
+		<text>所在城市</text>
+		<view class="w100 flex fl-align fl-jsb" bindtap="choice_city">
+			<text class="f30 c-66">{{city_in}}</text>
+			<image src="../../icon/to.png" class="go"></image>
+		</view>
+	</view>
+
+	<view class="w710 flex col">
+		<text>详细地址</text>
+		<input placeholder="请输入详细地址" bindblur="setAddress" value="{{street}}"></input>
+	</view>
+
+	<view class="w710 flex col">
+		<text>营业时间</text>
+		<picker mode="time" bindchange="starTime" value="{{time_one}}">
+			<view class="w100 flex fl-align fl-jsb" style="padding:30rpx 0;">
+				<text class="f30 c-66">{{time_one}}</text>
+				<image src="../../icon/to.png" class="go"></image>
+			</view>
+		</picker>
+
+		<picker mode="time" bindchange="endTime" value="{{time_two}}">
+			<view class="w100 flex fl-align fl-jsb">
+				<text class="f30 c-66">{{time_two}}</text>
+				<image src="../../icon/to.png" class="go"></image>
+			</view>
+		</picker>
+
+	</view>
+
+	<view class="w710 flex col">
+		<text>手机号码</text>
+		<view class="w100 flex fl-align fl-jsb">
+			<input type="number" placeholder="请输入手机号码" bindblur="setPhone" value="{{phone}}"></input>
+			<button class="get b-c" open-type="getPhoneNumber" bindgetphonenumber="getPhone">一键获取</button>
+		</view>
+	</view>
+
+	<view class="w710 flex col">
+		<view style="margin-bottom:20rpx;"><text class="f30 c-00">经营类目</text></view>
+		<view class="w100 flex fl-w f24">
+			<view wx:for="{{kind_list}}" wx:key="index" class="{{item.choice==1?'b-c c-ff laber':''}} {{item.is_true==0?'b-f0':''}} labers b_r10" bindtap="choice_kind" data-index="{{index}}">{{item.name}}</view>
+		</view>
+	</view>
+
+	<block wx:if="{{is_huishou==1}}">
+
+		<block wx:for="{{rec_list}}" wx:key="index" wx:for-index="father_index" wx:for-item="father_item">
+			<view class="w710 flex col">
+				<view class="flex fl-align fl-jsb" style="margin-bottom:20rpx;">
+					<text class="f30 c-00">上门回收城市<text class="c-FF0">*</text></text>
+					<text class="f30 c-F0" wx:if="{{father_index!=0}}" data-index="{{father_index}}" bindtap="delIndex">删除</text>
+				</view>
+				<picker mode="region" bindchange="getRecCity" data-index="{{father_index}}">
+					<view class="flex fl-align fl-jsb">
+						<view class="f30 c-99">{{father_item.rec_city}}</view>
+						<image src="../../icon/to.png" class="go"></image>
+					</view>
+				</picker>
+			</view>
+			<view class="w710 flex col" wx:if="{{father_item.rec_area_list.length!=0}}">
+				<view style="margin-bottom:20rpx;"><text class="f30 c-00">回收区域</text></view>
+				<view class="w100 flex fl-w f24">
+					<view class="{{item.choice==1?'b-c c-ff laber':''}} labers b_r10" wx:for="{{father_item.rec_area_list}}" wx:key="index" bindtap="choice_area" data-indexs="{{index}}" data-list="{{father_item.rec_area_list}}" data-index="{{father_index}}">{{item.area}}</view>
+				</view>
+			</view>
+
+		</block>
+
+		<view class="w710 flex fl-align fl-jc" bindtap="addCity">
+			<image src="../../icon/add.png" class="add"></image>
+			<text class="f30 c-66">更多城市</text>
+		</view>
+
+	</block>
+
+	<view class="botton-line flex fl-align fl-jsb f30">
+		<view class="b-f3" bindtap="toCancel">取消</view>
+		<view class="b-c c-ff" bindtap="toSent">立即提交</view>
+	</view>
+
+</view>

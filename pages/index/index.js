@@ -2,19 +2,84 @@ const app = getApp()
 const http = require('../../request.js')
 import modal from '../../modals.js'
 
+// 地图组件
+var QQMapWX = require('../../qqmap-wx-jssdk.min.js')
+var demo = new QQMapWX({
+  key: 'UFTBZ-W4UW6-UNPSV-EMHL3-24UFQ-SCFKR' //临时
+});
+
+
 Page({
 
   data: {
-    lunbo: [],
-    // 经营类目：
-    nav_list: [],
+
+    city: '定位',
+
+    lunbo: [], //轮播
+
+    nav_list: [],// 经营类目
+
     price: '0.00',
+
     shop: [],
+
     info: [],
+
     login: false
   },
 
-  onLoad: function (options) {
+  onShow: function () {
+    let city = wx.getStorageSync('city')
+    if (city) {
+      this.setData({
+        city: city
+      })
+      this.getLun()
+    } else {
+      this.getLocation()
+    }
+  },
+
+  //定位
+  getLocation: function () {
+    let that = this
+    wx.getLocation({
+      success: function (res) {
+        let lat = res.latitude
+        let lon = res.longitude
+        wx.setStorageSync('lat', lat)
+        wx.setStorageSync('lon', lon)
+        demo.reverseGeocoder({
+          location: {
+            latitude: lat,
+            longitude: lon
+          },
+          success: function (res) {
+            console.log(res)
+            that.setData({
+              city: res.result.address_component.city
+            })
+            wx.setStorageSync('city', res.result.address_component.city)
+          },
+          fail: function (error) {
+            console.log(error);
+          }
+        })
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: '提示',
+          content: '获取定位失败，请检查手机是否开启定位功能,或检查小程序设置,确认是否授权定位',
+          success: function (res) {
+            if (res.confirm) {
+              wx.openSetting({
+                withSubscriptions: true,
+              })
+            }
+          }
+        })
+      }
+    })
     this.getLun()
   },
 
@@ -45,9 +110,7 @@ Page({
       page: 1,
       pagesize: 10
     }
-    console.log('参数：', data)
     http.sendRequest('huishou.jingying', 'post', data).then(function (res) {
-      console.log(res.list)
       if (res.error == 0) {
         that.setData({
           nav_list: res.list
@@ -80,7 +143,9 @@ Page({
     let data = {
       page: 1,
       pagesize: 10,
-      openid: wx.getStorageSync('openid')
+      lat: wx.getStorageSync('lat'),
+      lng: wx.getStorageSync('lon'),
+      city: wx.getStorageSync('city')
     }
     http.sendRequest('huishou.shoplist', 'post', data).then(function (res) {
       if (res.error == 0) {
@@ -100,7 +165,7 @@ Page({
     let data = {
       page: 1,
       pagesize: 10,
-      openid: wx.getStorageSync('openid')
+      is_tuijin: 1
     }
     http.sendRequest('huishou.knowledge', 'post', data).then(function (res) {
       if (res.error == 0) {
@@ -113,17 +178,14 @@ Page({
     })
   },
 
+  // 定位
+  toLocation: function () {
+    modal.navigate('/pages/choice_city/choice_city')
+  },
+
   // 附近门店
   toShop: function (e) {
-    let openid = wx.getStorageSync('openid')
-    if (openid) {
-      modal.navigate('/pages_one/nearby/nearby?id=', e.currentTarget.dataset.id)
-    } else {
-      this.setData({
-        login: true
-      })
-    }
-
+    modal.navigate('/pages_one/nearby/nearby?id=', e.currentTarget.dataset.id)
   },
 
   // 免费估价
@@ -154,10 +216,19 @@ Page({
     this.setData({
       login: e.detail.login
     })
-    // let openid = wx.getStorageSync('openid') | ''
-    // this.setData({
-    //   openid: openid
-    // })
+  },
+
+  // 下拉刷新
+  onPullDownRefresh: function () {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000
+    })
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 1000);
+    this.onShow();
   }
 
 })

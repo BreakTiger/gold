@@ -6,11 +6,12 @@ Page({
 
   data: {
     price: '',
+
     type_list: [],
-    type_choice: '',
+    type_choice: '', //类型ID
 
     types_list: [],
-    types_chopice: '',
+    types_choice: '', //属性ID
 
     gram: '',//克重
     phone: '', //电话
@@ -66,7 +67,7 @@ Page({
         item.choice = 1
         that.setData({
           type_choice: item.id,
-          types_chopice: ''
+          types_choice: ''
         })
         that.getNature()
       } else {
@@ -108,7 +109,7 @@ Page({
       if (index == indexs) {
         item.choice = 1
         that.setData({
-          types_chopice: item.id
+          types_choice: item.id
         })
       } else {
         item.choice = 0
@@ -143,7 +144,7 @@ Page({
       let phone = that.data.phone
       if (!that.data.type_choice && list.length == 0) {
         modal.showToast('请选择黄金类型', 'none')
-      } else if (!that.data.types_chopice && list.length != 0) {
+      } else if (!that.data.types_choice && list.length != 0) {
         modal.showToast('请选择所选黄金类型的种类', 'none')
       } else if (!gram) {
         modal.showToast('请输入黄金克重', 'none')
@@ -152,28 +153,16 @@ Page({
       } else if (!(/^1[3456789]\d{9}$/.test(phone))) {
         modal.showToast('请输入如合法的手机号码', 'none')
       } else {
-        let data = {}
-        if (list.length != 0) {
-          if (that.data.types_chopice) {
-            data = {
-              type: that.data.types_chopice,
-              gram: gram,
-              mobile: phone,
-              openid: wx.getStorageSync('openid')
-            }
-          } else {
-            modal.showToast('请选择黄金类型的属性')
-          }
-        } else {
-          data = {
-            type: that.data.type_choice,
-            gram: gram,
-            mobile: phone,
-            openid: wx.getStorageSync('openid')
-          }
+        let data = {
+          type: that.data.type_choice, //类型
+          shuxing: that.data.types_choice, //属性
+          gram: gram,
+          mobile: phone,
+          openid: wx.getStorageSync('openid')
         }
-        console.log('参数：', data)
+        console.log('data：', data)
         http.sendRequest('huishou.sbpinggu', 'post', data).then(function (res) {
+          console.log(res.list)
           if (res.error == 0) {
             modal.navigate('/pages_one/assess_success/assess_success?data=', JSON.stringify(res.list))
           } else {

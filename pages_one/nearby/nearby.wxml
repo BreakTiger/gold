@@ -1,29 +1,43 @@
 <view class="container">
 
-	<view class="w710 b-ff flex fl-align fl-jsb b_r10" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
-
-		<image src="{{item.logo}}" class="shop-img"></image>
-
-		<view class="shop-info flex col fl-jse">
-			<view class="f30 c-33 f-wb climp2">{{item.shopname}}</view>
-			<view class="flex fl-align fl-jsb">
-				<view class="flex fl-align">
-					<image src="../../icon/level.png" wx:for="{{item.level}}" wx:key="index" wx:if="item.level>0 " class="leve"></image>
-					<image src="../../icon/levels.png" wx:for="{{5-item.level}}" wx:key="index" wx:if="5-item.level>0 " class="leve"></image>
-					<text class="f24 c-66">{{item.level}}</text>
-				</view>
-				<text class="f26 c-99">{{item.distance}}m</text>
-			</view>
-
-			<view class="flex fl-align fl-jsb">
-				<text class="f24 c-66">营业时间：{{item.yingyetime}}</text>
-				<view class="order c-ff f24 b-8F" data-id="{{item.id}}" bindtap="toDetail">预约</view>
-			</view>
-
+	<view class="flex fl-align fl-jsb">
+		<view class="flex fl-align">
+			<image src="../../icon/locate.png" class="loca"></image>
+			<text class="f32 c-33">{{city}}</text>
 		</view>
-
+		<view class="flex fl-align" bindtap="toChoice">
+			<text class="f26 c-66">选择城市</text>
+			<image src="../../icon/to.png" class="go"></image>
+		</view>
 	</view>
 
-	<view class="flex col fl-align" wx:if="{{list.length==0}}">附近暂无支持的店铺</view>
+	<view class="flex col fl-align b-ff b_r30" bindtap="toDetail" data-id="{{item.id}}" wx:for="{{list}}" wx:key="index">
+		<image src="{{item.logo}}" class="shop_img"></image>
+		<view class="flex col" style="width:660rpx;margin:10rpx 0;">
+			<view class="f36 f-wb climp1">{{item.shopname}}</view>
+			<view class="flex fl-align" style="margin:20rpx 0;">
+				<image src="../../icon/level.png" class="leve" wx:for="{{item.level}}" wx:key="index"></image>
+				<image src="../../icon/levels.png" class="leve" wx:for="{{5-item.level}}" wx:key="index"></image>
+				<text class="f24 c-66">{{item.level}}.0</text>
+			</view>
+			<view class="f26 c-66">地址：{{item.address}}</view>
+			<view class="f26 c-66" style="margin:20rpx 0;">营业时间：{{item.yingyetime}}</view>
+		</view>
+		<view class="flex fl-align fl-jsb" style="width:660rpx;margin-bottom:20rpx;">
+			<view class="flex fl-align">
+				<image src="../../icon/locate.png" class="locas"></image>
+				<text class="f30 c-66">距离你{{item.distance}}km</text>
+			</view>
+			<view class="order b_r30 flex fl-align fl-jc">
+				<text class="f32" style="color:#EA5405;">预约</text>
+				<image src="../../icon/gos.png" class="go"></image>
+			</view>
+		</view>
+	</view>
+
+	<view class="flex col fl-align" wx:if="{{list.length==0}}">
+		<image src="../../img/empty.png" class="empty"></image>
+		<text>附近暂无店铺~</text>
+	</view>
 
 </view>

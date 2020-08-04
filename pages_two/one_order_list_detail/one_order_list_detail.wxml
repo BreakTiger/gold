@@ -1,0 +1,68 @@
+<view class="container flex col fl-align">
+
+	<view class="line p-r">
+		<image src="../../img/line.png" class="wh"></image>
+		<text class="p-a c-ff f36">{{detail.status}}</text>
+	</view>
+
+	<view class="w710 b-ff flex col fl-align b_r10">
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">订单号</text>
+			<text class="f26">{{detail.ordersn}}</text>
+		</view>
+
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">预约人</text>
+			<text class="f26">{{detail.username}}</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">预约时间</text>
+			<text class="f26">{{detail.yuyuetime}}</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">预约人手机号</text>
+			<text class="f26">{{detail.mobile}}</text>
+		</view>
+
+	</view>
+
+	<view class="w710 b-ff flex col fl-align b_r10">
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">预约门店</text>
+			<text class="f26">广州天河新天地</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">门店电话</text>
+			<text class="f26">{{detail.shop.mobile}}</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">门店地址</text>
+			<text class="f26">{{detail.shop.province}}{{detail.shop.city}}{{detail.shop.area}}{{detail.shop.address}}</text>
+		</view>
+
+	</view>
+
+	<view class="w710 b-ff flex col fl-align b_r10">
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">预约用户</text>
+			<view class="flex fl-align">
+				<image src="{{detail.avatar}}" class="b_rh icon"></image>
+				<text class="f26">{{detail.nickname}}</text>
+			</view>
+		</view>
+
+	</view>
+
+	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.shop_status==0}}" bindtap="toFinish">确认到店</view>
+
+	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.shop_status==1}}">已到店</view>
+
+</view>

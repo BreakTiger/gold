@@ -1,32 +1,50 @@
 page {
-  background: #F6F6F6;
+  background: #f0f0f0;
 }
 
 .container>view {
-  height: 200rpx;
-  margin: 25rpx auto;
+  width: 710rpx;
+  margin: 20rpx auto;
 }
 
-.shop-img {
-  width: 220rpx;
-  height: 152rpx;
-  border-radius: 30rpx;
-  margin-left: 20rpx;
+.loca {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 25rpx;
 }
 
-.shop-info {
-  width: 60%;
-  height: 152rpx;
-  margin-right: 20rpx;
+.go {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 15rpx;
 }
 
-.leve{
-  width: 26rpx;
-  height: 20rpx;
-  margin: 0 5rpx;
+.shop_img {
+  width: 710rpx;
+  height: 416rpx;
+  border-radius: 30rpx 30rpx 0 0;
 }
 
-.order{
-  border-radius: 17rpx;
-  padding: 5rpx 15rpx;
+.leve {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 10rpx;
+}
+
+.locas {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+}
+
+.order {
+  width: 147rpx;
+  height: 60rpx;
+  background: rgba(234, 84, 5, 0.1);
+}
+
+.go {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 10rpx;
 }

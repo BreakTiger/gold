@@ -2,19 +2,23 @@ page {
   background: #f6f6f6;
 }
 
+.container>view {
+  margin: 0 auto;
+}
+
 .lunbo {
   width: 100%;
   height: 440rpx;
 }
 
 .content {
-  margin-bottom: 20rpx;
+  margin-bottom: 20rpx !important;
 }
 
 .contents {
   border-radius: 30rpx 30rpx 0 0;
   z-index: 20;
-  margin-top: -80rpx;
+  margin-top: -80rpx !important;
 }
 
 .content>view {
@@ -74,6 +78,7 @@ page {
   width: 100%;
   height: 120rpx;
   bottom: 0rpx;
+  z-index: 20;
 }
 
 .order {
@@ -82,12 +87,52 @@ page {
   line-height: 80rpx;
 }
 
-.share {
+.share-line {
+  width: 100%;
+  height: 240rpx;
+  bottom: 0rpx;
+  z-index: 120;
+}
+
+.share-line>view {
+  width: calc(100% /2);
+  height: 100%;
+}
+
+.icons {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 30rpx 0;
+}
+
+.share-but {
+  width: calc(100% / 2) !important;
+  height: 100% !important;
   margin: 0rpx !important;
   padding: 0rpx !important;
-  width: 100rpx !important;
-  height: 45rpx !important;
   border: none !important;
-  left: 0rpx;
   top: 0rpx;
+  z-index: 120;
+}
+
+.haibai {
+  width: 690rpx;
+  height: 1003rpx;
+}
+
+.save {
+  width: 506rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.closed {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.imgs {
+  width: 182rpx;
+  height: 182rpx;
+  margin: 10rpx;
 }

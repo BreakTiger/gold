@@ -6,9 +6,15 @@ Page({
 
   data: {
 
+    code: '',
+
     id_one: '', //黄金属性ID
 
     id_two: '', //黄金属性ID
+
+    text_one: '',
+
+    text_two: '',
 
     price: '', //金价
 
@@ -16,13 +22,15 @@ Page({
 
     gram: '', //克重
 
+    fu_moeny: '',
+
     picture_list: [], //图片
 
     p_list: [],
 
-    date: '预约回收日期',
+    date: '请选择预约日期',
 
-    time: '预约回收时间',
+    time: '预约上门时间',
 
     name: '',
 
@@ -36,18 +44,64 @@ Page({
 
     area: '',
 
-    street: ''
+    street: '',
+
+    now_time: '', //现在时间
+
+    star_date: '', //开始日期
+
+    end_date: '' //结束日期
   },
 
   onLoad: function (options) {
+    wx.login({
+      success: function (res) {
+        console.log(res.code)
+      }
+    })
+
+    //日期 - 设置
+    let date = new Date()
+
+    // 增加一天的基础上增加30天
+    let date3 = new Date(date);
+    date3.setDate(date.getDate() + 30);
+
+    this.setData({
+      now_time: date.getHours() + ':' + date.getMinutes(),
+      star_date: date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate(),
+      end_date: date3.getFullYear() + "-" + (date3.getMonth() + 1) + "-" + date3.getDate(),
+    })
+
     let datas = JSON.parse(options.data)
-    // console.log(datas)
+
     this.setData({
       id_one: datas.id_one,
       id_two: datas.id_two,
+      text_one: datas.type,
+      text_two: datas.types,
       price: datas.price,
       count_price: datas.count_price,
-      gram: datas.gram
+      gram: datas.gram,
+      phone: datas.phone,
+      fu_moeny: datas.fu_moeny,
+    })
+  },
+
+  onShow: function () {
+    let that = this
+    that.wxlogin()
+  },
+
+  wxlogin: function () {
+    const that = this
+    wx.login({
+      success: function (res) {
+        console.log(res.code)
+        that.setData({
+          code: res.code
+        })
+      }
     })
   },
 
@@ -116,11 +170,10 @@ Page({
 
   //一键获取手机号
   getPhone: function (e) {
-    console.log(e.detail)
     let that = this
     let data = {
       data: e.detail.encryptedData,
-      code: wx.getStorageSync('code'),
+      code: that.data.code,
       iv: e.detail.iv
     }
     console.log('参数：', data)
@@ -130,6 +183,7 @@ Page({
         that.setData({
           phone: res.data.phoneNumber
         })
+        that.wxlogin();
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -158,9 +212,9 @@ Page({
   // 提交
   send: function () {
     let that = this
-    if (that.data.date == '预约回收日期') {
+    if (that.data.date == '请选择预约日期') {
       modal.showToast('请选择预约回收的日期', 'none')
-    } else if (that.data.time == '预约回收时间') {
+    } else if (that.data.time == '预约上门时间') {
       modal.showToast('请选择预约回收的时间', 'none')
     } else if (!that.data.name) {
       modal.showToast('请填写姓名', 'none')
@@ -224,7 +278,7 @@ Page({
     console.log('参数：', data)
     http.sendRequest('huishou.addhuiOrder', 'post', data).then(function (res) {
       if (res.error == 0) {
-        modal.navigate('/pages_one/order_success/order_success?data=', JSON.stringify(res.list))
+        modal.navigate('/pages_one/order_success/order_success?data=', JSON.stringify(res.list) + '&types=2')
       } else {
         modal.showToast(res.message, 'none')
       }

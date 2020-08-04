@@ -8,6 +8,7 @@ page {
 }
 
 .top-info {
+  width: 710rpx;
   top: 40rpx;
   left: 20rpx;
   z-index: 10;

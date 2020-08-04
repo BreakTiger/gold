@@ -1,23 +1,35 @@
-// components/two.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+const app = getApp()
+const http = require('../request.js')
+import modal from '../modals.js'
 
+Component({
+
+  options: {
+    addGlobalClass: true
   },
 
-  /**
-   * 组件的初始数据
-   */
+
+  properties: {
+    status: String,
+    content: String
+  },
+
   data: {
 
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
+    //返回首页
+    backHome: function () {
+      console.log(this.data.content)
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    },
 
+    // 再次申请
+    apply_again: function () {
+      this.triggerEvent('Again', { step: 0, user_status: [] })
+    }
   }
 })

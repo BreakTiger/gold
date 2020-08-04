@@ -9,15 +9,24 @@ Component({
   },
 
   properties: {
-
+    uid: String,
+    shopid: String
   },
 
   data: {
     openid: ''
   },
 
+  created: function () {
+    wx.login({
+      success: function (res) {
+        console.log(res)
+      }
+    })
+  },
+
   methods: {
-    
+
     // 取消
     cencal: function () {
       this.triggerEvent('addDrug', { login: false })
@@ -25,22 +34,27 @@ Component({
 
     //用户信息 - 获取key
     wxGetUserInfo: function (e) {
+      console.log(e)
       let that = this
       let detail = e.detail
-      let data = {
-        code: wx.getStorageSync('code')
-      }
-      http.sendRequest('wxapp.login', 'post', data).then(function (res) {
-        if (res.error == 0) {
-          let session_key = res.session_key
-          wx.setStorageSync('session_key', session_key)
-          let openid = 'sns_wa_' + res.openid
-          that.setData({
-            openid: openid
+      wx.login({
+        success: res => {
+          let data = {
+            code: res.code
+          }
+          http.sendRequest('wxapp.login', 'post', data).then(function (res) {
+            if (res.error == 0) {
+              let session_key = res.session_key
+              wx.setStorageSync('session_key', session_key)
+              let openid = 'sns_wa_' + res.openid
+              that.setData({
+                openid: openid
+              })
+              that.getUser(detail)
+            } else {
+              modal.showToast(res.message, 'none')
+            }
           })
-          that.getUser(detail)
-        } else {
-          modal.showToast(res.message, 'none')
         }
       })
     },
@@ -57,7 +71,50 @@ Component({
       http.sendRequest('wxapp.auth', 'post', data).then(function (res) {
         if (res.error == 0) {
           wx.setStorageSync('openid', that.data.openid)
-          that.triggerEvent('addDrug', { login: false})
+
+          if (that.properties.uid) {
+            that.bind_user()
+          } else if (that.data.shopid) {
+            that.bind_shop()
+          }
+          //授权成功关闭 弹窗
+          that.triggerEvent('addDrug', { login: false })
+
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    },
+
+    //绑定用户
+    bind_user: function () {
+      let that = this
+      let data = {
+        uid: that.properties.uid,
+        openid: wx.getStorageSync('openid')
+      }
+      console.log('参数：', data)
+      http.sendRequest('huishou.binuser', 'post', data).then(function (res) {
+        console.log(res)
+        if (res.error == 0) {
+
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    },
+
+    //绑定店铺
+    bind_shop: function () {
+      let that = this
+      let data = {
+        shopid: that.properties.shopid,
+        openid: wx.getStorageSync('openid')
+      }
+      http.sendRequest('huishou.binshop', 'post', data).then(function (res) {
+        console.log(res)
+        if (res.error == 0) {
+
         } else {
           modal.showToast(res.message, 'none')
         }

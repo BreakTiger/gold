@@ -2,7 +2,9 @@
 
 	<view class="line p-r">
 		<image src="../../img/line.png" class="wh"></image>
-		<text class="p-a c-ff f36">{{detail.status}}</text>
+		<text class="p-a c-ff f36" wx:if="{{detail.orderstatus==0}}">预约中</text>
+		<text class="p-a c-ff f36" wx:if="{{detail.orderstatus==2}}">待评价</text>
+		<text class="p-a c-ff f36" wx:if="{{detail.orderstatus==3}}">已评价</text>
 	</view>
 
 	<view class="w710 b-ff flex col fl-align b_r10">
@@ -43,18 +45,26 @@
 
 		<view class="flex fl-align fl-jsb c-33">
 			<text class="f-wb f30">门店电话</text>
-			<text class="f26">{{detail.strore_mobile}}</text>
+			<text class="f26">{{detail.shop.mobile}}</text>
 		</view>
 
 		<view class="flex fl-align fl-jsb c-33">
 			<text class="f-wb f30">门店地址</text>
-			<text class="f26">{{detail.address}}</text>
+			<text class="f26" style="width:70%;text-align:right;">{{detail.shop.province}}{{detail.shop.city}}{{detail.shop.area}}{{detail.shop.address}}</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">到店状态</text>
+			<text class="f26" wx:if="{{detail.shop_status==0}}">未到店</text>
+			<text class="f26" wx:if="{{detail.shop_status==1}}">已到店</text>
 		</view>
 
 	</view>
 
-	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.orderstatus==0}}" bindtap="toFinish">确认完成</view>
+	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.orderstatus==0 && detail.shop_status==0}}" bindtap="toCancel">取消订单</view>
 
-	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.orderstatus!=0}}">评价门店</view>
+	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.orderstatus==0 && detail.shop_status==1}}" bindtap="toFinish">确认完成</view>
+	
+	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.orderstatus==2 && detail.shop_status==1}}" bindtap="ping" data-id="{{detail.id}}">评价门店</view>
 
 </view>

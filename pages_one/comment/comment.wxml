@@ -1,22 +1,41 @@
 <view class="container flex col fl-align">
 
-	<view class="w710 b-ff flex col fl-align" style="margin:20rpx 0;padding:20rpx 0;" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
-		<view class="flex fl-align fl-jsb">
-			<view class="flex fl-align">
-				<text class="f28 c-33">用户评价</text>
-				<image src="../../icon/level.png" class="icon" wx:for="{{item.level}}" wx:key="index"></image>
-				<image src="../../icon/levels.png" class="icon" wx:for="{{5 - item.level}}" wx:key="index"></image>
+	<view class="w710 b-ff flex col fl-align" style="margin:20rpx 0;" wx:if="{{list.length!=0}}">
+
+		<view class="f30 f-wb c-33">评价（{{list.length}}）</view>
+
+		<view class="flex col fl-align" wx:for="{{list}}" wx:key="index">
+
+			<view class="w100 flex fl-align fl-jsb" style="margin-bottom:10rpx;">
+				<image src="{{item.avatar}}" class="head b_rh" wx:if="{{item.is_open==0}}"></image>
+				<image src="../../img/moren.png" class="head b_rh" wx:if="{{item.is_open==1}}"></image>
+				<view class="flex col" style="width:340rpx;">
+					<view class="f26 climp1" wx:if="{{item.is_open==0}}">{{item.nickname}}</view>
+					<view class="f26" wx:if="{{item.is_open==1}}">匿名</view>
+					<text class="f24">{{item.createtime}}</text>
+				</view>
+				<view class="flex col">
+					<view class="f24 c-66" style="text-align:right;">{{item.level}}</view>
+					<view class="flex fl-align">
+						<image src="../../icon/level.png" class="icon" wx:for="{{item.level - 0}}" wx:key="index"></image>
+						<image src="../../icon/levels.png" class="icon" wx:for="{{5 - item.level}}" wx:key="index"></image>
+					</view>
+				</view>
 			</view>
-			<text class="f24 c-99">{{item.createtime}}</text>
+
+			<view class="w100 f24 c-99" style="margin:10rpx 0;">{{item.content}}</view>
+
+			<view class="w100 flex fl-w" wx:if="{{item.images.length!=0}}">
+				<image src="{{items}}" class="img" wx:for="{{item.images}}" wx:for-item="items" wx:key="index" data-urls="{{item.images}}" data-item="{{items}}" bindtap="toPreview"></image>
+			</view>
+
 		</view>
-		<view class="f24 c-33" style="margin:20rpx 0;">{{item.content}}</view>
-		<view class="flex fl-w" wx:if="{{item.images.length!=0}}">
-			<image src="item" class="img" wx:for="{{item.images}}" wx:key="index"></image>
-		</view>
+
 	</view>
 
 	<view class="flex col fl-align" wx:if="{{list.length==0}}">
-		暂无评价
+		<image src="../../img/empty.png" class="empty"></image>
+		<text class="f36 f-wb">暂无评价~</text>
 	</view>
 
 </view>

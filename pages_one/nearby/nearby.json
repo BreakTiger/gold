@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "附近门店"
+  "navigationBarTitleText": "附近门店",
+  "enablePullDownRefresh": true
 }

@@ -1,0 +1,73 @@
+<view class="container flex col fl-align">
+
+	<view class="line p-r">
+		<image src="../../img/line.png" class="wh"></image>
+		<text class="p-a c-ff f36">{{detail.status}}</text>
+	</view>
+
+	<view class="w710 b-ff flex col fl-align b_r10">
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">订单号</text>
+			<text class="f26">{{detail.ordersn}}</text>
+		</view>
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">回收类型</text>
+			<text class="f26">{{detail.huishou_type}}{{detail.jin_type}}</text>
+		</view>
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">回收克重</text>
+			<text class="f26">{{detail.huishou_gram}}</text>
+		</view>
+
+	</view>
+
+	<view class="w710 b-ff flex col fl-align b_r10">
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">预约人</text>
+			<text class="f26">{{detail.username}}</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">预约时间</text>
+			<text class="f26">{{detail.yuyuetime}}</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">预约人手机号</text>
+			<text class="f26">{{detail.mobile}}</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">预约地址</text>
+			<text class="f26">{{detail.province}}{{detail.city}}{{detail.area}}{{detail.address}}</text>
+		</view>
+
+	</view>
+
+	<view class="w710 b-ff flex col fl-align b_r10" wx:if="{{detail.fuwu_status!=0}}">
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">回收人员</text>
+			<text class="f26">{{detail.fuwuuseru.nickname}}</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">联系号码</text>
+			<text class="f26">{{detail.fuwuuseru.mobile}}</text>
+		</view>
+
+		<view class="flex fl-align fl-jsb c-33">
+			<text class="f-wb f30">上门状态</text>
+			<text class="f26" wx:if="{{detail.shop_status==0}}">未上门</text>
+			<text class="f26" wx:if="{{detail.shop_status==1}}">已上门</text>
+		</view>
+
+	</view>
+
+	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.fuwu_status==1 && detail.orderstatus==1}}" bindtap="toFinish">确认上门</view>
+
+
+
+</view>

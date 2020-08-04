@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "黄金知识"
+  "navigationBarTitleText": "黄金知识",
+  "enablePullDownRefresh": true
 }

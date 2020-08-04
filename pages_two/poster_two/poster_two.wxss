@@ -1,0 +1,6 @@
+.save {
+  width: 520rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 80rpx 0 40rpx 0;
+}

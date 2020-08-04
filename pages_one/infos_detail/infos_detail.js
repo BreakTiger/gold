@@ -43,7 +43,7 @@ Page({
     //按钮转发
     if (res.from === 'button') {
       return {
-        title: this.dataa.detail.name,
+        title: this.data.detail.name,
         path: '/pages_one/infos_detail/infos_detail?id=' + this.data.id
       }
     }

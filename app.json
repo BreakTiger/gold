@@ -6,7 +6,8 @@
     "pages/index/index",
     "pages/recyc/recyc",
     "pages/infos/infos",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/choice_city/choice_city"
   ],
   "subPackages": [
     {
@@ -25,10 +26,7 @@
         "recyc_order_list/recyc_order_list",
         "recyc_order_detail/recyc_order_detail",
         "comment/comment",
-        "location/location",
-        "evaluate/evaluate",
-        "one_set/one_set",
-        "two_set/two_set"
+        "evaluate/evaluate"
       ]
     },
     {
@@ -37,7 +35,20 @@
         "apply_one/apply_one",
         "apply_two/apply_two",
         "workspace_one/workspace_one",
-        "workspace_two/workspace_two"
+        "workspace_two/workspace_two",
+        "one_set/one_set",
+        "two_set/two_set",
+        "one_order_list/one_order_list",
+        "gift/gift",
+        "pin_one/pin_one",
+        "pin_two/pin_two",
+        "poster_one/poster_one",
+        "poster_two/poster_two",
+        "one_recy_list/one_recy_list",
+        "one_order_list_detail/one_order_list_detail",
+        "one_recy_list_detail/one_recy_list_detail",
+        "two_order_list/two_order_list",
+        "two_order_list_detail/two_order_list_detail"
       ]
     }
   ],

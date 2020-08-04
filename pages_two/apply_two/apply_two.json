@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "Rule":"/components/apply_rule"
+    "Rule":"/components/apply_rule",
+    "applyOne":"/components/one",
+    "applyTwo":"/components/two"
   },
   "navigationBarTitleText": "个人入驻"
 }

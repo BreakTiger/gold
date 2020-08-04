@@ -6,37 +6,61 @@
 
 		<text class="c-8F f42 f-wb">预约成功</text>
 
-		<view class="flex col fl-align">
+		<view class="flex col fl-align" wx:if="{{types==1}}">
 
 			<view class="w100 flex fl-jsb">
 				<view class="f30 c-33 f-wb" style="width:120rpx;">门店地点</view>
-				<view class="f30 c-66 climp2" style="width:480rpx;text-align:right;">{{detail.province}}{{detail.city}}{{detail.area}}{{detail.address}}</view>
+				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.shop.province}}{{detail.shop.city}}{{detail.shop.area}}{{detail.shop.address}}</view>
 			</view>
 
-      <view class="w100 flex fl-jsb">
+			<view class="w100 flex fl-jsb">
 				<view class="f30 c-33 f-wb" style="width:120rpx;">门店电话</view>
-				<view class="f30 c-66" style="width:480rpx;text-align:right;"></view>
+				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.shop.mobile}}</view>
 			</view>
 
-      <view class="w100 flex fl-jsb">
+			<view class="w100 flex fl-jsb">
 				<view class="f30 c-33 f-wb" style="width:120rpx;">预约时间</view>
 				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.yuyuetime}}</view>
 			</view>
 
-      <view class="w100 flex fl-jsb">
+			<view class="w100 flex fl-jsb">
 				<view class="f30 c-33 f-wb" style="width:120rpx;">姓名</view>
 				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.username}}</view>
 			</view>
 
-       <view class="w100 flex fl-jsb">
+			<view class="w100 flex fl-jsb">
 				<view class="f30 c-33 f-wb" style="width:120rpx;">联系方式</view>
 				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.mobile}}</view>
 			</view>
 
 		</view>
 
+		<view class="flex col fl-align" wx:if="{{types==2}}">
+
+			<view class="w100 flex fl-jsb">
+				<view class="f30 c-33 f-wb" style="width:120rpx;">预约地址</view>
+				<view class="f30 c-66 " style="width:480rpx;text-align:right;">{{detail.province}}{{detail.city}}{{detail.area}}{{detail.address}}</view>
+			</view>
+
+			<view class="w100 flex fl-jsb">
+				<view class="f30 c-33 f-wb" style="width:120rpx;">预约时间</view>
+				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.yuyuetime}}</view>
+			</view>
+
+			<view class="w100 flex fl-jsb">
+				<view class="f30 c-33 f-wb" style="width:220rpx;">预约人手机号</view>
+				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.mobile}}</view>
+			</view>
+
+			<view class="w100 flex fl-jsb">
+				<view class="f30 c-33 f-wb" style="width:120rpx;">预约人</view>
+				<view class="f30 c-66" style="width:480rpx;text-align:right;">{{detail.username}}</view>
+			</view>
+
+		</view>
+
 	</view>
 
-  <view class="finsh c-ff f32 b-c b_r40 t-c" bindtap="toFinish">完成</view>
+	<view class="finsh c-ff f32 b-c b_r40 t-c" bindtap="toFinish">完成</view>
 
 </view>

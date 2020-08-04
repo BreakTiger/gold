@@ -1,2 +1,25 @@
-<!--components/two.wxml-->
-<text>components/two.wxml</text>
+<view class="content flex col fl-align">
+
+	<!-- 审核中 -->
+	<image src="../img/order.png" class="type"></image>
+
+	<block wx:if="{{status==0}}">
+		<text class="f36 c-33">审核中！</text>
+
+		<text class="f24 c-99">提交成功，请等待审核~</text>
+
+		<view class="btn t-c f30" bindtap="backHome">回首页</view>
+	</block>
+
+	<!-- 审核失败 -->
+	<block wx:if="{{status==2}}">
+
+		<text class="f36 c-33">审核不通过！</text>
+
+		<text class="f24 c-99 t-c" style="width:280rpx;margin-top:20rpx;">拒绝理由：{{content}}</text>
+
+		<view class="btn t-c f30" bindtap="apply_again">再次申请</view>
+
+	</block>
+
+</view>

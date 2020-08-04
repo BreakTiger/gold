@@ -1,1 +1,51 @@
-/* pages_one/evaluate/evaluate.wxss */
+page {
+  background: #f6f6f6;
+}
+
+.f43 {
+  font-size: 43rpx;
+}
+
+.container>view:not(:last-child) {
+  width: 710rpx;
+  border-radius: 10rpx;
+  background: #ffffff;
+  margin-top: 25rpx;
+}
+
+.level {
+  width: 47rpx;
+  height: 47rpx;
+  margin: 15rpx;
+}
+
+.level-line {
+  height: 130rpx;
+}
+
+.picture {
+  width: 219rpx;
+  height: 219rpx;
+  margin: 7rpx;
+}
+
+.scend>textarea,
+.scend>view {
+  width: 690rpx;
+  margin: 25rpx 0;
+}
+
+.close {
+  width: 40rpx;
+  height: 40rpx;
+  top: 0rpx;
+  right: 0rpx;
+  z-index: 20;
+}
+
+.send {
+  width: 506rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-top: 105rpx;
+}

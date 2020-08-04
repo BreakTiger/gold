@@ -7,12 +7,16 @@
 			<text class="f26" style="margin-left:20rpx;">预估金额:<text class="f32 c-43">{{count_price}}</text>元</text>
 		</view>
 
+		<view class="w100 flex fl-align" style="margin-top:20rpx;">
+			<text class="f26">服务费:<text text class="f32 c-43">{{fu_moeny}}</text>元</text>
+		</view>
+
 		<view class="w100 b-ff flex col fl-align b_r10 f30" style="padding:25rpx 0;margin-top:20rpx;">
 
 			<view class="flex col" style="margin-bottom:20rpx;">
 				<text class="c-33">1.请输入您的黄金克重</text>
 				<view class="flex fl-align fl-jsb c-66" style="padding:20rpx 0;border-bottom:1rpx solid #f5f5f5;">
-					<text>首饰克重（千足金）</text>
+					<text>{{text_one}}克重<text wx:if="{{text_two}}">（{{text_two}}）</text></text>
 					<text style="width:48%;text-align:right;">{{gram}}克</text>
 				</view>
 			</view>
@@ -43,14 +47,14 @@
 
 				<view class="flex col" style="width:92%;">
 
-					<picker mode="date" style="padding-bottom:20rpx;border-bottom:2rpx solid #f5f5f5;" bindchange="getDate">
+					<picker mode="date" style="padding-bottom:20rpx;border-bottom:2rpx solid #f5f5f5;" bindchange="getDate" start="{{star_date}}" end="{{end_date}}">
 						<view class="w100 flex fl-align fl-jsb">
 							<text class="f30 c-F0">{{date}}</text>
 							<image src="../../icon/to.png" class="icon"></image>
 						</view>
 					</picker>
 
-					<picker mode="time" style="padding:20rpx 0;border-bottom:2rpx solid #f5f5f5;" bindchange="getTime">
+					<picker mode="time" style="padding:20rpx 0;border-bottom:2rpx solid #f5f5f5;" bindchange="getTime" value="{{now_time}}" start="07:00" end="23:00">
 						<view class="w100 flex fl-align fl-jsb">
 							<text class="f30 c-F0">{{time}}</text>
 							<image src="../../icon/to.png" class="icon"></image>
@@ -69,7 +73,7 @@
 			<view class="flex fl-align fl-jsb">
 				<image src="../../icon/mobile.png" class="icon"></image>
 				<view class="flex fl-align fl-jsb" style="width:92%;padding:25rpx 0;border-bottom:2rpx solid #f5f5f5;">
-					<input placeholder="请输入您的手机号码" type="number" value="{{phone}}"></input>
+					<input placeholder="请输入您的手机号码" type="number" value="{{phone}}" maxlength="11"></input>
 					<button class="get b-10" bindgetphonenumber="getPhone" open-type="getPhoneNumber">一键获取</button>
 				</view>
 			</view>

@@ -1,5 +1,6 @@
 <view class="cover p-f flex col fl-align fl-jc">
 	<view class="login b-ff flex col fl-align fl-jse">
+	
 		<text class="f-wb">你尚未登录</text>
 		<image src="https://vtown.pensee168.com/addons/yun_shopv2/static/images/wxapp/img/l-line.png"></image>
 		<view class="flex fl-align fl-jsb">

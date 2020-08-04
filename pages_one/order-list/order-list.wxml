@@ -1,23 +1,20 @@
 <view class="container flex col fl-align">
 
-	<view class="nav-line b_r10 flex fl-align fl-jsb">
-		<view class="t-c f28" wx:for="{{nav}}" wx:key="index" bindtap="toSwitch" data-type="{{item.type}}">{{item.text}}</view>
+	<view class="nav-line b_r10 flex fl-align fl-jsb b-ff">
+		<view class="t-c f28 {{item.status==choice?'linebottom c-10':''}}" wx:for="{{nav}}" wx:key="index" bindtap="toSwitch" data-type="{{item.status}}">{{item.text}}</view>
 	</view>
 
-	<view class="list-item flex col fl-align" data-id="{{item.id}}" bindtap="toDetail" wx:for="{{list}}" wx:key="index" wx:if="list.length!=0">
+	<view class="list-item flex col fl-align b-ff" data-id="{{item.id}}" bindtap="toDetail" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
 
 		<view class="flex fl-align fl-jsb">
 			<text class="f26">订单号：{{item.ordersn}}</text>
-			<text class="f30 c-10" wx:if="{{item.orderstatus==0}}">派单中</text>
-			<text class="f30 c-8F" wx:if="{{item.orderstatus==1}}">进行中</text>
-			<text class="f30 c-33" wx:if="{{item.orderstatus==2}}">待评价</text>
-			<text class="f30 c-99" wx:if="{{item.orderstatus==3}}">已取消</text>
+			<text class="f30">{{item.status_text}}</text>
 		</view>
 
 		<view class="flex col" style="border-bottom:1rpx solid #f5f5f5;">
 			<view class="flex fl-align">
 				<view class="point"></view>
-				<text class="f26 c-33">回收类型：金条</text>
+				<text class="f26 c-33">回收类型：{{item.huishou_type}} {{item.jin_type}}</text>
 			</view>
 			<view class="flex fl-align">
 				<view class="point"></view>
@@ -31,15 +28,23 @@
 
 		<view class="flex fl-align">
 
-			<view class="btn t-c f26 c-33 b_r30" catchtap="toCancel" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.orderstatus==0}}">取消订单</view>
+			<view class="btn t-c f26 c-33 b_r30" wx:if="{{item.orderstatus==0 && item.fuwu_status !=2}}" catchtap="toCancel" data-id="{{item.id}}" data-index="{{index}}">取消订单</view>
 
-			<view class="btn t-c f26 c-33 b_r30" wx:if="{{item.orderstatus!=0}}">查看详情</view>
+			<view class="btn t-c f26 c-33 b_r30">查看详情</view>
 
-			<view class="btn t-c f26 c-33 b_r30" wx:if="{{item.orderstatus!=0&&item.orderstatus==1}}" catchtap="toFinish" data-id="{{item.id}}" data-index="{{index}}">确认完成</view>
+			<view class="btn t-c f26 c-33 b_r30" wx:if="{{item.orderstatus==1 && item.fuwu_status ==2}}" catchtap="toFinish" data-id="{{item.id}}" data-index="{{index}}">确认完成</view>
 
-			<view class="btn t-c f26 c-33 b_r30" wx:if="{{item.orderstatus!=0&&item.orderstatus==2}}">评价订单</view>
+			<view class="btn t-c f26 c-33 b_r30" wx:if="{{item.orderstatus==2 && item.fuwu_status ==2}}" catchtap="ping" data-id="{{item.id}}">评价订单</view>
 
 		</view>
+
+	</view>
+
+	<view wx:if="{{list.length==0}}" class="flex col fl-align">
+
+		<image src="../../img/empty.png" class="empty"></image>
+
+		<text class="f30">暂无订单记录~</text>
 
 	</view>
 

@@ -1,1 +1,109 @@
-/* components/one.wxss */
+@import '../wxParse/wxParse.wxss';
+
+.f38 {
+  font-size: 38rpx;
+}
+
+.c-f0 {
+  color: #FF0000;
+}
+
+.w710>view {
+  margin-top: 35rpx;
+}
+
+.type {
+  width: 192rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  border: 2rpx solid rgba(204, 204, 204, 1);
+  border-radius: 42rpx;
+  margin: 0 15rpx;
+}
+
+.ID {
+  width: 597rpx;
+  height: 370rpx;
+  margin-top: 35rpx;
+}
+
+.get {
+  width: 150rpx !important;
+  height: 50rpx !important;
+  line-height: 50rpx;
+  font-size: 24rpx !important;
+  color: #ffffff;
+  padding: 0rpx;
+  margin: 0rpx !important;
+}
+
+.labers {
+  width: 159rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  margin-right: 15rpx;
+  margin-bottom: 15rpx;
+  border: 1rpx solid #666666;
+}
+
+.laber {
+  border: none;
+}
+
+.go {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.botton-line {
+  width: 650rpx !important;
+  margin-bottom: 60rpx;
+}
+
+.botton-line>view {
+  width: 290rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+}
+
+.b-f3 {
+  background: #f3f3f3;
+}
+
+.b-f0 {
+  background: #f0f0f0;
+}
+
+.protocol {
+  width: 690rpx;
+  height: 1010rpx;
+  top: 70rpx;
+  left: calc((100% - 690rpx) / 2);
+  z-index: 120;
+}
+
+.rule-line {
+  width: 650rpx;
+  height: 930rpx;
+  margin: auto;
+}
+
+.close {
+  width: 40rpx;
+  height: 40rpx;
+  right: 32rpx;
+  top: 0rpx;
+}
+
+.add {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.c-f0 {
+  color: #FF0000;
+}

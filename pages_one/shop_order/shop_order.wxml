@@ -17,29 +17,46 @@
 		<view class="flex fl-jsb">
 			<image src="../../icon/time.png" class="icon"></image>
 			<view class="flex col" style="width:92%;">
-				<view class="w100 flex fl-align fl-jsb" style="border-bottom:1rpx solid #f5f5f5;padding-bottom:20rpx;">
-					<picker mode="date" style="width:95%;" bindchange="getData">
+
+				<view class="w100 flex fl-align fl-jsb" style="border-bottom:1rpx solid #f5f5f5;padding-bottom:20rpx;" wx:if="{{choice_date==0}}" bindtap="setDatas">
+					<view class="c-F0 F30">{{time_one}}</view>
+					<image src="../../icon/to.png" class="icon"></image>
+				</view>
+
+				<view class="w100 flex fl-align fl-jsb" style="border-bottom:1rpx solid #f5f5f5;padding-bottom:20rpx;" wx:if="{{choice_date==1}}">
+					<picker style="width:95%;" mode="date" bindchange="getData" start="{{star_date}}" end="{{end_date}}">
 						<view class="c-F0 F30">{{time_one}}</view>
 					</picker>
 					<image src="../../icon/to.png" class="icon"></image>
 				</view>
-				<view class="w100 flex fl-align fl-jsb" style="border-bottom:1rpx solid #f5f5f5;padding:20rpx 0;">
-					<picker mode="time" style="width:95%;" bindchange="getTime">
+
+				<view class="w100 flex fl-align fl-jsb" style="border-bottom:1rpx solid #f5f5f5;padding:20rpx 0;" wx:if="{{choice_time==0 || choice_time==2}}" bindtap="setTime">
+					<view class="c-F0 F30">{{time_two}}</view>
+					<image src="../../icon/to.png" class="icon"></image>
+				</view>
+
+				<view class="w100 flex fl-align fl-jsb" style="border-bottom:1rpx solid #f5f5f5;padding:20rpx 0;" wx:if="{{choice_time==1}}">
+					<picker mode="time" style="width:95%;" bindchange="getTime" start="{{star_time}}" end="{{end_time}}">
 						<view class="c-F0 F30">{{time_two}}</view>
 					</picker>
 					<image src="../../icon/to.png" class="icon"></image>
 				</view>
+
 			</view>
 		</view>
 
 		<view class="flex fl-align fl-jsb">
 			<image src="../../icon/work.png" class="icon"></image>
-			<picker style="width:92%;padding:20rpx 0;border-bottom:1rpx solid #f5f5f5;" mode="selector" range="{{business_list}}" range-key="name" bindchange="set_business">
+			<picker style="width:92%;padding:20rpx 0;border-bottom:1rpx solid #f5f5f5;" mode="selector" range="{{business_list}}" range-key="name" bindchange="set_business" wx:if="{{business_list.length!=0}}">
 				<view class="wh flex fl-align fl-jsb">
 					<text class="c-99 F30">{{business}}</text>
 					<image src="../../icon/to.png" class="icon"></image>
 				</view>
 			</picker>
+			<view class="wh flex fl-align fl-jsb" style="width:92%;padding:20rpx 0;border-bottom:1rpx solid #f5f5f5;" wx:if="{{business_list.length==0}}" bindtap="get_business">
+				<text class="c-99 F30">{{business}}</text>
+				<image src="../../icon/to.png" class="icon"></image>
+			</view>
 		</view>
 
 		<view class="flex fl-align fl-jsb">
@@ -49,7 +66,7 @@
 
 		<view class="flex fl-align fl-jsb">
 			<image src="../../icon/mobile.png" class="icon"></image>
-			<input type="number" style="width:92%;padding:20rpx 0;border-bottom:1rpx solid #f5f5f5;" placeholder="请输入您的手机号码" bindblur="getPhone"></input>
+			<input type="number" style="width:92%;padding:20rpx 0;border-bottom:1rpx solid #f5f5f5;" placeholder="请输入您的手机号码" bindblur="getPhone" value="{{phone}}" maxlength="11"></input>
 		</view>
 
 	</view>

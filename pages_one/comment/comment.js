@@ -7,7 +7,8 @@ Page({
 
   data: {
     id: '',
-    page: 1
+    page: 1,
+    list: []
   },
 
   onLoad: function (options) {
@@ -39,6 +40,14 @@ Page({
       }
     })
   },
+
+  // 预览
+  toPreview: function (e) {
+    let that = this
+    let url = e.currentTarget.dataset.urls
+    let item = e.currentTarget.dataset.item
+    modal.bigimg(url, item)
+  }
 
 
 })

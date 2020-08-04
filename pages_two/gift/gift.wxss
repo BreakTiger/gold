@@ -1,8 +1,8 @@
-page {
-  background: #f6f6f6;
+.container>view {
+  padding: 15rpx 0;
+  border-bottom: 2rpx solid #f5f5f5;
 }
 
-.w100>view {
-  padding: 30rpx 0;
-  border-bottom: 1rpx solid #f5f5f5;
+.container>view>view:first-child {
+  margin-bottom: 15rpx;
 }

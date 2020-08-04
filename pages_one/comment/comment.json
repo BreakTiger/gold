@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "评价中心"
+  "navigationBarTitleText": "门店详情",
+  "enablePullDownRefresh": true
 }

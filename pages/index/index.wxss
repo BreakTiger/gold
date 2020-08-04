@@ -59,13 +59,13 @@ page {
 
 .shop-item {
   display: inline-block;
-  width: 380rpx;
+  width: 385rpx;
   height: 225rpx;
   margin: 0 20rpx 20rpx 0;
 }
 
 .shop-cover {
-  width: 380rpx;
+  width: 385rpx;
   height: 60rpx;
   bottom: 0rpx;
   background: rgba(0, 0, 0, 0.5);
@@ -88,4 +88,26 @@ page {
   border-radius: 0rpx 0rpx 50rpx 0rpx;
   left: 0rpx;
   top: 0rpx;
+}
+
+.lineleft {
+  position: relative;
+}
+
+.lineleft::after {
+  content: '';
+  position: absolute;
+  width: 4rpx;
+  height: 32rpx;
+  background: #ffffff;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+
+/* 定位 */
+.location {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 25rpx;
 }

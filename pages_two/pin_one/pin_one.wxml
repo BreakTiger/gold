@@ -1,0 +1,35 @@
+<view class="container flex col fl-align">
+
+	<view class="w710 flex col fl-align b-ff b_r30" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
+
+		<view class="flex fl-align fl-jsb">
+			<image src="{{item.avatar}}" class="header b_rh" wx:if="{{item.is_open==0}}"></image>
+			<image src="../../img/e_head.png" class="header b_rh" wx:if="{{item.is_open==1}}"></image>
+			<view class="flex col f24" style="width:55%;">
+				<text wx:if="{{item.is_open==0}}">{{item.nickname}}</text>
+				<text wx:if="{{item.is_open==1}}">匿名</text>
+				<text>{{item.createtime}}</text>
+			</view>
+			<view class="flex col">
+				<text class="f24" style="text-align:right;">{{item.level}}</text>
+				<view class="flex fl-align">
+					<image src="../../icon/level.png" class="level" wx:for="{{item.level - 0}}" wx:key="index"></image>
+					<image src="../../icon/levels.png" class="level" wx:for="{{5-item.level}}" wx:key="index"></image>
+				</view>
+			</view>
+		</view>
+
+		<view class="f24 c-33">{{item.content}}</view>
+
+		<view class="flex fl-w" wx:if="{{item.images.length!=0}}">
+			<image src="{{items}}" class="img" wx:for="{{item.images}}" wx:for-item="items" wx:key="index" data-urls="{{item.images}}" data-item="{{items}}" bindtap="toPreview"></image>
+		</view>
+
+	</view>
+
+	<view class="flex col fl-align" wx:if="{{list.length==0}}">
+		<image src="../../img/empty.png" class="empty"></image>
+		<text>暂无评论</text>
+	</view>
+
+</view>

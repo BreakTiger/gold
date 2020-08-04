@@ -1,100 +1,112 @@
-// pages_two/workspace_one/workspace_one.js
+const app = getApp()
+const http = require('../../request.js')
+import modal from '../../modals.js'
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
+
   data: {
-    nav: [
-      {
-        icon: '../../icon/hai.png',
-        text: '海报分享'
-      },
-      {
-        icon: '../../icon/gift.png',
-        text: '我的奖励'
-      },
-      {
-        icon: '../../icon/pin.png',
-        text: '我的评价'
-      },
-      {
-        icon: '../../icon/set.png',
-        text: '设置'
-      }
-    ],
-    enter: [
+    id: '',
+
+    detail: {},
+
+    enter_one: [
       {
         icon: '../../icon/m-1.png',
         text: '全部',
-        type: 1
+        type: ''
       },
       {
-        icon: '../../icon/m-2.png',
+        icon: '../../icon/m-3.png',
         text: '已预约',
-        type: 2
+        type: '0'
       },
       {
         icon: '../../icon/m-4.png',
         text: '已完成',
-        type: 3
+        type: '2'
+      }
+    ],
+    enter_two: [
+      {
+        icon: '../../icon/m-1.png',
+        text: '全部',
+        type: ''
+      },
+      {
+        icon: '../../icon/m-2.png',
+        text: '已预约',
+        type: '0'
+      },
+      {
+        icon: '../../icon/m-4.png',
+        text: '已完成',
+        type: '2'
       }
     ]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    this.setData({
+      id: options.id
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onShow:function(){
+    this.getData()
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  //店铺信息
+  getData: function () {
+    let that = this
+    let data = {
+      id: that.data.id,
+      openid: wx.getStorageSync('openid')
+    }
+    http.sendRequest('huishou.editshop', 'post', data).then(function (res) {
+      if (res.error == 0) {
+        that.setData({
+          detail: res.list
+        })
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  // 海报
+  toPoster: function () {
+    modal.navigate('/pages_two/poster_one/poster_one?id=', this.data.id)
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  //奖励中心
+  toGift: function () {
+    let data = {
+      type: 2,
+      id: this.data.id
+    }
+    modal.navigate('/pages_two/gift/gift?data=', JSON.stringify(data))
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  // 我的评论
+  toPin: function () {
+    modal.navigate('/pages_two/pin_one/pin_one?id=',this.data.id)
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  // 设置
+  toSet: function () {
+    modal.navigate('/pages_two/one_set/one_set?id=', this.data.id)
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  // 到店预约
+  toOrder: function (e) {
+    modal.navigate('/pages_two/one_order_list/one_order_list?type=', e.currentTarget.dataset.type + '&id=' + this.data.id)
+  },
 
+  // 上门回收
+  toOder_rec: function (e) {
+    modal.navigate('/pages_two/one_recy_list/one_recy_list?type=', e.currentTarget.dataset.type + '&id=' + this.data.id)
   }
+
+
 })

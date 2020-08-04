@@ -1,0 +1,26 @@
+page {
+  background: #f5f5f5;
+}
+
+.w710>view {
+  width: 670rpx;
+
+}
+
+.container>view {
+  margin: 15rpx 0;
+  padding-bottom: 20rpx;
+}
+
+.level {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 10rpx;
+}
+
+.img {
+  width: 182rpx;
+  height: 182rpx;
+  margin: 15rpx;
+  background: black;
+}

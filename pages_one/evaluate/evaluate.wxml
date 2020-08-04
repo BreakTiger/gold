@@ -1,2 +1,33 @@
-<!--pages_one/evaluate/evaluate.wxml-->
-<text>pages_one/evaluate/evaluate.wxml</text>
+<view class="container flex col fl-align">
+
+	<view class="level-line flex fl-align fl-jc">
+
+		<image src="{{part>=index+1?choice:unchoice}}" class="level" data-index="{{index}}" wx:for="{{5}}" wx:key="index" bindtap="setLevel"></image>
+
+		<text class="f43 c-66">{{part}}.0</text>
+
+	</view>
+
+	<view class="scend flex col fl-align">
+
+		<textarea placeholder="评价" bindblur="getMessage"></textarea>
+
+		<view class="flex fl-w">
+			<view class="picture p-r" wx:for="{{picture}}" wx:key="index">
+				<image src="{{item}}" class="wh"></image>
+				<image src="../../icon/del.png" class="close p-a" data-index="{{index}}" bindtap="toDel"></image>
+			</view>
+			<image src="../../img/photo.png" class="picture" bindtap="addPicture" wx:if="{{picture.length<5}}"></image>
+		</view>
+
+		<view class="flex fl-align" bindtap="is_choice">
+			<icon type="circle" size="25" wx:if="{{hides==0}}"></icon>
+			<icon type="success" size="25" wx:if="{{hides!=0}}"></icon>
+			<text class="f24 c-33" style="margin-left:20rpx;">是否匿名</text>
+		</view>
+
+	</view>
+
+	<view class="send b-c c-ff b_r40 t-c f32" bindtap="sent">提交评价</view>
+
+</view>

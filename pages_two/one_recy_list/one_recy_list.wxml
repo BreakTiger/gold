@@ -1,0 +1,46 @@
+<view class="container flex col fl-align">
+
+	<view class="nav-line b_r10 flex fl-align fl-jsb b-ff">
+		<view class="t-c f28 {{item.type==choice?'linebottom c-10':''}}" wx:for="{{nav}}" wx:key="index" bindtap="toSwitch" data-type="{{item.type}}">{{item.text}}</view>
+	</view>
+
+	<view class="list-item flex col fl-align b-ff" wx:for="{{list}}" wx:key="index" bindtap="toDetail" data-id="{{item.id}}">
+
+		<view class="flex fl-align fl-jsb">
+			<text class="f26">订单号：{{item.ordersn}}</text>
+			<text class="f30 c-10" wx:if="{{item.orderstatus==0}}">已预约</text>
+			<text class="f30 c-33" wx:if="{{item.orderstatus!=0}}">待评价</text>
+		</view>
+
+		<view class="flex col" style="border-bottom:1rpx solid #f5f5f5;">
+
+			<view class="flex fl-align">
+				<view class="point"></view>
+				<text class="f26 c-33">预约人：{{item.username}}</text>
+			</view>
+
+			<view class="flex fl-align">
+				<view class="point"></view>
+				<text class="f26 c-33">预约时间：{{item.yuyuetime}}</text>
+			</view>
+
+			<view class="flex fl-align">
+				<view class="point"></view>
+				<text class="f26 c-33">预约门店：{{item.shop.shopname}}</text>
+			</view>
+		</view>
+
+		<view class="flex fl-align">
+
+			<view class="btn t-c f26 c-33 b_r30" wx:if="{{item.orderstatus==0}}">查看详情</view>
+
+		</view>
+
+	</view>
+
+	<view wx:if="{{list.length==0}}" class="flex col fl-align">
+		<image src="../../img/empty.png" class="empty"></image>
+		<text>暂无订单记录</text>
+	</view>
+
+</view>

@@ -1,4 +1,4 @@
-@import '../../wxParse/wxParse.wxss'
+@import '../../wxParse/wxParse.wxss';
 
 page {
   background: #f6f6f6;
@@ -22,4 +22,9 @@ page {
   border: none !important;
   left: 0rpx;
   top: 0rpx;
+}
+
+.video {
+  width: rpx;
+  height: 400rpx;
 }

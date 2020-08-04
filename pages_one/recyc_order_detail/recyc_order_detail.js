@@ -14,6 +14,9 @@ Page({
     this.setData({
       id: options.id
     })
+  },
+
+  onShow: function () {
     this.getDetail()
   },
 
@@ -52,6 +55,33 @@ Page({
         setTimeout(() => {
           wx.navigateBack({
             delta: 1,
+          })
+        }, 2000);
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
+
+  // 评论
+  ping: function (e) {
+    modal.navigate('/pages_one/evaluate/evaluate?id=', e.currentTarget.dataset.id)
+  },
+
+  //取消
+  toCancel: function () {
+    let that = this
+    let data = {
+      id: that.data.id,
+      openid: wx.getStorageSync('openid')
+    }
+    console.log('参数：', data)
+    http.sendRequest('huishou.delorder', 'post', data).then(function (res) {
+      if (res.error == 0) {
+        modal.showToast('取消成功')
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 0,
           })
         }, 2000);
       } else {

@@ -1,3 +1,5 @@
+@import '../wxParse/wxParse.wxss';
+
 .w710>view {
   padding: 25rpx 0;
   border-bottom: 1rpx solid #f5f5f5;
@@ -48,7 +50,7 @@
   text-align: center;
   margin-right: 15rpx;
   margin-bottom: 15rpx;
-  border: 1rpx solid #666666;
+  border: 1rpx solid #f5f5f5;
 }
 
 .laber {
@@ -74,4 +76,40 @@
 
 .b-f0 {
   background: #f0f0f0;
+}
+
+.protocol {
+  width: 690rpx;
+  height: 1010rpx;
+  top: 70rpx;
+  left: calc((100% - 690rpx) / 2);
+  z-index: 120;
+}
+
+.rule-line {
+  width: 650rpx;
+  height: 930rpx;
+  margin: auto;
+}
+
+.close {
+  width: 40rpx;
+  height: 40rpx;
+  right: 32rpx;
+  top: 0rpx;
+}
+
+.add {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.close {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.c-F0{
+  color: #FF0000;
 }

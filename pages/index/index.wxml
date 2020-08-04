@@ -6,7 +6,12 @@
 
 		<image src="../../img/top.png" class="top-img"></image>
 
-		<view class="w710" style="margin-top:-220rpx;">
+		<view class="w710" style="margin-top:-230rpx;">
+
+			<view class="w100 flex fl-align" style="margin-bottom:25rpx;" bindtap="toLocation">
+				<image src="../../icon/located.png" class="location"></image>
+				<text class="f32 c-ff">{{city}}</text>
+			</view>
 
 			<!-- 轮播 -->
 			<swiper class="lunbo" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#C6C6C6">
@@ -30,7 +35,9 @@
 	<!-- 实时金价 -->
 	<view class="flex col fl-align p-r b-ff" style="height:380rpx;">
 
-		<view class="title p-a t-c c-ff f30">实时金价</view>
+		<view class="title p-a t-c c-ff f30 line t-c">
+			<view class="lineleft">实时金价</view>
+		</view>
 
 		<text style="margin:110rpx 0 85rpx 0;" class="f-wb f62 c-10">{{price}}<text class="f30">元/克</text></text>
 

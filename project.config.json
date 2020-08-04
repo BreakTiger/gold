@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -63,7 +63,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages_two/workspace_two/workspace_two",
+					"pathName": "pages_two/workspace_two/workspace_two",
+					"query": "id=29",
+					"scene": null
+				}
+			]
 		}
 	}
 }

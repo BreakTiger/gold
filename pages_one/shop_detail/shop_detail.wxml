@@ -1,73 +1,49 @@
-<view class="container flex col fl-align">
+<view class="container flex col">
+
 	<!-- 轮播 -->
 	<view class="lunbo p-r">
 		<swiper class="wh">
-			<swiper-item  wx:for="{{detail.image}}" wx:key="index">
+			<swiper-item wx:for="{{detail.image}}" wx:key="index">
 				<image src="{{item}}" class="wh"></image>
 			</swiper-item>
 		</swiper>
-		<!-- 指示点 -->
-
 	</view>
+
 	<!-- 店铺信息 -->
 	<view class="content contents w710 b-ff flex col fl-align">
 		<view class="f32 f-wb c-33 climp2">{{detail.shopname}}</view>
 		<view class="flex fl-align">
-			<image src="../../icon/level.png" class="icon" wx:for="{{detail.fenshu}}" wx:key="index"></image>
-			<image src="../../icon/levels.png" class="icon" wx:for="{{5-detail.fenshu}}" wx:key="index"></image>
+			<image src="../../icon/level.png" class="icon" wx:for="{{detail.level}}" wx:key="index"></image>
+			<image src="../../icon/levels.png" class="icon" wx:for="{{5-detail.level}}" wx:key="index"></image>
 			<text class="f26 c-66">{{detail.fenshu}}</text>
 		</view>
 		<view class="flex fl-align">
 			<image src="../../icon/phone.png" class="icon"></image>
-			<text class="f26 c-66">联系电话：{{detail.is_mobile}}</text>
+			<text class="f26 c-66">联系电话：{{detail.mobile}}</text>
 		</view>
 		<view class="flex fl-align">
 			<image src="../../icon/time.png" class="icon"></image>
 			<text class="f26 c-66">营业时间：{{detail.yingyetime}}</text>
 		</view>
-		<view class="flex fl-align fl-jsb">
-			<view class="flex fl-align">
-				<view class="f24 c-66 b-f0 laber" wx:for="{{managementid}}" wx:key="index">{{item}}</view>
-			</view>
-			<view class="flex fl-align p-r">
+		<view class="flex fl-w">
+			<view class="f24 c-66 b-f0 laber" wx:for="{{detail.management_text}}" wx:key="index">{{item}}</view>
+		</view>
+		<view class="flex fl-align fl-jsd">
+			<view class="flex fl-align p-r" bindtap="toShare">
 				<image src="../../icon/share.png" class="icon"></image>
 				<text class="f26">分享</text>
-				<button class="share p-a" plain="true" open-type="share"></button>
 			</view>
 		</view>
 	</view>
+
 	<!-- 介绍 -->
-	<view class="content w710 b-ff flex col fl-align">
+	<view class="content w710 b-ff flex col fl-align" wx:if="{{detail.remark}}">
 		<view class="f32 f-wb c-33">介绍</view>
-		<view class="f26 c-33 climp2" style="height: 70rpx;">{{detail.remark}}</view>
-		<view class="t-c f26 c-8F">查看更多</view>
+		<view class="f26 c-33 {{showmore?'':'climp2'}}" style="{{showmore?'':'height: 55rpx;'}}">{{detail.remark}}</view>
+		<view class="t-c f26 c-10" wx:if="{{!showmore}}" bindtap="mores">查看更多</view>
+		<view class="t-c f26 c-10" wx:if="{{showmore}}" bindtap="mores">收起</view>
 	</view>
-	<!-- 评价 -->
-	<view class="content w710 b-ff flex col fl-align">
-		<view class="flex fl-align fl-jsb" bindtap="toComment">
-			<text class="f30 c-33 f-wb">评价（{{detail.pingjialist.length}}）</text>
-			<text class="f26 c-8F">查看更多</text>
-		</view>
-		<view class="flex col fl-align" style="border-bottom: 1rpx solid #f5f5f5;" wx:for="{{detail.pingjialist}}" wx:key="index">
-			<view class="w100 flex fl-align fl-jsb">
-				<image src="{{item.avatar}}" class="head b_rh"></image>
-				<view class="flex col" style="width:88%;">
-					<view class="flex fl-align fl-jsb">
-						<text class="f26 c-33">{{item.nickname}}</text>
-						<text class="f24 c-66">{{item.level}}</text>
-					</view>
-					<view class="flex fl-align fl-jsb">
-						<text class="f24 c-66">{{item.createtime}}</text>
-						<view class="flex fl-align">
-							<image src="../../icon/level.png" class="level" wx:for="{{item.level-0}}" wx:key="index"></image>
-							<image src="../../icon/levels.png" class="levels" wx:for="{{5-item.level}}" wx:key="index"></image>
-						</view>
-					</view>
-				</view>
-			</view>
-			<view class="w100 f24 c-66" style="margin-top: 20rpx;">{{item.content}}</view>
-		</view>
-	</view>
+
 	<!-- 门店地址 -->
 	<view class="content w710 b-ff flex col fl-align">
 		<view class="f32 f-wb c-33">门店地址</view>
@@ -82,8 +58,68 @@
 		<map id="map" longitude="{{detail.lng}}" latitude=" {{detail.lat}}" markers="{{markers}}"></map>
 	</view>
 
+	<!-- 评价 -->
+	<view class="content w710 b-ff flex col fl-align" wx:if="{{detail.pingjialist.length!=0}}">
+
+		<view class="flex fl-align fl-jsb" bindtap="toComment">
+			<text class="f30 c-33 f-wb">评价（{{detail.pingjialist.length}}）</text>
+			<text class="f26 c-10">查看更多</text>
+		</view>
+
+		<view class="flex col fl-align" style="border-bottom: 1rpx solid #f5f5f5;" wx:for="{{detail.pingjialist}}" wx:key="index" wx:if="{{index<3}}">
+			<view class="w100 flex fl-align fl-jsb">
+				<image src="{{item.avatar}}" class="head b_rh" wx:if="{{item.is_open==0}}"></image>
+				<image src="../../img/moren.png" class="head b_rh" wx:if="{{item.is_open==1}}"></image>
+				<view class="flex col" style="width:55%;">
+					<text class="f26 c-33" wx:if="{{item.is_open==0}}">{{item.nickname}}</text>
+					<text class="f26" wx:if="{{item.is_open==1}}">匿名</text>
+					<text class="f24 c-66">{{item.createtime}}</text>
+				</view>
+				<view class="flex col">
+					<text class="f24 c-66" style="text-align:right;">{{item.level}}</text>
+					<view class="flex fl-align">
+						<image src="../../icon/level.png" class="level" wx:for="{{item.level-0}}" wx:key="index"></image>
+						<image src="../../icon/levels.png" class="level" wx:for="{{5-item.level}}" wx:key="index"></image>
+					</view>
+
+				</view>
+			</view>
+			<view class="w100 f24 c-66" style="margin: 20rpx 0;">{{item.content}}</view>
+			<view class="w100 flex fl-w" wx:if="{{item.images.length!=0}}">
+				<image src="{{items}}" class="imgs" wx:for="{{item.images}}" wx:for-item="items" wx:key="index" data-urls="{{item.images}}" data-item="{{items}}" bindtap="toPreview"></image>
+			</view>
+		</view>
+
+	</view>
+
+	<!-- 底部预约栏 -->
 	<view style="width: 100%;height: 180rpx;"></view>
 	<view class="bottom-line flex fl-align fl-jc p-f b-ff">
-		<view class="order t-c b-8F c-ff b_r40 f32" bindtap="toOrder">在线预约</view>
+		<view class="order t-c b-c c-ff b_r40 f32" bindtap="toOrder" wx:if="{{detail.is_open==1}}">在线预约</view>
+		<view class="order t-c b-c c-ff b_r40 f32" wx:if="{{detail.is_open==0}}">店铺休息中</view>
 	</view>
+
+	<!-- 分享遮罩 -->
+	<view class="cover" wx:if="{{shad}}" bindtap="close_share"></view>
+	<view class="share-line flex fl-align p-f b-ff" wx:if="{{shad}}">
+		<view class="flex col fl-align p-r">
+			<image src="../../icon/wx.png" class="icons"></image>
+			<text class="f30">微信好友</text>
+			<button class="share-but p-a" open-type="share" plain="true"></button>
+		</view>
+		<view class="flex col fl-align" bindtap="toShare_img">
+			<image src="../../icon/poster.png" class="icons"></image>
+			<text class="f30">海报</text>
+		</view>
+	</view>
+
+	<!-- 海报 -->
+	<view class="cover flex col fl-align fl-jse" wx:if="{{shads}}">
+		<canvas canvas-id="shareCanvas" class="haibai"></canvas>
+		<view class="save c-ff b-c t-c f32 b_r40" bindtap="toSave">保存图片</view>
+		<image src="../../icon/closed.png" class="closed" bindtap="close_share"></image>
+	</view>
+
+	<login wx:if="{{login}}" uid="{{uid}}" shopid="{{shopid}}" bind:addDrug="getAddGrug"></login>
+
 </view>

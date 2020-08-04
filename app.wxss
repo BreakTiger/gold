@@ -113,7 +113,7 @@ page {
   color: #E2C28F;
 }
 
-.c-10{
+.c-10 {
   color: #FF5E10;
 }
 
@@ -218,6 +218,7 @@ page {
 .wh {
   width: 100%;
   height: 100%;
+  
 }
 
 /* 对其 */
@@ -246,4 +247,11 @@ page {
   position: fixed;
   top: 0;
   z-index: 100;
+}
+
+/* 为空 */
+.empty {
+  width: 437rpx;
+  height: 341rpx;
+  margin: 100rpx 0 20rpx 0;
 }

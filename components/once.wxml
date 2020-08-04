@@ -1,18 +1,23 @@
+<import src="../wxParse/wxParse.wxml" />
+
 <view class="w710 flex col fl-align" style="margin:0 auto;">
 
+	<!-- 店名 -->
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">店铺名称<text class="c-FF0">*</text></text></view>
 		<input placeholder="请填写店铺名称" bindblur="getShop"></input>
 	</view>
 
+	<!-- 营业执照 -->
 	<view class="w100 flex col fl-align">
 		<view class="w100"><text class="f30 c-00">上传营业执照<text class="c-FF0">*</text></text></view>
 		<image src="../img/papers.png" class="papers" wx:if="{{!license}}" bindtap="getlicense"></image>
 		<image src="{{license}}" class="papers" wx:if="{{license}}" bindtap="getlicense"></image>
 	</view>
 
+	<!-- 店铺图片 -->
 	<view class="w100 flex col">
-		<view><text class="f30 c-00">店铺图片<text class="c-FF0">*</text><text class="f24 c-66">（可上传1-5张）</text></text></view>
+		<view><text class="f30 c-00">店铺图片<text class="c-FF0">*</text><text class="f24 c-66">（可上传1-5张）建议尺寸：750 * 440</text></text></view>
 		<view class="w100 flex fl-w">
 			<view class="photo p-r" wx:for="{{picture}}" wx:key="index">
 				<image src="../icon/del.png" class="del p-a" data-index="{{index}}" bindtap="toDel"></image>
@@ -23,58 +28,104 @@
 	</view>
 
 	<view class="w100 flex col">
-		<view><text class="f30 c-00">所在城市<text class="c-FF0">*</text></text></view>
-		<picker mode="region" bindchange="getCityin">
-			<view class="flex fl-align fl-jsb">
-				<view class="f24 c-99">{{city_in}}</view>
+		<text class="f30 c-00">店铺营业时间</text>
+		<picker mode="time" bindchange="starTime" start="07:00">
+			<view class="flex fl-align fl-jsb" style="padding:30rpx 0;">
+				<text class="f30 c-99">{{time_one}}</text>
 				<image src="../icon/to.png" class="go"></image>
 			</view>
 		</picker>
+		<picker mode="time" bindchange="endTime" start="07:00">
+			<view class="flex fl-align fl-jsb">
+				<text class="f30 c-99">{{time_two}}</text>
+				<image src="../icon/to.png" class="go"></image>
+			</view>
+		</picker>
+	</view>
 
+	<!-- 所在城市 -->
+	<view class="w100 flex col" bindtap="choice_city">
+		<view><text class="f30 c-00">所在城市<text class="c-FF0">*</text></text></view>
+		<view class="flex fl-align fl-jsb">
+			<view class="f30 c-99">{{city_in}}</view>
+			<image src="../icon/to.png" class="go"></image>
+		</view>
 	</view>
 
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">详细地址<text class="c-FF0">*</text></text></view>
-		<input placeholder="请输入店铺的详细地址" class="f24 c-99" bindblur="toAddress"></input>
+		<input placeholder="请输入详细地址" bindblur="setAddress" value="{{address}}"></input>
 	</view>
 
+	<!-- 手机号码 -->
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">手机号码<text class="c-FF0">*</text></text></view>
 		<view class="flex fl-align fl-jsb">
-			<input placeholder="请输入手机号码" value="{{phone}}"></input>
+			<input type="number" placeholder="请输入手机号码" value="{{phone}}" bindblur="setPhone" style="width:75%;"></input>
 			<button class="get b-c" open-type="getPhoneNumber" bindgetphonenumber="getPhone">一键获取</button>
 		</view>
 	</view>
 
+	<!-- 经营类目 -->
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">经营类目</text></view>
 		<view class="w100 flex fl-w f24">
-			<view wx:for="{{kind_list}}" wx:key="index" class="{{item.choice==1?'b-c c-ff laber':''}} {{item.is_true==1?'b-f0':''}} labers b_r10" bindtap="choice_kind" data-index="{{index}}">{{item.name}}</view>
+			<view wx:for="{{kind_list}}" wx:key="index" class="{{item.choice==1?'b-c c-ff laber':''}} {{item.is_true==0?'b-f0':''}} labers b_r10" bindtap="choice_kind" data-index="{{index}}">{{item.name}}</view>
 		</view>
 	</view>
 
-	<view class="w100 flex col">
-		<view><text class="f30 c-00">上门回收城市<text class="c-FF0">*</text></text></view>
-		<picker mode="region" bindchange="getCityRec">
-			<view class="flex fl-align fl-jsb">
-				<view class="f24 c-99">{{city_rec}}</view>
-				<image src="../icon/to.png" class="go"></image>
+	<!-- 上门回收城市 -->
+	<block wx:if="{{is_huishou!=0}}">
+
+		<block wx:for="{{rec_list}}" wx:key="index" wx:for-index="father_index" wx:for-item="father_item">
+
+			<view class="w100 flex col">
+				<view class="flex fl-align fl-jsb">
+					<text class="f30 c-00">上门回收城市<text class="c-FF0">*</text></text>
+					<text class="f30 c-F0" wx:if="{{father_index!=0}}" data-index="{{father_index}}" bindtap="delIndex">删除</text>
+				</view>
+				<picker mode="region" bindchange="getRecCity" data-index="{{father_index}}">
+					<view class="flex fl-align fl-jsb">
+						<view class="f30 c-99">{{father_item.rec_city}}</view>
+						<image src="../icon/to.png" class="go"></image>
+					</view>
+				</picker>
 			</view>
-		</picker>
-	</view>
 
-	<view class="w100 flex col" wx:if="{{area_list.length!=0}}">
-		<view><text class="f30 c-00">回收区域</text></view>
-		<view class="w100 flex fl-w f24">
-			<view class="{{item.choice==1?'b-c c-ff laber':''}} labers b_r10" wx:for="{{area_list}}" wx:key="index" bindtap="choice_area" data-index="{{index}}">{{item.area}}</view>
+			<view class="w100 flex col" wx:if="{{father_item.rec_area_list.length!=0}}">
+				<view><text class="f30 c-00">回收区域</text></view>
+				<view class="w100 flex fl-w f24">
+					<view class="{{item.choice==1?'b-c c-ff laber':''}} labers b_r10" wx:for="{{father_item.rec_area_list}}" wx:key="index" bindtap="choice_area" data-indexs="{{index}}" data-list="{{father_item.rec_area_list}}" data-index="{{father_index}}">{{item.area}}</view>
+				</view>
+			</view>
+
+		</block>
+
+		<view class="w100 flex fl-align fl-jc" bindtap="addCity">
+			<image src="../icon/add.png" class="add"></image>
+			<text class="f30 c-66">更多城市</text>
 		</view>
-	</view>
 
-	<text class="f26 c-66" style="margin:60rpx 0;">申请代表你已同意<text class="c-8F">《回收协议》</text></text>
+		<text class="f26 c-66" style="margin:60rpx 0;" bindtap="protocol">申请代表你已同意<text class="c-8F">《回收协议》</text></text>
+
+	</block>
+
+
 
 	<view class="botton-line flex fl-align fl-jsb f30">
 		<view class="b-f3" bindtap="toCancel">取消</view>
 		<view class="b-c c-ff" bindtap="toSent">立即提交</view>
 	</view>
 
+	<!-- 协议 -->
+	<view class="cover" wx:if="{{shad}}" bindtap="close_cover"></view>
+	<view class="protocol b_r30 b-ff p-f" wx:if="{{shad}}">
+		<view class="f36 c-33 f-wb p-r flex fl-jc">
+			<text>回收协议</text>
+			<image src="../icon/close.png" class="close p-a" bindtap="close_cover"></image>
+		</view>
+		<scroll-view scroll-y="true" class="rule-line">
+			<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+		</scroll-view>
+	</view>
 </view>

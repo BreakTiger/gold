@@ -4,14 +4,24 @@ page {
 
 .w710>view {
   width: 640rpx;
+  padding: 20rpx 0;
 }
+
+.head {
+  width: 71rpx;
+  height: 71rpx;
+}
+
+
 
 .icon {
   width: 30rpx;
   height: 30rpx;
+  margin: 0 5rpx;
 }
 
 .img {
   width: 182rpx;
   height: 182rpx;
+  margin: 10rpx;
 }

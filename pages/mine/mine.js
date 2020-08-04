@@ -15,27 +15,27 @@ Page({
       {
         icon: '../../icon/m-1.png',
         text: '全部',
-        type: 0
+        type: ''
       },
       {
         icon: '../../icon/m-2.png',
         text: '派单中',
-        type: 1
+        type: '0'
       },
       {
         icon: '../../icon/m-3.png',
         text: '进行中',
-        type: 2
+        type: '1'
       },
       {
         icon: '../../icon/m-4.png',
         text: '待评价',
-        type: 3
+        type: '2'
       },
       {
         icon: '../../icon/m-5.png',
         text: '已取消',
-        type: 4
+        type: '4'
       }
     ],
 
@@ -44,26 +44,25 @@ Page({
       {
         icon: '../../icon/m-1.png',
         text: '全部',
-        type: 0
+        type: ''
       },
       {
         icon: '../../icon/m-2.png',
         text: '预约中',
-        type: 1
+        type: '0'
       },
       {
         icon: '../../icon/m-4.png',
         text: '待评价',
-        type: 2
+        type: '2'
       }
     ],
 
     login: false //登录窗状态
   },
 
-  onLoad: function (options) {
+  onShow: function () {
     let openid = wx.getStorageSync('openid') || ''
-    console.log('111:', openid)
     this.setData({
       openid: openid
     })
@@ -76,6 +75,7 @@ Page({
     }
   },
 
+
   //用户信息
   getUser: function () {
     let that = this
@@ -84,7 +84,7 @@ Page({
     }
     http.sendRequest('huishou.getusermember', 'post', data).then(function (res) {
       if (res.error == 0) {
-        console.log(res.list)
+        // console.log(res.list)
         that.setData({
           user: res.list
         })
@@ -109,7 +109,8 @@ Page({
   //门店预约
   enter_two: function (e) {
     if (this.data.openid) {
-      modal.navigate('/pages_one/recyc_order_list/recyc_order_list')
+      let type = e.currentTarget.dataset.type || ''
+      modal.navigate('/pages_one/recyc_order_list/recyc_order_list?type=', type)
     } else {
       this.setData({
         login: true
@@ -141,12 +142,12 @@ Page({
 
   //店铺工作台
   space_one: function () {
-    modal.navigate('/pages_two/workspace_one/workspace_one')
+    modal.navigate('/pages_two/workspace_one/workspace_one?id=', this.data.user.shopid)
   },
 
   //个人工作台
   space_two: function () {
-    modal.navigate('/pages_two/workspace_two/workspace_two')
+    modal.navigate('/pages_two/workspace_two/workspace_two?id=', this.data.user.practitionersid)
   },
 
   //登录窗

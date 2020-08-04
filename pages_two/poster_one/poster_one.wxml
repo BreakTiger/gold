@@ -1,0 +1,8 @@
+<view class="container flex col fl-align">
+
+	<!-- 画布 -->
+	<canvas canvas-id="shareCanvas" style="width:375px;height:576.5px;"></canvas>
+
+	<view class="save b-c b_r40 t-c c-ff f30" bindtap="save">保存图片</view>
+
+</view>

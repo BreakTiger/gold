@@ -18,7 +18,7 @@
 	<view class="content w100 flex col flex" style="margin-top:-60rpx;">
 		<view class="w710 b-ff b_r30 flex col fl-align" style="height:280rpx;margin-bottom: 25rpx;z-index: 50;">
 
-			<view class="w100 flex fl-align fl-jsb" bindtap="enter_one" data-type="0">
+			<view class="w100 flex fl-align fl-jsb" bindtap="enter_one" data-type="">
 				<text class="f36 c-33 f-wb" style="margin-left: 30rpx;">上门回收</text>
 				<view class="flex fl-align" style="margin-right: 30rpx;">
 					<text class="f26 c-99">全部订单</text>
@@ -37,7 +37,7 @@
 
 		<view class="w710 b-ff b_r30 flex col fl-align" style="height: 280rpx;margin-bottom: 25rpx;">
 
-			<view class="w100 flex fl-align fl-jsb" bindtap="enter_two">
+			<view class="w100 flex fl-align fl-jsb" bindtap="enter_two" data-type="">
 				<text class="f36 c-33 f-wb" style="margin-left: 30rpx;">门店预约</text>
 				<view class="flex fl-align" style="margin-right: 30rpx;">
 					<text class="f26 c-99">全部订单</text>
@@ -47,7 +47,7 @@
 
 			<view class="w100 flex fl-align fl-jsb" style="height: 158rpx;">
 
-				<view class="wc3 flex col fl-align" wx:for="{{nav_two}}" wx:key="index" bindtap="enter_two">
+				<view class="wc3 flex col fl-align" wx:for="{{nav_two}}" wx:key="index" bindtap="enter_two" data-type="{{item.type}}">
 					<image src="{{item.icon}}" class="icon"></image>
 					<text class="f26">{{item.text}}</text>
 				</view>
@@ -67,13 +67,13 @@
 					<image src="../../icon/m-6.png" class="icon"></image>
 					<text class="f26">店铺入驻</text>
 				</view>
-				<view class="wc3 flex col fl-align" bindtap="toApplyTwo" wx:if="{{user.practitioners!=1}}">
-					<image src="../../icon/m-7.png" class="icon"></image>
-					<text class="f26">个人入驻</text>
-				</view>
 				<view class="wc3 flex col fl-align" wx:if="{{user.shop==1}}" bindtap="space_one">
 					<image src="../../icon/m-6.png" class="icon"></image>
 					<text class="f26">店铺工作台</text>
+				</view>
+				<view class="wc3 flex col fl-align" bindtap="toApplyTwo" wx:if="{{user.practitioners!=1}}">
+					<image src="../../icon/m-7.png" class="icon"></image>
+					<text class="f26">个人入驻</text>
 				</view>
 				<view class="wc3 flex col fl-align" wx:if="{{user.practitioners==1}}" bindtap="space_two">
 					<image src="../../icon/m-7.png" class="icon"></image>

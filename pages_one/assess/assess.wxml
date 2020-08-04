@@ -28,14 +28,14 @@
 		<view class="w710 flex col f30 c-34">
 			<view>2.请输入您的黄金克重</view>
 			<view class="flex fl-align">
-				<input placeholder="请输入您的黄金克重" class="puts" bindblur="getGram"></input>
+				<input type="digit" placeholder="请输入您的黄金克重" class="puts" bindblur="getGram"></input>
 				<text>克</text>
 			</view>
 		</view>
 
 		<view class="w710 flex col f30 c-34">
 			<view>4.请输入您的手机号码</view>
-			<input placeholder="请输入手机号码" class="puts" bindblur="getPhone"></input>
+			<input type="number" placeholder="请输入手机号码" class="puts" bindblur="getPhone" maxlength="11"></input>
 		</view>
 
 		<view class="recyc b-c c-ff f30 f-wb t-c" bindtap="toRecyc">提交</view>

@@ -1,0 +1,29 @@
+page {
+  background: #f5f5f5;
+}
+
+.container>view {
+  margin: 15rpx 0;
+}
+
+.w710>view {
+  width: 670rpx;
+  margin: 15rpx 0;
+}
+
+.header {
+  width: 71rpx;
+  height: 71rpx;
+}
+
+.level {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 5rpx;
+}
+
+.img {
+  width: 182rpx;
+  height: 182rpx;
+  margin: 15rpx;
+}

@@ -1,0 +1,63 @@
+<view class="container flex col fl-align">
+
+	<view class="w710 flex col">
+		<text class="f30">接单状态</text>
+		<view class="oder-type flex fl-align fl-jsb f24 b_r10">
+			<view class="t-c {{opened == item.open?'c-ff b-10':'c-66'}}" wx:for="{{open_list}}" wx:key="index" data-type="{{item.open}}" bindtap="change_open">{{item.name}}</view>
+		</view>
+	</view>
+
+	<view class="w710 flex col">
+		<text>手机号码</text>
+		<view class="w100 flex fl-align fl-jsb">
+			<input type="number" placeholder="请输入手机号码" bindblur="setPhone" value="{{phone}}"></input>
+			<button class="get b-c" open-type="getPhoneNumber" bindgetphonenumber="getPhone">一键获取</button>
+		</view>
+	</view>
+
+	<view class="w710 flex col">
+		<view style="margin-bottom:20rpx;"><text class="f30 c-00">经营类目</text></view>
+		<view class="w100 flex fl-w f24">
+			<view wx:for="{{kind_list}}" wx:key="index" class="{{item.choice==1?'b-c c-ff laber':''}} {{item.is_true==0?'b-f0':''}} labers b_r10" bindtap="choice_kind" data-index="{{index}}">{{item.name}}</view>
+		</view>
+	</view>
+
+	<block wx:if="{{is_huishou!=0}}">
+
+		<block wx:for="{{rec_list}}" wx:key="index" wx:for-index="father_index" wx:for-item="father_item">
+
+			<view class="w710 flex col">
+				<view class="flex fl-align fl-jsb" style="margin-bottom:20rpx;">
+					<text class="f30 c-00">上门回收城市<text class="c-FF0">*</text></text>
+					<text class="f30 c-F0" wx:if="{{father_index!=0}}" data-index="{{father_index}}" bindtap="delIndex">删除</text>
+				</view>
+				<picker mode="region" bindchange="getRecCity" data-index="{{father_index}}">
+					<view class="flex fl-align fl-jsb">
+						<view class="f30 c-99">{{father_item.rec_city}}</view>
+						<image src="../../icon/to.png" class="go"></image>
+					</view>
+				</picker>
+			</view>
+
+			<view class="w710 flex col" wx:if="{{father_item.rec_area_list.length!=0}}">
+				<view style="margin-bottom:20rpx;"><text class="f30 c-00">回收区域</text></view>
+				<view class="w100 flex fl-w f24">
+					<view class="{{item.choice==1?'b-c c-ff laber':''}} labers b_r10" wx:for="{{father_item.rec_area_list}}" wx:key="index" bindtap="choice_area" data-indexs="{{index}}" data-list="{{father_item.rec_area_list}}" data-index="{{father_index}}">{{item.area}}</view>
+				</view>
+			</view>
+
+		</block>
+
+		<view class="w710 flex fl-align fl-jc" bindtap="addCity">
+			<image src="../../icon/add.png" class="add"></image>
+			<text class="f30 c-66" style="margin:0rpx;">更多城市</text>
+		</view>
+
+	</block>
+
+	<view class="botton-line flex fl-align fl-jsb f30">
+		<view class="b-f3" bindtap="toCancel">取消</view>
+		<view class="b-c c-ff" bindtap="toSent">立即提交</view>
+	</view>
+
+</view>

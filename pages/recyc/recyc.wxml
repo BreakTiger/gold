@@ -7,7 +7,10 @@
 		<image src="../../img/top.png" class="top-img"></image>
 
 		<view class="market b-ff flex col fl-align fl-jse b_r10">
-			<text class="f30 c-66">实时金价(元/克)</text>
+			<view class="flex fl-align">
+				<text class="f30 c-66">实时金价(元/克)</text>
+				<image src="../../icon/w.png" class="w" bindtap="toRule"></image>
+			</view>
 			<text class="f62 c-10 f-wb">{{price}}</text>
 		</view>
 
@@ -29,7 +32,7 @@
 		<view class="w710 flex col f30 c-34">
 			<view>2.请输入您的黄金克重</view>
 			<view class="flex fl-align">
-				<input placeholder="请输入您的黄金克重" class="puts" bindblur="getGram"></input>
+				<input type="digit" placeholder="请输入您的黄金克重" class="puts" bindblur="getGram" value="{{gram}}"></input>
 				<text>克</text>
 			</view>
 		</view>
@@ -37,14 +40,17 @@
 		<view class="w710 flex col f30 c-34">
 			<view>3.预估金额</view>
 			<view class="flex fl-align">
-				<input placeholder="请设置金额" class="puts" bindblur="getMoney" value="{{money}}"></input>
+				<text class="puts">{{money}}</text>
 				<text>元</text>
 			</view>
 		</view>
 
 		<view class="w710 flex col f30 c-34">
 			<view>4.请输入您的手机号码</view>
-			<input placeholder="请输入手机号码" class="puts" bindblur="getPhone"></input>
+			<view class="flex fl-align fl-jsb puts">
+				<input type="number" placeholder="请输入手机号码" bindblur="getPhone" value="{{phone}}" maxlength="11"></input>
+				<button class="get b-10" bindgetphonenumber="setPhone" open-type="getPhoneNumber">一键获取</button>
+			</view>
 		</view>
 
 		<view class="w710 flex col f30 c-34">
@@ -58,19 +64,33 @@
 
 	</view>
 
-	<view class="cover flex col fl-align fl-jse" wx:if="{{shadows}}">
+	<!-- 回收协议 -->
+	<view class="cover" wx:if="{{shadows}}" bindtap="close"></view>
+	<view class="rule p-f b-ff flex col fl-align fl-jse b_r30" wx:if="{{shadows}}">
+		<view class="rule-line f36 f-wb c-33 t-c">黄金回购服务协议</view>
+		<scroll-view scroll-y="true" class="rule-line" style="height:720rpx;">
+			<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+		</scroll-view>
+		<view class="rule-line flex fl-align" bindtap="is_agrees">
+			<icon type="circle" size="25" style="margin-right:20rpx;" wx:if="{{agree==0}}"></icon>
+			<icon type="success" size="25" color="##FF5E10" style="margin-right:20rpx;" wx:if="{{agree==1}}"></icon>
+			<text class="f24 c-33">我已阅读并同意《黄金回收服务协议》</text>
+		</view>
+		<view class="agree t-c b_r40 b-c c-ff f30 f-wb" bindtap="toAgrees">同意</view>
+	</view>
 
-		<view class="rule b-ff flex col fl-align fl-jse b_r30">
-			<view class="rule-line f36 f-wb c-33 t-c">黄金回收服务协议</view>
-			<scroll-view scroll-y="true" class="rule-line" style="height:720rpx;">
-				<template is="wxParse" data="{{wxParseData:article.nodes}}" />
-			</scroll-view>
-			<view class="rule-line flex fl-align">
-				<icon type="circle" size="25" style="margin-right:20rpx;" wx:if="{{agree==0}}" bindtap="agrees"></icon>
-				<icon type="success" size="25" color="##FF5E10" style="margin-right:20rpx;" wx:if="{{agree==1}}" bindtap="agrees"></icon>
-				<text class="f24 c-33">我已阅读并同意《黄金回收服务协议》</text>
-			</view>
-			<view class="agree t-c b_r40 b-c c-ff f30 f-wb" bindtap="toAgrees">同意</view>
+	<!-- 服务费说明 -->
+	<view class="rules b-ff p-f flex col fl-align" wx:if="{{shad}}">
+
+		<image src="../../icon/close.png" class="close p-r" bindtap="toClose"></image>
+
+		<text class="f42 c-33 f-wb" style="margin:140rpx 0 40rpx 0rpx">预估金额说明</text>
+
+		<view class="flex col" style="width:580rpx;">
+			<text class="f30" style="margin:15rpx 0;">·预估金额：<text class="c-10">{{money}}</text>元</text>
+			<text class="f30">·服务费：<text class="c-10">{{fu_moeny*gram || fu_moeny}}</text>元</text>
+			<text class="f26 c-66" style="margin:15rpx 0;">预估金额是根据上海黄金交易所的实时金价、克重等综合计算</text>
+			<text class="f26 c-66">服务费：{{fu_text}}</text>
 		</view>
 
 	</view>

@@ -1,12 +1,19 @@
-<view class="container">
+<view class="container flex col fl-align">
 
-	<view class="w100 b-ff flex col fl-align">
-
-		<view class="w710 flex col">
-			<text class="f32 c-33" style="margin-bottom:20rpx;">上门回收好评5分奖励50元</text>
-			<text class="f26 c-99">2020-06-12  14:47</text>
+	<view class="w710 flex col" wx:for="{{list}}" wx:key="index" wx:if="{{list.length!=0}}">
+		<view class="flex fl-align fl-jsb f32 c-33">
+			<text>上门回收好评{{item.level}}分奖励{{item.price}}元</text>
+			<text wx:if="{{item.status==0}}">未打款</text>
+			<text wx:if="{{item.status==1}}">已打款</text>
+			<text wx:if="{{item.status==2}}">打款失败</text>
+			<text wx:if="{{item.status==3}}">手动打款</text>
 		</view>
+		<view class="f26 c-66">{{item.createtime}}</view>
+	</view>
 
+	<view class="flex col fl-align" wx:if="{{list.length==0}}">
+		<image src="../../img/empty.png" class="empty"></image>
+		<text>暂无记录</text>
 	</view>
 
 </view>
