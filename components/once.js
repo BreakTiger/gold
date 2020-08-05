@@ -6,9 +6,7 @@ const WxParse = require('../wxParse/wxParse.js')
 
 // 地图
 var QQMapWX = require('../qqmap-wx-jssdk.min.js')
-var demo = new QQMapWX({
-  key: 'UFTBZ-W4UW6-UNPSV-EMHL3-24UFQ-SCFKR' //临时
-});
+var demo;
 
 
 Component({
@@ -84,8 +82,27 @@ Component({
       }
     })
     this.getKind()
+    this.getMapKey()
   },
   methods: {
+
+    // 获取密钥
+    getMapKey: async function () {
+      let that = this
+      await http.sendRequest('huishou.set', 'post', {}).then(function (res) {
+        if (res.error == 0) {
+          // 富文本解析
+          let article = res.list.huixie
+          WxParse.wxParse('article', 'html', article, that, 5);
+          app.globalData.map_Key = res.list.baidumiyao
+          demo = new QQMapWX({
+            key: res.list.baidumiyao
+          });
+        } else {
+          modal.showToast(res.message, 'none')
+        }
+      })
+    },
 
     //经营类目列表
     getKind: function () {
@@ -403,19 +420,8 @@ Component({
 
     // 协议
     protocol: function () {
-      let that = this
-      http.sendRequest('huishou.set', 'post', {}).then(function (res) {
-        console.log(res.list)
-        if (res.error == 0) {
-          // 富文本解析
-          let article = res.list.huixie
-          WxParse.wxParse('article', 'html', article, that, 5);
-          that.setData({
-            shad: true
-          })
-        } else {
-          modal.showToast(res.message, 'none')
-        }
+      that.setData({
+        shad: true
       })
     },
 

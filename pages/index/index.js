@@ -4,10 +4,7 @@ import modal from '../../modals.js'
 
 // 地图组件
 var QQMapWX = require('../../qqmap-wx-jssdk.min.js')
-var demo = new QQMapWX({
-  key: 'UFTBZ-W4UW6-UNPSV-EMHL3-24UFQ-SCFKR' //临时
-});
-
+var demo;
 
 Page({
 
@@ -26,6 +23,30 @@ Page({
     info: [],
 
     login: false
+  },
+
+  onLoad: function (options) {
+    //小程序码扫码进入
+    if (options.scene) {
+      const scene = decodeURIComponent(options.scene);
+      console.log('小程序码参数：', scene);
+    }
+    this.getMapKey()
+  },
+
+  // 获取密钥
+  getMapKey: async function () {
+    let that = this
+    await http.sendRequest('huishou.set', 'post', {}, '1').then(function (res) {
+      if (res.error == 0) {
+        app.globalData.map_Key = res.list.baidumiyao
+        demo = new QQMapWX({
+          key: res.list.baidumiyao
+        });
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   onShow: function () {
@@ -91,7 +112,7 @@ Page({
       pagesize: 5,
       openid: wx.getStorageSync('openid')
     }
-    http.sendRequest('huishou.luobo', 'post', data).then(function (res) {
+    http.sendRequest('huishou.luobo', 'post', data, '1').then(function (res) {
       if (res.error == 0) {
         that.setData({
           lunbo: res.list
@@ -110,7 +131,7 @@ Page({
       page: 1,
       pagesize: 10
     }
-    http.sendRequest('huishou.jingying', 'post', data).then(function (res) {
+    http.sendRequest('huishou.jingying', 'post', data, '1').then(function (res) {
       if (res.error == 0) {
         that.setData({
           nav_list: res.list
@@ -125,7 +146,7 @@ Page({
   //金价
   getPice: function () {
     let that = this
-    http.sendRequest('huishou.getipricej', 'post', {}).then(function (res) {
+    http.sendRequest('huishou.getipricej', 'post', {}, '1').then(function (res) {
       if (res.error == 0) {
         that.setData({
           price: res.list.price
@@ -147,7 +168,7 @@ Page({
       lng: wx.getStorageSync('lon'),
       city: wx.getStorageSync('city')
     }
-    http.sendRequest('huishou.shoplist', 'post', data).then(function (res) {
+    http.sendRequest('huishou.shoplist', 'post', data, '1').then(function (res) {
       if (res.error == 0) {
         that.setData({
           shop: res.list
@@ -246,6 +267,7 @@ Page({
     setTimeout(() => {
       wx.stopPullDownRefresh()
     }, 1000);
+    this.getMapKey()
     this.getLocation()
   }
 

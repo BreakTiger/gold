@@ -1,11 +1,10 @@
+const app = getApp()
 const city = require('../../libs/city.js');
 import modal from '../../modals.js'
 
 // 地图组件
 var QQMapWX = require('../../qqmap-wx-jssdk.min.js')
-var demo = new QQMapWX({
-  key: 'UFTBZ-W4UW6-UNPSV-EMHL3-24UFQ-SCFKR' //临时
-});
+var demo;
 
 Page({
 
@@ -36,6 +35,10 @@ Page({
     this.setData({
       cityData: city.all,
       hotCityData: city.hot
+    });
+    console.log('密钥：',app.globalData.map_Key)
+    demo = new QQMapWX({
+      key: app.globalData.map_Key
     });
   },
 

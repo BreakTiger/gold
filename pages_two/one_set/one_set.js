@@ -4,9 +4,7 @@ import modal from '../../modals.js'
 
 // 地图
 var QQMapWX = require('../../qqmap-wx-jssdk.min.js')
-var demo = new QQMapWX({
-  key: 'UFTBZ-W4UW6-UNPSV-EMHL3-24UFQ-SCFKR' //临时
-});
+var demo;
 
 
 Page({
@@ -78,7 +76,23 @@ Page({
     this.setData({
       id: options.id
     })
+    this.getMapKey()
     this.getInfo()
+  },
+
+  // 获取密钥
+  getMapKey: async function () {
+    let that = this
+    await http.sendRequest('huishou.set', 'post', {}).then(function (res) {
+      if (res.error == 0) {
+        app.globalData.map_Key = res.list.baidumiyao
+        demo = new QQMapWX({
+          key: res.list.baidumiyao
+        });
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
   },
 
   //店铺申请信息
@@ -336,7 +350,7 @@ Page({
           longitude: res.longitude,
           success: function (res) {
             console.log(res)
-            let mp_address = res.address + '('+res.name+')'
+            let mp_address = res.address + '(' + res.name + ')'
             let lat = res.latitude
             let lon = res.longitude
             demo.reverseGeocoder({

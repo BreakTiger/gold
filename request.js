@@ -3,13 +3,17 @@
 const api = "https://huishou.pensee168.com/app/yun_shopv2_api.php?i=7&comefrom=wxapp&r=" //域名头部
 
 //请求分装 -  不带有登录判断
-function sendRequest(url, method, data) {
+function sendRequest(url, method, data, loading) {
 
   var promise = new Promise(function (resolve, reject) {
-    wx.showLoading({
-      title: '加载中',
-      mask: true
-    })
+
+    if (!loading) {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+    }
+
     wx.request({
       url: api + url,
       method: method,
@@ -18,7 +22,9 @@ function sendRequest(url, method, data) {
         "content-type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-        wx.hideLoading()
+        if (!loading) {
+          wx.hideLoading()
+        }
         if (res.statusCode == 200) {
           resolve(res.data);
         } else {
@@ -26,7 +32,9 @@ function sendRequest(url, method, data) {
         }
       },
       fail: function (res) {
-        wx.hideLoading()
+        if (!loading) {
+          wx.hideLoading()
+        }
         reject(res);
       }
     })

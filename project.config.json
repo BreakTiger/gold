@@ -63,15 +63,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages_two/workspace_two/workspace_two",
-					"pathName": "pages_two/workspace_two/workspace_two",
-					"query": "id=29",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

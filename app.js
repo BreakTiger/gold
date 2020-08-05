@@ -1,7 +1,10 @@
 //app.js
 App({
   onLaunch: function () {
-    
+
+    // 每次打开小程序 清空本地缓存中的key
+    wx.removeStorageSync('city')
+
     if (wx.canIUse('getUpdateManager')) {
       const updateManager = wx.getUpdateManager()
       updateManager.onCheckForUpdate(function (res) {
@@ -33,7 +36,7 @@ App({
     }
 
     wx.login({
-      success:function(res){
+      success: function (res) {
         console.log(res.code)
       }
     })
@@ -42,7 +45,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -66,6 +69,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    putInfo: {}
+    putInfo: {},
+    map_Key: '' //地图组件密钥
   }
 })

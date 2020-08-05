@@ -4,10 +4,7 @@ import modal from '../../modals.js'
 
 // 地图组件
 var QQMapWX = require('../../qqmap-wx-jssdk.min.js')
-var demo = new QQMapWX({
-  key: 'UFTBZ-W4UW6-UNPSV-EMHL3-24UFQ-SCFKR' //临时
-});
-
+var demo;
 Page({
 
   data: {
@@ -21,6 +18,14 @@ Page({
     this.setData({
       id: options.id
     })
+
+    console.log('密钥：', app.globalData.map_Key)
+    demo = new QQMapWX({
+      key: app.globalData.map_Key
+    });
+
+
+
 
     let city = wx.getStorageSync('city') || ''
     if (!city) {
