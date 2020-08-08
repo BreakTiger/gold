@@ -11,6 +11,8 @@
 			<text class="f26">服务费:<text text class="f32 c-43">{{fu_moeny}}</text>元</text>
 		</view>
 
+		<view class="w100 flex fl-align f26" style="margin-top:20rpx;">{{bi_text}}</view>
+
 		<view class="w100 b-ff flex col fl-align b_r10 f30" style="padding:25rpx 0;margin-top:20rpx;">
 
 			<view class="flex col" style="margin-bottom:20rpx;">

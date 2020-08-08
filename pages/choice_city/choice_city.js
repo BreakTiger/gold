@@ -36,7 +36,7 @@ Page({
       cityData: city.all,
       hotCityData: city.hot
     });
-    console.log('密钥：',app.globalData.map_Key)
+    console.log('密钥：', app.globalData.map_Key)
     demo = new QQMapWX({
       key: app.globalData.map_Key
     });
@@ -51,6 +51,8 @@ Page({
   getLocations: function () {
     let that = this
     wx.getLocation({
+      type: 'gcj02',
+      altitude: 'true',
       success: function (res) {
         // console.log(res)
         let lat = res.latitude
@@ -132,6 +134,7 @@ Page({
       })
     } else {
       console.log('重新定位')
+      that.getLocations()
     }
   },
 

@@ -10,6 +10,7 @@ Page({
     user_status: {}, //个人申请入驻状态
     step: 0,
     content: '',
+    code: ''
   },
 
 
@@ -17,6 +18,23 @@ Page({
     this.getType()
   },
 
+  onShow: function () {
+    this.wxlogin()
+  },
+
+  wxlogin: function () {
+    const that = this
+    wx.login({
+      success: function (res) {
+        console.log('code:', res.code)
+        that.setData({
+          code: res.code
+        })
+      }
+    })
+  },
+
+  // 入驻状态
   getType: function () {
     let that = this
     let data = {
@@ -59,6 +77,11 @@ Page({
       step: e.detail.step,
       user_status: e.detail.user_status
     })
+  },
+
+  // 一键获取手机号
+  getsPhone: function (e) {
+    this.wxlogin()
   }
 
 

@@ -53,9 +53,7 @@ Page({
       if (res.error == 0) {
         modal.showToast(res.message, 'none')
         setTimeout(() => {
-          wx.navigateBack({
-            delta: 1,
-          })
+          modal.navigate('/pages_one/evaluate/evaluate?id=', that.data.detail.id)
         }, 2000);
       } else {
         modal.showToast(res.message, 'none')

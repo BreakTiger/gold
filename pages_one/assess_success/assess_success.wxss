@@ -1,3 +1,5 @@
+@import '../../wxParse/wxParse.wxss';
+
 .type {
   width: 437rpx;
   height: 341rpx;
@@ -36,4 +38,22 @@
 
 .f42 {
   font-size: 42rpx;
+}
+
+.rule {
+  width: 710rpx;
+  height: 1010rpx;
+  top: 40rpx;
+  left: 20rpx;
+  z-index: 120;
+}
+
+.rule-line {
+  width: 650rpx;
+}
+
+.agree {
+  width: 520rpx;
+  height: 80rpx;
+  line-height: 80rpx;
 }

@@ -2,6 +2,7 @@
 App({
   onLaunch: function () {
 
+    console.log('启动')
     // 每次打开小程序 清空本地缓存中的key
     wx.removeStorageSync('city')
 
@@ -35,11 +36,11 @@ App({
       })
     }
 
-    wx.login({
-      success: function (res) {
-        console.log(res.code)
-      }
-    })
+    // wx.login({
+    //   success: function (res) {
+    //     console.log(res.code)
+    //   }
+    // })
 
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -66,10 +67,13 @@ App({
         }
       }
     })
+
   },
   globalData: {
     userInfo: null,
     putInfo: {},
-    map_Key: '' //地图组件密钥
+    map_Key: '', //地图组件密钥
+    gold_price: '', //实时金价
+    app_name: '' //平台名称
   }
 })

@@ -4,7 +4,7 @@
 	<Rule wx:if="{{step==0&&shop_status.length==0}}" status="{{status}}" bind:Apply="getApply"></Rule>
 
 	<!-- 信息填写 -->
-	<applyOne wx:if="{{step==1&&shop_status.length==0}}" bind:Apply="getApply" bind:Phone="getsPhone"></applyOne>
+	<applyOne wx:if="{{step==1&&shop_status.length==0}}" bind:Apply="getApply" bind:Phone="getsPhone" code="{{code}}"></applyOne>
 
 	<!-- 审核结果 -->
 	<applyTwo wx:if="{{step==2}}" status="{{shop_status.status}}" content="{{content}}" bind:Again="getAgain"></applyTwo>

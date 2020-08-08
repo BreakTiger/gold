@@ -27,9 +27,10 @@
 			</view>
 
 			<view class="w100 flex fl-align fl-jsb" style="height: 158rpx;">
-				<view class="wc5 flex col fl-align" wx:for="{{nav_one}}" wx:key="index" bindtap="enter_one" data-type="{{item.type}}">
+				<view class="wc5 flex col fl-align p-r" wx:for="{{nav_one}}" wx:key="index" bindtap="enter_one" data-type="{{item.type}}">
 					<image src="{{item.icon}}" class="icon"></image>
 					<text class="f26">{{item.text}}</text>
+					<view class="p-a nums t-c c-ff b_rh" wx:if="{{item.num && item.num!=0}}">{{item.num}}</view>
 				</view>
 			</view>
 

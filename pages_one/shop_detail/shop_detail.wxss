@@ -43,6 +43,7 @@ page {
   text-align: center;
   border-radius: 10rpx;
   margin-right: 10rpx;
+  margin-bottom: 10rpx;
 }
 
 .head {
@@ -116,8 +117,8 @@ page {
 }
 
 .haibai {
-  width: 690rpx;
-  height: 1003rpx;
+  width: 630rpx;
+  height: 1032rpx;
 }
 
 .save {

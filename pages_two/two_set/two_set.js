@@ -9,6 +9,8 @@ Page({
    */
   data: {
 
+    code: '',
+
     open_list: [
       {
         name: '营业中',
@@ -62,6 +64,23 @@ Page({
       id: options.id
     })
     this.getData()
+  },
+
+  onShow: function () {
+    let that = this
+    that.wxLogin()
+  },
+
+  wxLogin: function () {
+    let that = this
+    wx.login({
+      success: function (res) {
+        console.log('code:', res.code)
+        that.setData({
+          code: res.code
+        })
+      }
+    })
   },
 
   //申请数据
@@ -232,25 +251,22 @@ Page({
   //手机号 - 2
   getPhone: function (e) {
     let that = this
-    wx.login({
-      success: function (res) {
-        let data = {
-          data: e.detail.encryptedData,
-          code: res.code,
-          iv: e.detail.iv
-        }
-        http.sendRequest('wxapp.getWechatUserPhone', 'post', data).then(function (res) {
-          if (res.error == 0) {
-            that.setData({
-              phone: res.data.phoneNumber
-            })
-          } else {
-            modal.showToast(res.message, 'none')
-          }
+    let data = {
+      data: e.detail.encryptedData,
+      code: that.data.code,
+      iv: e.detail.iv
+    }
+    console.log(data)
+    http.sendRequest('wxapp.getWechatUserPhone', 'post', data).then(function (res) {
+      if (res.error == 0) {
+        that.setData({
+          phone: res.data.phoneNumber
         })
+      } else {
+        modal.showToast(res.message, 'none')
       }
     })
-
+    that.wxLogin()
   },
 
   //选择经营类目

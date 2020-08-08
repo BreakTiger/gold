@@ -121,11 +121,13 @@ Page({
       if (res.error == 0) {
         modal.showToast('确认成功')
         setTimeout(() => {
-          that.setData({
-            page: 1
-          })
-          that.getList()
+          // that.setData({
+          //   page: 1
+          // })
+          // that.getList()
+          modal.navigate('/pages_one/evaluate/evaluate?id=', e.currentTarget.dataset.id)
         }, 2000);
+
       } else {
         modal.showToast(res.message, 'none')
       }

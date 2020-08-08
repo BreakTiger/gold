@@ -100,7 +100,7 @@
 	</view>
 
 	<!-- 分享遮罩 -->
-	<view class="cover" wx:if="{{shad}}" bindtap="close_share"></view>
+	<view class="cover" wx:if="{{shad}}" bindtap="close_share" catchtouchmove="true"></view>
 	<view class="share-line flex fl-align p-f b-ff" wx:if="{{shad}}">
 		<view class="flex col fl-align p-r">
 			<image src="../../icon/wx.png" class="icons"></image>
@@ -114,12 +114,12 @@
 	</view>
 
 	<!-- 海报 -->
-	<view class="cover flex col fl-align fl-jse" wx:if="{{shads}}">
+	<view class="cover flex col fl-align fl-jse" wx:if="{{shads}}" catchtouchmove="true">
 		<canvas canvas-id="shareCanvas" class="haibai"></canvas>
 		<view class="save c-ff b-c t-c f32 b_r40" bindtap="toSave">保存图片</view>
 		<image src="../../icon/closed.png" class="closed" bindtap="close_share"></image>
 	</view>
 
-	<login wx:if="{{login}}" uid="{{uid}}" shopid="{{shopid}}" bind:addDrug="getAddGrug"></login>
+	<login wx:if="{{login}}" shopid="{{shopid}}" bind:addDrug="getAddGrug"></login>
 
 </view>

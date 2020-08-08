@@ -57,11 +57,17 @@
 		<input placeholder="请输入详细地址" bindblur="setAddress" value="{{address}}"></input>
 	</view>
 
+	<!-- 店铺电话 -->
+	<view class="w100 flex col">
+		<view><text class="f30 c-00">店铺电话<text class="c-FF0">*</text></text></view>
+		<input type="number" placeholder="请输入店铺联系电话" value="{{shop_phone}}" bindblur="getShopPhone"></input>
+	</view>
+
 	<!-- 手机号码 -->
 	<view class="w100 flex col">
 		<view><text class="f30 c-00">手机号码<text class="c-FF0">*</text></text></view>
 		<view class="flex fl-align fl-jsb">
-			<input type="number" placeholder="请输入手机号码" value="{{phone}}" bindblur="setPhone" style="width:75%;"></input>
+			<input type="number" placeholder="请输入手机号码" value="{{phone}}" bindblur="setPhone" style="width:75%;" maxlength="11"></input>
 			<button class="get b-c" open-type="getPhoneNumber" bindgetphonenumber="getPhone">一键获取</button>
 		</view>
 	</view>
@@ -109,8 +115,6 @@
 		<text class="f26 c-66" style="margin:60rpx 0;" bindtap="protocol">申请代表你已同意<text class="c-8F">《回收协议》</text></text>
 
 	</block>
-
-
 
 	<view class="botton-line flex fl-align fl-jsb f30">
 		<view class="b-f3" bindtap="toCancel">取消</view>

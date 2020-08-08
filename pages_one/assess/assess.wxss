@@ -63,7 +63,7 @@
   line-height: 64rpx;
   border-radius: 3rpx;
   text-align: center;
-  margin-right: 20rpx;
+  margin: 12rpx;
   border: 1rpx solid rgba(255, 94, 16, 1);
 }
 

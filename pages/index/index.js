@@ -26,23 +26,19 @@ Page({
   },
 
   onLoad: function (options) {
-    //小程序码扫码进入
-    if (options.scene) {
-      const scene = decodeURIComponent(options.scene);
-      console.log('小程序码参数：', scene);
-    }
     this.getMapKey()
   },
 
-  // 获取密钥
+  //基础设置
   getMapKey: async function () {
     let that = this
     await http.sendRequest('huishou.set', 'post', {}, '1').then(function (res) {
       if (res.error == 0) {
-        app.globalData.map_Key = res.list.baidumiyao
         demo = new QQMapWX({
           key: res.list.baidumiyao
         });
+        app.globalData.map_Key = res.list.baidumiyao
+        app.globalData.app_name = res.list.uniacidname
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -65,6 +61,8 @@ Page({
   getLocation: function () {
     let that = this
     wx.getLocation({
+      type: 'gcj02',
+      altitude: 'true',
       success: function (res) {
         let lat = res.latitude
         let lon = res.longitude
@@ -151,6 +149,7 @@ Page({
         that.setData({
           price: res.list.price
         })
+        app.globalData.gold_price = res.list.price
         that.getShop()
       } else {
         modal.showToast(res.message, 'none')
@@ -253,7 +252,7 @@ Page({
       console.log('小程序链接')
       let url = e.currentTarget.dataset.item.url
       console.log('链接：', url)
-      modal.navigate(url)
+      modal.navigate('/' + url)
     }
   },
 

@@ -26,6 +26,7 @@ page {
 
 .laber {
   margin-right: 10rpx;
+  margin-bottom: 10rpx;
   padding: 5rpx 10rpx;
   background: rgba(0, 0, 0, 0.4);
 }

@@ -1,8 +1,11 @@
+<import src="../../wxParse/wxParse.wxml" />
 <view class="container">
+
 	<view class="w710" style="margin: 20rpx auto;">
 		<text>实时金价（元/克）：</text>
 		<text class="f36 c-10">{{detail.price}}</text>
 	</view>
+
 	<view class="flex col fl-align">
 		<image src="../../img/type.png" class="type"></image>
 		<text>恭喜哦~~</text>
@@ -11,8 +14,8 @@
 			<text class="f36 c-10">{{detail.countprice}}元</text>
 			<image src="../../icon/w.png" class="w" bindtap="toRule"></image>
 		</view>
-		<view class="btn b_r40 c-ff f30 b-c" bindtap="recyc_one">上门回收</view>
-		<view class="btn b_r40 c-ff f30 b-c" bindtap="recyc_two">到店回收</view>
+		<view class="btn b_r40 c-ff f30 b-c" bindtap="recyc" data-type="1">上门回收</view>
+		<view class="btn b_r40 c-ff f30 b-c" bindtap="recyc" data-type="2">到店回收</view>
 	</view>
 
 	<view class="rules b-ff p-f flex col fl-align" wx:if="{{shad}}">
@@ -23,11 +26,26 @@
 
 		<view class="flex col" style="width:580rpx;">
 			<text class="f30" style="margin:15rpx 0;">·预估金额：<text class="c-10">{{all}}</text>元</text>
-			<text class="f30">·服务费：<text class="c-10">{{fu_moeny * detail.ke}}</text>元</text>
+			<!-- <text class="f30">·服务费：<text class="c-10">{{fu_moeny * detail.ke}}</text>元</text> -->
 			<text class="f26 c-66" style="margin:15rpx 0;">预估金额是根据上海黄金交易所的实时金价、克重等综合计算</text>
 			<text class="f26 c-66">服务费：{{fu_text}}</text>
 		</view>
 
+	</view>
+
+	<!-- 回收协议 -->
+	<view class="cover" wx:if="{{shadows}}" bindtap="close"></view>
+	<view class="rule p-f b-ff flex col fl-align fl-jse b_r30" wx:if="{{shadows}}">
+		<view class="rule-line f36 f-wb c-33 t-c">黄金回购服务协议</view>
+		<scroll-view scroll-y="true" class="rule-line" style="height:720rpx;">
+			<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+		</scroll-view>
+		<view class="rule-line flex fl-align" bindtap="is_agrees">
+			<icon type="circle" size="25" style="margin-right:20rpx;" wx:if="{{agree==0}}"></icon>
+			<icon type="success" size="25" color="##FF5E10" style="margin-right:20rpx;" wx:if="{{agree==1}}"></icon>
+			<text class="f24 c-33">我已阅读并同意《黄金回收服务协议》</text>
+		</view>
+		<view class="agree t-c b_r40 b-c c-ff f30 f-wb" bindtap="toAgrees">同意</view>
 	</view>
 
 </view>

@@ -6,10 +6,12 @@ import modal from '../../modals.js'
 var QQMapWX = require('../../qqmap-wx-jssdk.min.js')
 var demo;
 
-
 Page({
 
   data: {
+
+    code: '',
+
     id: '', // 店铺ID
 
     open_list: [
@@ -47,6 +49,8 @@ Page({
     time_one: '营业开始时间',
     time_two: '营业结束时间',
 
+    shop_phone: '', //店铺号码
+
     phone: '', //手机号码
 
     kind_list: [], //经营类目
@@ -80,6 +84,23 @@ Page({
     this.getInfo()
   },
 
+  onShow: function () {
+    let that = this
+    that.wxLogin()
+  },
+
+  wxLogin: function () {
+    let that = this
+    wx.login({
+      success: function (res) {
+        console.log('code:', res.code)
+        that.setData({
+          code: res.code
+        })
+      }
+    })
+  },
+
   // 获取密钥
   getMapKey: async function () {
     let that = this
@@ -96,16 +117,16 @@ Page({
   },
 
   //店铺申请信息
-  getInfo: function () {
+  getInfo: async function () {
     let that = this
     let data = {
       id: that.data.id,
       openid: wx.getStorageSync('openid')
     }
-    http.sendRequest('huishou.geteditshop', 'post', data).then(function (res) {
+    await http.sendRequest('huishou.geteditshop', 'post', data).then(function (res) {
       if (res.error == 0) {
         let detail = res.list
-        // console.log(detail)
+
         // 绑定数据
         that.setData({
           detail: detail,
@@ -125,6 +146,7 @@ Page({
           lon: detail.lng,
 
           times: detail.yingyetime, //营业时间
+          shop_phone: detail.shopmobile, //店铺号码
           phone: detail.mobile, //手机号
           kind_id: detail.managementid, //经营类目ID
           kind_text: detail.management_text, //经营类目说明
@@ -148,14 +170,14 @@ Page({
   },
 
   // 经营类目列表
-  getKind: function () {
+  getKind: async function () {
     let that = this
     let data = {
       page: 1,
       pagesize: 50,
       type: 2
     }
-    http.sendRequest('huishou.jingying', 'post', data).then(function (res) {
+    await http.sendRequest('huishou.jingying', 'post', data).then(function (res) {
       if (res.error == 0) {
         let list = res.list
         list.forEach(function (item) {
@@ -343,6 +365,7 @@ Page({
   choice_city: function () {
     let that = this
     wx.getLocation({
+      type: 'gcj02',
       altitude: true,
       success: function (res) {
         wx.chooseLocation({
@@ -417,9 +440,10 @@ Page({
     let that = this
     let data = {
       data: e.detail.encryptedData,
-      code: wx.getStorageSync('code'),
+      code: that.data.code,
       iv: e.detail.iv
     }
+    console.log(data)
     http.sendRequest('wxapp.getWechatUserPhone', 'post', data).then(function (res) {
       if (res.error == 0) {
         that.setData({
@@ -428,6 +452,14 @@ Page({
       } else {
         modal.showToast(res.message, 'none')
       }
+    })
+    that.wxLogin()
+  },
+
+  //店铺号码
+  getShopPhone: function (e) {
+    this.setData({
+      shop_phone: e.detail.value
     })
   },
 
@@ -685,6 +717,7 @@ Page({
     }
   },
 
+  //修改
   send: function () {
     let that = this
     let data = {
@@ -706,7 +739,8 @@ Page({
       huishouarea: that.data.huiArea,
       yingyetime: that.data.times,
       remark: that.data.content || '',
-      address_area: that.data.city_in
+      address_area: that.data.city_in,
+      shopmoble: that.data.shop_phone
     }
     console.log('参数：', data)
     http.sendRequest('huishou.sbmitshop', 'post', data).then(function (res) {
@@ -722,18 +756,5 @@ Page({
       }
     })
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })

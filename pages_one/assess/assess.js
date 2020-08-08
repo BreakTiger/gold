@@ -13,6 +13,10 @@ Page({
     types_list: [],
     types_choice: '', //属性ID
 
+    bi_text: '', //比例
+
+    feimoney: '',
+
     gram: '',//克重
     phone: '', //电话
 
@@ -21,18 +25,22 @@ Page({
 
   onLoad: function (options) {
     this.getPrice()
+    this.getType()
   },
 
   //实时金价
-  getPrice: function () {
+  getPrice: async function () {
     let that = this
-    http.sendRequest('huishou.getipricej', 'post', {}).then(function (res) {
-      // console.log(res.list.price)
+    let data = {
+      type: that.data.type_choice,
+      shuxing: that.data.types_choice
+    }
+    await http.sendRequest('huishou.getipricej', 'post', data).then(function (res) {
       if (res.error == 0) {
         that.setData({
           price: res.list.price
         })
-        that.getType()
+        app.globalData.gold_price = res.list.price
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -67,7 +75,8 @@ Page({
         item.choice = 1
         that.setData({
           type_choice: item.id,
-          types_choice: ''
+          types_choice: '',
+          bi_text: ''
         })
         that.getNature()
       } else {
@@ -90,6 +99,9 @@ Page({
         let list = res.list
         list.forEach(function (item) {
           item.choice = 0
+          that.setData({
+            feimoney: item.feimoney
+          })
         })
         that.setData({
           types_list: list
@@ -109,7 +121,8 @@ Page({
       if (index == indexs) {
         item.choice = 1
         that.setData({
-          types_choice: item.id
+          types_choice: item.id,
+          bi_text: item.content
         })
       } else {
         item.choice = 0
@@ -118,6 +131,7 @@ Page({
     that.setData({
       types_list: list
     })
+    that.getPrice()
   },
 
   // 克重
@@ -158,13 +172,15 @@ Page({
           shuxing: that.data.types_choice, //属性
           gram: gram,
           mobile: phone,
+          price: that.data.price,
           openid: wx.getStorageSync('openid')
         }
         console.log('data：', data)
         http.sendRequest('huishou.sbpinggu', 'post', data).then(function (res) {
           console.log(res.list)
+          console.log(that.data.feimoney)
           if (res.error == 0) {
-            modal.navigate('/pages_one/assess_success/assess_success?data=', JSON.stringify(res.list))
+            modal.navigate('/pages_one/assess_success/assess_success?data=', JSON.stringify(res.list) + '&feimoney=' + that.data.feimoney)
           } else {
             modal.showToast(res.message, 'none')
           }

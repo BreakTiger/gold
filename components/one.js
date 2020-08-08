@@ -11,7 +11,7 @@ Component({
   },
 
   properties: {
-
+    code: String
   },
 
   data: {
@@ -74,12 +74,6 @@ Component({
   },
 
   created() {
-    wx.login({
-      success: function (res) {
-        console.log(res.code)
-      }
-    })
-
     this.getkind()
   },
 
@@ -197,29 +191,27 @@ Component({
       })
     },
 
-    getPhone: function (e) {
+    // 一键获取手机号
+    getPhone:async function (e) {
       let that = this
-      wx.login({
-        success: res => {
-          wx.setStorageSync('code', res.code)
-          let data = {
-            data: encodeURIComponent(e.detail.encryptedData),
-            code: res.code,
-            iv: e.detail.iv
-          }
-          console.log('参数：', data)
-          http.sendRequest('wxapp.getWechatUserPhone', 'post', data).then(function (res) {
-            console.log(res)
-            if (res.error == 0) {
-              that.setData({
-                phone: res.data.phoneNumber
-              })
-            } else {
-              modal.showToast(res.message, 'none')
-            }
+      console.log('code:', that.properties.code)
+      let data = {
+        data: e.detail.encryptedData,
+        code: that.properties.code,
+        iv: e.detail.iv
+      }
+      console.log(data)
+      await http.sendRequest('wxapp.getWechatUserPhone', 'post', data).then(function (res) {
+        console.log(res)
+        if (res.error == 0) {
+          that.setData({
+            phone: res.data.phoneNumber
           })
+        } else {
+          modal.showToast(res.message, 'none')
         }
       })
+      that.triggerEvent('Phone')
     },
 
     //选择经营类目

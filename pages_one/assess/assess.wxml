@@ -23,6 +23,7 @@
 			<view class="flex fl-w types">
 				<view class="f28 t-c {{item.choice==1?'b-c c-ff':'choicesd c-10'}}" wx:for="{{types_list}}" wx:key="index" data-index="{{index}}" bindtap="choice_Nature">{{item.name}}</view>
 			</view>
+			<view class="f28" wx:if="{{bi_text}}" style="padding-left:10rpx;">{{bi_text}}</view>
 		</view>
 
 		<view class="w710 flex col f30 c-34">

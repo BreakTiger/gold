@@ -20,17 +20,20 @@ Page({
       {
         icon: '../../icon/m-2.png',
         text: '派单中',
-        type: '0'
+        type: '0',
+        num: '0',
       },
       {
         icon: '../../icon/m-3.png',
         text: '进行中',
-        type: '1'
+        type: '1',
+        num: '0',
       },
       {
         icon: '../../icon/m-4.png',
         text: '待评价',
-        type: '2'
+        type: '2',
+        num: '0'
       },
       {
         icon: '../../icon/m-5.png',
@@ -84,9 +87,15 @@ Page({
     }
     http.sendRequest('huishou.getusermember', 'post', data).then(function (res) {
       if (res.error == 0) {
-        // console.log(res.list)
+        let onav = that.data.nav_one
+        let one = "onav[" + 1 + "].num";
+        let two = "onav[" + 2 + "].num";
+        let three = "onav[" + 3 + "].num";
         that.setData({
-          user: res.list
+          user: res.list,
+          [one]: res.list.yorder0,
+          [two]: res.list.sorder1,
+          [three]: res.list.yorder2
         })
       } else {
         modal.showToast(res.message, 'none')

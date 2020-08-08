@@ -60,6 +60,11 @@
 	</view>
 
 	<view class="w710 flex col">
+		<text>店铺号码</text>
+		<input placeholder="请输入店铺号码" bindblur="getShopPhone" value="{{shop_phone}}"></input>
+	</view>
+
+	<view class="w710 flex col">
 		<text>手机号码</text>
 		<view class="w100 flex fl-align fl-jsb">
 			<input type="number" placeholder="请输入手机号码" bindblur="setPhone" value="{{phone}}"></input>

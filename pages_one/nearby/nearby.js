@@ -24,9 +24,6 @@ Page({
       key: app.globalData.map_Key
     });
 
-
-
-
     let city = wx.getStorageSync('city') || ''
     if (!city) {
       this.getLocation()
@@ -37,11 +34,11 @@ Page({
   getLocation: function () {
     let that = this
     wx.getLocation({
+      type: 'gcj02',
+      altitude: 'true',
       success: function (res) {
         let lat = res.latitude
         let lon = res.longitude
-        wx.setStorageSync('lat', lat)
-        wx.setStorageSync('lon', lon)
         demo.reverseGeocoder({
           location: {
             latitude: lat,
@@ -53,6 +50,8 @@ Page({
               city: res.result.address_component.city
             })
             wx.setStorageSync('city', res.result.address_component.city)
+            wx.setStorageSync('lat', lat)
+            wx.setStorageSync('lon', lon)
           },
           fail: function (error) {
             console.log(error);

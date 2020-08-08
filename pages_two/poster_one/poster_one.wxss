@@ -4,3 +4,9 @@
   line-height: 80rpx;
   margin: 80rpx 0 40rpx 0;
 }
+
+.haibai {
+  width: 695rpx;
+  height: 1131rpx;
+  margin: 35rpx auto;
+}

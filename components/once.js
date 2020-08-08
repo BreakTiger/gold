@@ -16,7 +16,7 @@ Component({
   },
 
   properties: {
-
+    code: String
   },
 
   data: {
@@ -47,6 +47,8 @@ Component({
     lat: '',
     lon: '',
 
+    shop_phone: '',
+
     phone: '',//电话
 
     kind_list: [], //经营类目
@@ -76,11 +78,6 @@ Component({
 
   },
   created() {
-    wx.login({
-      success: function (res) {
-        console.log(res.code)
-      }
-    })
     this.getKind()
     this.getMapKey()
   },
@@ -201,6 +198,7 @@ Component({
     choice_city: function () {
       let that = this
       wx.getLocation({
+        type: 'gcj02',
         altitude: true,
         success: function (res) {
           wx.chooseLocation({
@@ -246,6 +244,13 @@ Component({
       })
     },
 
+    // 店铺电话
+    getShopPhone: function (e) {
+      this.setData({
+        shop_phone: e.detail.value
+      })
+    },
+
     //手机号 - 1
     setPhone: function (e) {
       this.setData({
@@ -253,28 +258,27 @@ Component({
       })
     },
 
-    //手机号 - 2
-    getPhone: function (e) {
+    //一键获取手机号
+    getPhone: async function (e) { //点击手机号授权
       let that = this
-      wx.login({
-        success: function (res) {
-          let data = {
-            data: encodeURIComponent(e.detail.encryptedData),
-            code: res.code,
-            iv: e.detail.iv
-          }
-          http.sendRequest('wxapp.getWechatUserPhone', 'post', data).then(function (res) {
-            console.log(res)
-            if (res.error == 0) {
-              that.setData({
-                phone: res.data.phoneNumber
-              })
-            } else {
-              modal.showToast(res.message, 'none')
-            }
+      console.log('code:', that.properties.code)
+      let data = {
+        data: e.detail.encryptedData,
+        code: that.properties.code,
+        iv: e.detail.iv
+      }
+      console.log(data)
+      await http.sendRequest('wxapp.getWechatUserPhone', 'post', data).then(function (res) {
+        console.log(res)
+        if (res.error == 0) {
+          that.setData({
+            phone: res.data.phoneNumber
           })
+        } else {
+          modal.showToast(res.message, 'none')
         }
       })
+      that.triggerEvent('Phone')
     },
 
     //选择经营类目
@@ -589,7 +593,8 @@ Component({
         huishouarea: that.data.huiArea,
         yingyetime: that.data.times,
         huishouarea_id: that.data.huiArea_id,
-        address_area: that.data.city_in
+        address_area: that.data.city_in,
+        shopmoble: that.data.shop_phone
       }
       console.log('参数：', data)
       http.sendRequest('huishou.addshop', 'post', data).then(function (res) {

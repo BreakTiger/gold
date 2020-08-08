@@ -111,3 +111,16 @@ page {
   height: 36rpx;
   margin-right: 25rpx;
 }
+
+.kefu {
+  width: 110rpx;
+  height: 110rpx;
+  width: 110rpx !important;
+  height: 110rpx !important;
+  margin: 0rpx !important;
+  padding: 0rpx !important;
+  border: none !important;
+  bottom: 45rpx;
+  right: 54rpx;
+  z-index: 50;
+}

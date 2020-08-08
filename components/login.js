@@ -9,8 +9,8 @@ Component({
   },
 
   properties: {
-    uid: String,
-    shopid: String
+    shopid: String,
+    uid: String
   },
 
   data: {
@@ -71,10 +71,9 @@ Component({
       http.sendRequest('wxapp.auth', 'post', data).then(function (res) {
         if (res.error == 0) {
           wx.setStorageSync('openid', that.data.openid)
-
           if (that.properties.uid) {
             that.bind_user()
-          } else if (that.data.shopid) {
+          } else if (that.properties.shopid) {
             that.bind_shop()
           }
           //授权成功关闭 弹窗

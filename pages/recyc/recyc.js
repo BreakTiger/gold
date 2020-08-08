@@ -6,6 +6,9 @@ const WxParse = require('../../wxParse/wxParse.js')
 Page({
 
   data: {
+    //小程序扫码
+    uid: '',
+
     code: '',
 
     price: '',
@@ -18,11 +21,14 @@ Page({
     types_choice: '', //选择的黄金类型的属性ID
     types_text: '',
 
+    bili: '',
+    bi_text: '',
+
     gram: '',
     money: '0.00',
     phone: '',
 
-    fu_moeny: '',
+    fu_moeny: 0,
 
     fu_text: '',
 
@@ -47,29 +53,39 @@ Page({
   },
 
   onLoad: function (options) {
-    this.getPrice()
-    this.fuwu()
-  },
+    //小程序码扫码进入
+    if (options.scene) {
+      const scene = decodeURIComponent(options.scene);
+      console.log('小程序码参数：', scene);
+      let param = scene.split('=')
+      console.log(param)
+      this.setData({
+        uid: param[1]
+      })
+    }
 
-  fuwu: function () {
+  },
+  // 基础设置
+  fuwu: async function () {
     let that = this
-    http.sendRequest('huishou.set', 'post', {}).then(function (res) {
+    await http.sendRequest('huishou.set', 'post', {}).then(function (res) {
       console.log(res)
       if (res.error == 0) {
         that.setData({
-          fu_moeny: res.list.shouxufei,
           fu_text: res.list.fuwutext
         })
+        app.globalData.app_name = res.list.uniacidname
+        app.globalData.map_Key = res.list.baidumiyao
       } else {
         modal.showToast(res.message, 'none')
       }
     })
   },
 
-
   onShow: function () {
     let that = this
-    that.wxlogin()
+
+    that.wxLogin()
 
     let data = app.globalData.putInfo || {}
     console.log(data)
@@ -82,14 +98,17 @@ Page({
         choice: data.status
       })
     }
+
+    this.fuwu()
+    this.getPrice()
+    this.getType()
+
   },
 
-
-  wxlogin: function () {
-    const that = this
+  wxLogin: function () {
+    let that = this
     wx.login({
       success: function (res) {
-        console.log(res.code)
         that.setData({
           code: res.code
         })
@@ -97,15 +116,20 @@ Page({
     })
   },
 
+
   //实时金价
-  getPrice: function () {
+  getPrice: async function () {
     let that = this
-    http.sendRequest('huishou.getipricej', 'post', {}).then(function (res) {
+    let data = {
+      type: that.data.type_choice,
+      shuxing: that.data.types_choice
+    }
+    await http.sendRequest('huishou.getipricej', 'post', data).then(function (res) {
       if (res.error == 0) {
         that.setData({
           price: res.list.price
         })
-        that.getType()
+
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -153,7 +177,9 @@ Page({
         that.setData({
           type_choice: item.id,
           type_text: item.name,
-          types_choice: ''
+          types_choice: '',
+          bi_text: '',
+          bili: ''
         })
         that.getNature()
       } else {
@@ -197,7 +223,7 @@ Page({
     })
   },
 
-  //选择类型
+  //选择属性
   choiceType: function (e) {
     let that = this
     let list = that.data.types_list
@@ -207,7 +233,10 @@ Page({
         item.choice = 1
         that.setData({
           types_choice: item.id,
-          types_text: item.name
+          types_text: item.name,
+          bi_text: item.content,
+          bili: item.huangjin_lv,
+          fu_moeny: item.feimoney
         })
       } else {
         item.choice = 0
@@ -216,6 +245,7 @@ Page({
     that.setData({
       types_list: list
     })
+    that.getPrice()
   },
 
   //黄金克重
@@ -248,25 +278,27 @@ Page({
     })
   },
 
-  setPhone: function (e) {
+  //一键获取手机号 - 1
+  getPhoneNumber: function (e) {
     let that = this
     let data = {
       data: e.detail.encryptedData,
       code: that.data.code,
       iv: e.detail.iv
     }
-    console.log('参数：', data)
+    console.log(data)
     http.sendRequest('wxapp.getWechatUserPhone', 'post', data).then(function (res) {
-      console.log(res)
+      console.log(res.data)
       if (res.error == 0) {
         that.setData({
-          phone: res.data.phoneNumber
+          phone: res.data.purePhoneNumber
         })
-        that.wxlogin();
       } else {
         modal.showToast(res.message, 'none')
       }
     })
+
+    that.wxLogin()
   },
 
   //选择服务类型
@@ -333,7 +365,6 @@ Page({
         agree: 0
       })
     }
-
   },
 
   // 同意
@@ -358,9 +389,11 @@ Page({
           count_price: that.data.money,
           gram: that.data.gram,
           phone: that.data.phone,
-          fu_moeny: that.data.fu_moeny * that.data.gram
+          fu_moeny: (that.data.fu_moeny * that.data.gram).toFixed(2),
+          bili: that.data.bili,
+          bili_text: that.data.bi_text,
         }
-        // console.log(data)
+        console.log(data)
         modal.navigate('/pages_one/set_order/set_order?data=', JSON.stringify(data))
       }
     } else {
@@ -404,6 +437,22 @@ Page({
     this.setData({
       shad: false
     })
+  },
+
+  onShareAppMessage: function (res) {
+    let title = '[' + app.globalData.app_name + ']' + ' ' + app.globalData.gold_price + '克/元'
+    return {
+      title: title
+    }
+  },
+
+  onShareTimeline: function (res) {
+    let title = '[' + app.globalData.app_name + ']' + ' ' + app.globalData.gold_price + '克/元'
+    return {
+      title: title,
+      query: {},
+      imageUrl: ''
+    }
   }
 
 })

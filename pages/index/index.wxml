@@ -16,7 +16,7 @@
 			<!-- 轮播 -->
 			<swiper class="lunbo" indicator-dots="true" indicator-color="#ffffff" indicator-active-color="#C6C6C6">
 				<swiper-item wx:for="{{lunbo}}" wx:key="index">
-					<image src="{{item.images}}" class="wh b_r10" bindtap="toLink" data-item="{{item}}"></image>
+					<image src="{{item.images}}" class="wh b_r10" catchtap="toLink" data-item="{{item}}"></image>
 				</swiper-item>
 			</swiper>
 
@@ -84,6 +84,11 @@
 		</block>
 
 	</view>
+
+	<!-- 客服图标 -->
+	<button class="kefu p-f" open-type="contact" plain="true">
+		<image src="../../icon/kefu.png" class="wh"></image>
+	</button>
 
 	<login wx:if="{{login}}" bind:addDrug="getAddGrug"></login>
 

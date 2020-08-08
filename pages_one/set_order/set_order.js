@@ -20,6 +20,10 @@ Page({
 
     count_price: '', //金额
 
+    bi_text: '',
+
+    bili: '',
+
     gram: '', //克重
 
     fu_moeny: '',
@@ -54,12 +58,6 @@ Page({
   },
 
   onLoad: function (options) {
-    wx.login({
-      success: function (res) {
-        console.log(res.code)
-      }
-    })
-
     //日期 - 设置
     let date = new Date()
 
@@ -74,6 +72,7 @@ Page({
     })
 
     let datas = JSON.parse(options.data)
+    console.log(datas)
 
     this.setData({
       id_one: datas.id_one,
@@ -85,6 +84,8 @@ Page({
       gram: datas.gram,
       phone: datas.phone,
       fu_moeny: datas.fu_moeny,
+      bi_text: datas.bili_text,
+      bili: datas.bili,
     })
   },
 
@@ -273,7 +274,9 @@ Page({
       images: that.data.p_list,
       price: that.data.price,
       yuguprice: that.data.count_price,
-      username: that.data.name
+      username: that.data.name,
+      shouxufei: that.data.fu_moeny,
+      huangjin_lv: that.data.bili
     }
     console.log('参数：', data)
     http.sendRequest('huishou.addhuiOrder', 'post', data).then(function (res) {

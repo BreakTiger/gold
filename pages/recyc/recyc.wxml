@@ -24,9 +24,10 @@
 					<image src="../../icon/choiced.png" class="choice p-a" wx:if="{{item.choice==1}}"></image>
 				</view>
 			</view>
-			<view class="flex fl-w f28" style="margin:20rpx 0 0 25rpx">
+			<view class="flex fl-w f28">
 				<view class="btn {{item.choice==1?'b-c c-ff':'b-E5 c-10'}}" wx:for="{{types_list}}" wx:key="index" data-index="{{index}}" bindtap="choiceType">{{item.name}}</view>
 			</view>
+			<view class="f28" wx:if="{{bi_text}}" style="padding-left:10rpx;">{{bi_text}}</view>
 		</view>
 
 		<view class="w710 flex col f30 c-34">
@@ -49,7 +50,7 @@
 			<view>4.请输入您的手机号码</view>
 			<view class="flex fl-align fl-jsb puts">
 				<input type="number" placeholder="请输入手机号码" bindblur="getPhone" value="{{phone}}" maxlength="11"></input>
-				<button class="get b-10" bindgetphonenumber="setPhone" open-type="getPhoneNumber">一键获取</button>
+				<button class="get b-10" bindgetphonenumber="getPhoneNumber" open-type="getPhoneNumber">一键获取</button>
 			</view>
 		</view>
 
@@ -88,13 +89,13 @@
 
 		<view class="flex col" style="width:580rpx;">
 			<text class="f30" style="margin:15rpx 0;">·预估金额：<text class="c-10">{{money}}</text>元</text>
-			<text class="f30">·服务费：<text class="c-10">{{fu_moeny*gram || fu_moeny}}</text>元</text>
+			<!-- <text class="f30">·服务费：<text class="c-10">{{fu_moeny*gram}}</text>元</text> -->
 			<text class="f26 c-66" style="margin:15rpx 0;">预估金额是根据上海黄金交易所的实时金价、克重等综合计算</text>
 			<text class="f26 c-66">服务费：{{fu_text}}</text>
 		</view>
 
 	</view>
 
-	<login wx:if="{{login}}" bind:addDrug="getAddGrug"></login>
+	<login wx:if="{{login}}" uid="{{uid}}" bind:addDrug="getAddGrug"></login>
 
 </view>
