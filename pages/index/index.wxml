@@ -86,8 +86,8 @@
 	</view>
 
 	<!-- 客服图标 -->
-	<button class="kefu p-f" open-type="contact" plain="true">
-		<image src="../../icon/kefu.png" class="wh"></image>
+	<button class="kefu p-f flex col fl-align fl-jc" open-type="contact" plain="true" style="background: {{colo}};" wx:if="{{customer==1}}">
+		<image src="../../icon/kefu.png"></image>
 	</button>
 
 	<login wx:if="{{login}}" bind:addDrug="getAddGrug"></login>

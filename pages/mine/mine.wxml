@@ -16,6 +16,7 @@
 	</view>
 
 	<view class="content w100 flex col flex" style="margin-top:-60rpx;">
+	
 		<view class="w710 b-ff b_r30 flex col fl-align" style="height:280rpx;margin-bottom: 25rpx;z-index: 50;">
 
 			<view class="w100 flex fl-align fl-jsb" bindtap="enter_one" data-type="">
@@ -27,10 +28,28 @@
 			</view>
 
 			<view class="w100 flex fl-align fl-jsb" style="height: 158rpx;">
-				<view class="wc5 flex col fl-align p-r" wx:for="{{nav_one}}" wx:key="index" bindtap="enter_one" data-type="{{item.type}}">
-					<image src="{{item.icon}}" class="icon"></image>
-					<text class="f26">{{item.text}}</text>
-					<view class="p-a nums t-c c-ff b_rh" wx:if="{{item.num && item.num!=0}}">{{item.num}}</view>
+				<view class="wc5 flex col fl-align p-r" data-type="" bindtap="enter_one">
+					<image src="../../icon/m-1.png" class="icon"></image>
+					<text class="f26">全部</text>
+				</view>
+				<view class="wc5 flex col fl-align p-r" data-type="0" bindtap="enter_one">
+					<image src="../../icon/m-2.png" class="icon"></image>
+					<text class="f26">派单中</text>
+					<view class="p-a nums t-c c-ff b_rh" wx:if="{{user.sorder0!=0}}">{{user.sorder0}}</view>
+				</view>
+				<view class="wc5 flex col fl-align p-r" data-type="1" bindtap="enter_one">
+					<image src="../../icon/m-3.png" class="icon"></image>
+					<text class="f26">进行中</text>
+					<view class="p-a nums t-c c-ff b_rh" wx:if="{{user.sorder1!=0}}">{{user.sorder1}}</view>
+				</view>
+				<view class="wc5 flex col fl-align p-r" data-type="2" bindtap="enter_one">
+					<image src="../../icon/m-4.png" class="icon"></image>
+					<text class="f26">待评价</text>
+					<view class="p-a nums t-c c-ff b_rh" wx:if="{{user.sorder2!=0}}">{{user.sorder2}}</view>
+				</view>
+				<view class="wc5 flex col fl-align p-r" data-type="4" bindtap="enter_one">
+					<image src="../../icon/m-5.png" class="icon"></image>
+					<text class="f26">已取消</text>
 				</view>
 			</view>
 
@@ -48,11 +67,20 @@
 
 			<view class="w100 flex fl-align fl-jsb" style="height: 158rpx;">
 
-				<view class="wc3 flex col fl-align" wx:for="{{nav_two}}" wx:key="index" bindtap="enter_two" data-type="{{item.type}}">
-					<image src="{{item.icon}}" class="icon"></image>
-					<text class="f26">{{item.text}}</text>
+				<view class="wc3 flex col fl-align p-r" data-type="" bindtap="enter_two">
+					<image src="../../icon/m-1.png" class="icon"></image>
+					<text class="f26">全部</text>
 				</view>
-
+				<view class="wc3 flex col fl-align p-r" data-type="0" bindtap="enter_two">
+					<image src="../../icon/m-2.png" class="icon"></image>
+					<text class="f26">预约中</text>
+					<view class="p-a nums t-c c-ff b_rh" style="right:75rpx;" wx:if="{{user.yorder0!=0}}">{{user.yorder0}}</view>
+				</view>
+				<view class="wc3 flex col fl-align p-r" data-type="2" bindtap="enter_two">
+					<image src="../../icon/m-4.png" class="icon"></image>
+					<text class="f26">待评价</text>
+					<view class="p-a nums t-c c-ff b_rh" style="right:75rpx;" wx:if="{{user.yorder2!=0}}">{{user.yorder2}}</view>
+				</view>
 			</view>
 
 		</view>

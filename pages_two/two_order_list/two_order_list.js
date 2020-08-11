@@ -14,8 +14,8 @@ Page({
         type: ''
       },
       {
-        text: '已预约',
-        type: '0'
+        text: '已派单',
+        type: '1'
       },
       {
         text: '待评价',

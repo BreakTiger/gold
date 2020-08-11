@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+
     id: '',
 
     type: '', //2 店铺  1个人
@@ -70,7 +71,7 @@ Page({
     this.setData({
       page: 1
     })
-    this.getList()
+    this.getList(that.data.type)
   },
 
   onReachBottom: function () {

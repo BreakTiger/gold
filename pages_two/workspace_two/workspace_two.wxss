@@ -56,3 +56,12 @@ page {
   height: 47rpx;
   margin: 28rpx 0;
 }
+
+.nums {
+  top: 0rpx;
+  right: 75rpx;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background: #d20f0f;
+}

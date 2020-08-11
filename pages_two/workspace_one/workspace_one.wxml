@@ -45,9 +45,19 @@
 			</view>
 		</view>
 		<view class="w100 flex fl-align fl-jsb" style="padding:30rpx 0;">
-			<view class="wc3 flex col fl-align" wx:for="{{enter_one}}" wx:key="index" bindtap="toOrder" data-type="{{item.type}}">
-				<image src="{{item.icon}}" class="enter"></image>
-				<text class="f26 c-66">{{item.text}}</text>
+			<view class="wc3 flex col fl-align p-r" bindtap="toOrder" data-type="">
+				<image src="../../icon/m-1.png" class="enter"></image>
+				<text class="f26 c-66">全部</text>
+			</view>
+			<view class="wc3 flex col fl-align p-r" bindtap="toOrder" data-type="0">
+				<image src="../../icon/m-3.png" class="enter"></image>
+				<text class="f26 c-66">已预约</text>
+				<view class="p-a nums t-c c-ff b_rh" wx:if="{{detail.dstatus0!=0}}">{{detail.dstatus0}}</view>
+			</view>
+			<view class="wc3 flex col fl-align p-r" bindtap="toOrder" data-type="2">
+				<image src="../../icon/m-4.png" class="enter"></image>
+				<text class="f26 c-66">待评价</text>
+				<view class="p-a nums t-c c-ff b_rh" wx:if="{{detail.dstatus2!=0}}">{{detail.dstatus2}}</view>
 			</view>
 		</view>
 	</view>
@@ -61,9 +71,19 @@
 			</view>
 		</view>
 		<view class="w100 flex fl-align fl-jsb" style="padding:30rpx 0;">
-			<view class="wc3 flex col fl-align" wx:for="{{enter_two}}" wx:key="index" bindtap="toOder_rec" data-type="{{item.type}}">
-				<image src="{{item.icon}}" class="enter"></image>
-				<text class="f26 c-66">{{item.text}}</text>
+			<view class="wc3 flex col fl-align p-r" bindtap="toOder_rec" data-type="">
+				<image src="../../icon/m-1.png" class="enter"></image>
+				<text class="f26 c-66">全部</text>
+			</view>
+			<view class="wc3 flex col fl-align p-r" bindtap="toOder_rec" data-type="1">
+				<image src="../../icon/m-2.png" class="enter"></image>
+				<text class="f26 c-66">已派单</text>
+				<view class="p-a nums t-c c-ff b_rh" wx:if="{{detail.sstatus0!=0}}">{{detail.sstatus0}}</view>
+			</view>
+			<view class="wc3 flex col fl-align p-r" bindtap="toOder_rec" data-type="2">
+				<image src="../../icon/m-4.png" class="enter"></image>
+				<text class="f26 c-66">待评价</text>
+				<view class="p-a nums t-c c-ff b_rh" wx:if="{{detail.sstatus2!=0}}">{{detail.sstatus2}}</view>
 			</view>
 		</view>
 	</view>

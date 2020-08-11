@@ -27,7 +27,7 @@
 			<view class="flex fl-w f28">
 				<view class="btn {{item.choice==1?'b-c c-ff':'b-E5 c-10'}}" wx:for="{{types_list}}" wx:key="index" data-index="{{index}}" bindtap="choiceType">{{item.name}}</view>
 			</view>
-			<view class="f28" wx:if="{{bi_text}}" style="padding-left:10rpx;">{{bi_text}}</view>
+			<!-- <view class="f28" wx:if="{{bi_text}}" style="padding-left:10rpx;">{{bi_text}}</view> -->
 		</view>
 
 		<view class="w710 flex col f30 c-34">

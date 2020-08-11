@@ -9,23 +9,6 @@ Page({
 
     detail: {},
 
-    enter_two: [
-      {
-        icon: '../../icon/m-1.png',
-        text: '全部',
-        type: ''
-      },
-      {
-        icon: '../../icon/m-2.png',
-        text: '已预约',
-        type: '0'
-      },
-      {
-        icon: '../../icon/m-4.png',
-        text: '已完成',
-        type: '2'
-      }
-    ]
   },
 
   onLoad: function (options) {
@@ -38,7 +21,7 @@ Page({
     this.getData()
   },
 
-  //店铺信息
+  //个人工作台
   getData: function () {
     let that = this
     let data = {
@@ -51,6 +34,13 @@ Page({
         that.setData({
           detail: res.list
         })
+      } else if (res.error == 2) {
+        modal.showToast(res.message, 'none')
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 2000);
       } else {
         modal.showToast(res.message, 'none')
       }

@@ -60,14 +60,12 @@
 
 		<view class="flex fl-align fl-jsb c-33">
 			<text class="f-wb f30">上门状态</text>
-			<text class="f26" wx:if="{{detail.shop_status==0}}">未上门</text>
-			<text class="f26" wx:if="{{detail.shop_status==1}}">已上门</text>
+			<text class="f26" wx:if="{{detail.fuwu_status==1}}">未上门</text>
+			<text class="f26" wx:if="{{detail.fuwu_status==2}}">已上门</text>
 		</view>
 
 	</view>
 
 	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.fuwu_status==1 && detail.orderstatus==1}}" bindtap="toFinish">确认上门</view>
-
-
 
 </view>

@@ -66,7 +66,7 @@
 			<text class="f26 c-10">查看更多</text>
 		</view>
 
-		<view class="flex col fl-align" style="border-bottom: 1rpx solid #f5f5f5;" wx:for="{{detail.pingjialist}}" wx:key="index" wx:if="{{index<3}}">
+		<view class="flex col fl-align" style="border-bottom: 1rpx solid #f5f5f5;" wx:for="{{detail.pingjialist}}" wx:key="index">
 			<view class="w100 flex fl-align fl-jsb">
 				<image src="{{item.avatar}}" class="head b_rh" wx:if="{{item.is_open==0}}"></image>
 				<image src="../../img/moren.png" class="head b_rh" wx:if="{{item.is_open==1}}"></image>

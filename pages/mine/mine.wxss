@@ -51,8 +51,8 @@ page {
 }
 
 .nums {
-  top: 0rpx;
-  right: 0rpx;
+  top: -20rpx;
+  right: 25rpx;
   width: 40rpx;
   height: 40rpx;
   line-height: 40rpx;

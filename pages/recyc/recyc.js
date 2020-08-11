@@ -63,23 +63,6 @@ Page({
         uid: param[1]
       })
     }
-
-  },
-  // 基础设置
-  fuwu: async function () {
-    let that = this
-    await http.sendRequest('huishou.set', 'post', {}).then(function (res) {
-      console.log(res)
-      if (res.error == 0) {
-        that.setData({
-          fu_text: res.list.fuwutext
-        })
-        app.globalData.app_name = res.list.uniacidname
-        app.globalData.map_Key = res.list.baidumiyao
-      } else {
-        modal.showToast(res.message, 'none')
-      }
-    })
   },
 
   onShow: function () {
@@ -116,6 +99,22 @@ Page({
     })
   },
 
+  // 基础设置
+  fuwu: async function () {
+    let that = this
+    await http.sendRequest('huishou.set', 'post', {}).then(function (res) {
+      console.log(res)
+      if (res.error == 0) {
+        that.setData({
+          fu_text: res.list.fuwutext
+        })
+        app.globalData.app_name = res.list.uniacidname
+        app.globalData.map_Key = res.list.baidumiyao
+      } else {
+        modal.showToast(res.message, 'none')
+      }
+    })
+  },
 
   //实时金价
   getPrice: async function () {
@@ -423,7 +422,9 @@ Page({
       agree: 0,
       gram: '',
       money: '0.00',
-      phone: ''
+      phone: '',
+      choice:null,
+      types_list:[]
     })
   },
 

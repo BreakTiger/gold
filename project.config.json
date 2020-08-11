@@ -66,44 +66,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "门店详情",
-					"pathName": "pages_one/shop_detail/shop_detail",
-					"query": "id=133",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "个人入驻",
-					"pathName": "pages_two/apply_two/apply_two",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "个人工作台",
-					"pathName": "pages_two/workspace_two/workspace_two",
-					"query": "id=38",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "个人海报",
-					"pathName": "pages_two/poster_two/poster_two",
-					"query": "id=38",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages_one/assess/assess",
-					"pathName": "pages_one/assess/assess",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "提交成功",
-					"pathName": "pages_one/assess_success/assess_success",
-					"query": "data={\"id\":\"199\",\"type\":\"7\",\"ke\":\"1.10\",\"mobile\":\"13868367595\",\"price\":\"445.72\",\"countprice\":\"490.29\",\"createtime\":\"1596794162\",\"uniacid\":\"7\",\"openid\":\"sns_wa_oeOfz5E6eDUAguwcz4b9BvsD7aZE\",\"shouxufei\":\"2.20\",\"shuxing\":\"2\",\"type_name\":\"金条\",\"shuxing_name\":\"9999金\"}&feimoney=2.00",
+					"name": "pages_two/workspace_one/workspace_one",
+					"pathName": "pages_two/workspace_one/workspace_one",
+					"query": "id=136",
 					"scene": null
 				}
 			]

@@ -10,57 +10,6 @@ Page({
 
     user: {}, //用户信息
 
-    //上门回收
-    nav_one: [
-      {
-        icon: '../../icon/m-1.png',
-        text: '全部',
-        type: ''
-      },
-      {
-        icon: '../../icon/m-2.png',
-        text: '派单中',
-        type: '0',
-        num: '0',
-      },
-      {
-        icon: '../../icon/m-3.png',
-        text: '进行中',
-        type: '1',
-        num: '0',
-      },
-      {
-        icon: '../../icon/m-4.png',
-        text: '待评价',
-        type: '2',
-        num: '0'
-      },
-      {
-        icon: '../../icon/m-5.png',
-        text: '已取消',
-        type: '4'
-      }
-    ],
-
-    //门店预约
-    nav_two: [
-      {
-        icon: '../../icon/m-1.png',
-        text: '全部',
-        type: ''
-      },
-      {
-        icon: '../../icon/m-2.png',
-        text: '预约中',
-        type: '0'
-      },
-      {
-        icon: '../../icon/m-4.png',
-        text: '待评价',
-        type: '2'
-      }
-    ],
-
     login: false //登录窗状态
   },
 
@@ -87,16 +36,12 @@ Page({
     }
     http.sendRequest('huishou.getusermember', 'post', data).then(function (res) {
       if (res.error == 0) {
-        let onav = that.data.nav_one
-        let one = "onav[" + 1 + "].num";
-        let two = "onav[" + 2 + "].num";
-        let three = "onav[" + 3 + "].num";
+
+
         that.setData({
-          user: res.list,
-          [one]: res.list.yorder0,
-          [two]: res.list.sorder1,
-          [three]: res.list.yorder2
+          user: res.list
         })
+
       } else {
         modal.showToast(res.message, 'none')
       }

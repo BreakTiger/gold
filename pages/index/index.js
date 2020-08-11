@@ -22,6 +22,10 @@ Page({
 
     info: [],
 
+    colo: "",
+
+    customer: null,
+
     login: false
   },
 
@@ -39,6 +43,11 @@ Page({
         });
         app.globalData.map_Key = res.list.baidumiyao
         app.globalData.app_name = res.list.uniacidname
+        that.setData({
+          colo: res.list.phonecolor,
+          customer: res.list.customer
+        })
+        console.log(res.list.phonecolor)
       } else {
         modal.showToast(res.message, 'none')
       }

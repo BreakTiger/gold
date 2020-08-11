@@ -34,7 +34,7 @@
 
 		<view class="flex fl-align fl-jsb c-33">
 			<text class="f-wb f30">预约门店</text>
-			<text class="f26">广州天河新天地</text>
+			<text class="f26">{{detail.shop.shopname}}</text>
 		</view>
 
 		<view class="flex fl-align fl-jsb c-33">
@@ -63,6 +63,6 @@
 
 	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.shop_status==0}}" bindtap="toFinish">确认到店</view>
 
-	<view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.shop_status==1}}">已到店</view>
+	<!-- <view class="send c-ff f32 t-c b_r40 b-c" wx:if="{{detail.shop_status==1}}">已到店</view> -->
 
 </view>

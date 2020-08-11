@@ -7,43 +7,7 @@ Page({
 
   data: {
     id: '',
-
     detail: {},
-
-    enter_one: [
-      {
-        icon: '../../icon/m-1.png',
-        text: '全部',
-        type: ''
-      },
-      {
-        icon: '../../icon/m-3.png',
-        text: '已预约',
-        type: '0'
-      },
-      {
-        icon: '../../icon/m-4.png',
-        text: '已完成',
-        type: '2'
-      }
-    ],
-    enter_two: [
-      {
-        icon: '../../icon/m-1.png',
-        text: '全部',
-        type: ''
-      },
-      {
-        icon: '../../icon/m-2.png',
-        text: '已预约',
-        type: '0'
-      },
-      {
-        icon: '../../icon/m-4.png',
-        text: '已完成',
-        type: '2'
-      }
-    ]
   },
 
   onLoad: function (options) {
@@ -52,11 +16,11 @@ Page({
     })
   },
 
-  onShow:function(){
+  onShow: function () {
     this.getData()
   },
 
-  //店铺信息
+  //店铺工作台
   getData: function () {
     let that = this
     let data = {
@@ -68,6 +32,13 @@ Page({
         that.setData({
           detail: res.list
         })
+      } else if (res.error == 2) {
+        modal.showToast(res.message, 'none')
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 2000);
       } else {
         modal.showToast(res.message, 'none')
       }
@@ -90,7 +61,7 @@ Page({
 
   // 我的评论
   toPin: function () {
-    modal.navigate('/pages_two/pin_one/pin_one?id=',this.data.id)
+    modal.navigate('/pages_two/pin_one/pin_one?id=', this.data.id)
   },
 
   // 设置
